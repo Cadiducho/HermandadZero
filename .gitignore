@@ -1,0 +1,9 @@
+announce
+samp03svr
+scriptfiles/users/*
+*.exe
+*.dll
+*.so
+*.txt
+*.amx
+*.lst
