@@ -45,7 +45,6 @@ AntiDeAMX()
 #define Skin        					SetPlayerSkin
 #define GlobalMsg   					SendClientMessageToAll
 #define Message 						SendClientMessage
-#define IsNull(%1) 						((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
 // -======== GAMEMODE LIMITS =======- //
 #define SHOWPATH
 #define VV	258
@@ -17276,7 +17275,7 @@ case DLOGIN:
 {
 	if (response)
 	{
-		if(IsNull(inputtext))
+		if(isnull(inputtext))
 		{
 			ShowLoginDialog(playerid,DLOGIN);
 			return 1;
@@ -17317,7 +17316,7 @@ case DREGISTER:
 			ShowRegisterDialog(playerid,DREGISTER);
 			return 1;
 		}
-		if(IsNull(inputtext))
+		if(isnull(inputtext))
 		{
 			ShowRegisterDialog(playerid,DREGISTER);
 			return 1;
@@ -29048,12 +29047,11 @@ zcmd(llorar, playerid, params[])
 																										Message(playerid, COLOR_GRAD2, "Use /re para reportar un jugador y espere que un administrador le responda");
 																										return 1;
 																									}
-																									zcmd(staff, playerid, params[]){
-																										if(PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GREY, "¡Use el comando /admins!");
-																										Message(playerid, COLOR_GREEN, "| Staff |");
+																									zcmd(admins, playerid, params[]){
+																										Message(playerid, COLOR_GREEN, "| Staff de Hermandad Zero RP |");
 																										for(new i = 0; i < MAX_PLAYERS; i++){
 																											if(IsPlayerConnected(i)){
-																												if(PlayerInfo[i][pAdminCP] >= 1 && PlayerInfo[i][pAdminCP] < 2015){
+																												if(PlayerInfo[i][pAdminCP] >= 1 && PlayerInfo[i][pAdminCP] <= 2013){
 																													new string[128],admtext[24];
 																													switch(PlayerInfo[i][pAdminCP]){
 																														case 1:		admtext = "Ayudante";
@@ -29062,31 +29060,9 @@ zcmd(llorar, playerid, params[])
 																														case 4:     admtext = "Administrador";
 																														case 5:     admtext = "Admin Superior";
 																														case 6:     admtext = "Admin Lider";
-																														case 2012:  admtext = "Administrador G.";
-																														case 2013:  admtext = "Administrador D.";
-																														case 2014:  admtext = "Dueño";
+																														case 2012:  admtext = "Administrador General";
+																														case 2013:  admtext = "Administrador de Staff";
 																													}
-																													format(string, sizeof(string),"  %s - %s", admtext, PlayerName(i));
-																													Message(playerid, 0xC0C0C0FF, string);
-																												}
-																											}
-																										}
-																										return 1;
-																									}
-																									zcmd(admins, playerid, params[]){
-																										Message(playerid, COLOR_GREEN, "| Staff de Hermandad zero RP |");
-																										for(new i = 0; i < MAX_PLAYERS; i++){
-																											if(IsPlayerConnected(i)){
-																												if(PlayerInfo[i][pAdminCP] >= 1 && PlayerInfo[i][pAdminCP] <= 2013){
-																													new string[128],admtext[24];
-																													if(PlayerInfo[i][pAdminCP] == 2013) { admtext = "Encargado de Staff"; }
-																													else if(PlayerInfo[i][pAdminCP] == 2012) { admtext = "Administrador General"; }
-																													else if(PlayerInfo[i][pAdminCP] == 6) { admtext = "Administrador Lider"; }
-																													else if(PlayerInfo[i][pAdminCP] == 5)	{ admtext = "Administrador Superior"; }
-																													else if(PlayerInfo[i][pAdminCP] == 4)	{ admtext = "Administrador"; }
-																													else if(PlayerInfo[i][pAdminCP] == 3)	{ admtext = "Admin Junior"; }
-																													else if(PlayerInfo[i][pAdminCP] == 2)	{ admtext = "Moderador"; }
-																													else if(PlayerInfo[i][pAdminCP] == 1)	{ admtext = "Ayudante"; }
 																													if(AdminDuty[i] == 0){
 																														format(string, sizeof(string),"  %s - %s", admtext, PlayerName(i));
 																														Message(playerid, COLOR_WHITE, string);
@@ -29100,6 +29076,7 @@ zcmd(llorar, playerid, params[])
 																										}
 																										return 1;
 																									}
+																									zcmd(staff, playerid, params[]) return cmd_admins(playerid, params); //Aliase del comando de arriba
 																									zcmd(helpers, playerid, params[]){
 																										Message(playerid, COLOR_GREEN, "| Helpers |");
 																										for(new i = 0; i < MAX_PLAYERS; i++){
@@ -29143,8 +29120,8 @@ zcmd(llorar, playerid, params[])
 																									}
 																									zcmd(a, playerid, params[])
 																									{
-																										if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-																										if((noac) && PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid,COLOR_GRAD2,"¡Este canal está desactivado!");
+																										if(PlayerInfo[playerid][pAdminCP] <= 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
+																										if((noac) && PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GRAD2,"¡Este canal está desactivado!");
 																										if(!sscanf(params, "s[128]", params[0])){
 																											new string[128], arank[64];
 																											switch(PlayerInfo[playerid][pAdminCP])
@@ -29161,7 +29138,7 @@ zcmd(llorar, playerid, params[])
 																											}
 																											format(string, sizeof(string), "%s %s: %s", arank, PlayerName(playerid), params[0]);
 																											if(PlayerInfo[playerid][pAdminCP] > 0 && PlayerInfo[playerid][pAdminCP] < 2012) ABroadCast(0x00A5F4FF, string,1);
-																											else if(PlayerInfo[playerid][pAdminCP] > 2011 && PlayerInfo[playerid][pAdminCP] <2015) ABroadCast(0xEA7A0BFF, string,1);
+																											else if(PlayerInfo[playerid][pAdminCP] > 2011 && PlayerInfo[playerid][pAdminCP] < 2015) ABroadCast(0xEA7A0BFF, string,1);
 																											else Message(playerid, -1, "{FFFFFF}* No admin {3F96CB}rank{FFFFFF}! (???)");
 																										} else Message(playerid, COLOR_GRAD2, "Utilize: /a <Texto>");
 																										return 1;
