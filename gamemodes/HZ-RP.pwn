@@ -36955,7 +36955,7 @@ function ChooseOrigin(playerid)
 		{
 			if(PlayerInfo[playerid][pSex] == 1) mtext = "Masculino"; else mtext = "Femenino";
 			format(string, sizeof(string), "~n~Sexo:  ~r~%s          ~w~Edad: ~r~%d~n~~n~~>~~w~Origen: ~r~España    ~w~Estilo: ~r~?", mtext, PlayerInfo[playerid][pAge]);
-			TDStr(RegDraw[playerid], string);
+			TDStr(RegDraw[playerid], Desbug(string));
 			PlayerInfo[playerid][pOrigin] = 2;
 		}
 		else if(RegText[playerid] == 3)
