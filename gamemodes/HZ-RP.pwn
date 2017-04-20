@@ -37185,70 +37185,6 @@ stock FixAnim(playerid){
 	return 1;
 }
 
-stock Desbug(string[])
-{
-	new
-	szFixed[1024],
-	iPos,
-	iLen;
-
-	for (iLen = strlen(string); iPos < iLen; iPos ++){
-		switch (string[iPos])
-		{
-			case 'à':	szFixed[iPos] = 151;
-			case 'á':	szFixed[iPos] = 152;
-			case 'â':	szFixed[iPos] = 153;
-			case 'ä':	szFixed[iPos] = 154;
-			case 'À':	szFixed[iPos] = 128;
-			case 'Á':	szFixed[iPos] = 129;
-			case 'Â':	szFixed[iPos] = 130;
-			case 'Ä':	szFixed[iPos] = 131;
-			case 'è':	szFixed[iPos] = 157;
-			case 'é':	szFixed[iPos] = 158;
-			case 'ê':	szFixed[iPos] = 159;
-			case 'ë':	szFixed[iPos] = 160;
-			case 'È':	szFixed[iPos] = 134;
-			case 'É':	szFixed[iPos] = 135;
-			case 'Ê':	szFixed[iPos] = 136;
-			case 'Ë':	szFixed[iPos] = 137;
-			case 'ì':	szFixed[iPos] = 161;
-			case 'í':	szFixed[iPos] = 162;
-			case 'î':	szFixed[iPos] = 163;
-			case 'ï':	szFixed[iPos] = 164;
-			case 'Ì':	szFixed[iPos] = 138;
-			case 'Í':	szFixed[iPos] = 139;
-			case 'Î':	szFixed[iPos] = 140;
-			case 'Ï':	szFixed[iPos] = 141;
-			case 'ò':	szFixed[iPos] = 165;
-			case 'ó':	szFixed[iPos] = 166;
-			case 'ô':	szFixed[iPos] = 167;
-			case 'ö':	szFixed[iPos] = 168;
-			case 'Ò':	szFixed[iPos] = 142;
-			case 'Ó':	szFixed[iPos] = 143;
-			case 'Ô':	szFixed[iPos] = 144;
-			case 'Ö':	szFixed[iPos] = 145;
-			case 'ù':	szFixed[iPos] = 169;
-			case 'ú':	szFixed[iPos] = 170;
-			case 'û':	szFixed[iPos] = 171;
-			case 'ü':	szFixed[iPos] = 172;
-			case 'Ù':	szFixed[iPos] = 146;
-			case 'Ú':	szFixed[iPos] = 147;
-			case 'Û':	szFixed[iPos] = 148;
-			case 'Ü':	szFixed[iPos] = 149;
-			case 'ñ':	szFixed[iPos] = 174;
-			case 'Ñ':	szFixed[iPos] = 173;
-			case '¡':	szFixed[iPos] = 64;
-			case '¿':	szFixed[iPos] = 175;
-			case '`':	szFixed[iPos] = 177;
-			case '#':	szFixed[iPos] = 35;
-			case '&':	szFixed[iPos] = 38;
-			default:	szFixed[iPos] = string[iPos];
-		}
-	}
-//return szFixed;
-	return string;
-}
-
 function FuelCar(playerid, gasid)
 {
 	new string[128], idcar = GetPlayerVehicleID(playerid), engine,lights,alarm,doors,bonnet,boot,objective;
@@ -37560,13 +37496,13 @@ stock TutorialStep_Forward(i)
 						Como ya habrás podido observar, ~b~Hermandad Zero RolePlay~w~ es un servidor de rol.~n~	\
 						Asegúrate de tener ganas de rolear y de aceptar las reglas que establecemos. ~n~    \
 						En caso contrario, eres libre de utilizar ~g~/quit~w~, para marcharte.",PlayerName(i));
-					TextDrawSetString(Tutorial[i], Desbug(string));
+					TextDrawSetString(Tutorial[i], convert_encoding(string));
 
 				}
 				case 15:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~y~http://www.hermandadzero.com/foro/ ~w~~n~~n~        \
+					TextDrawSetString(Tutorial[i], convert_encoding("	~y~http://www.hermandadzero.com/foro/ ~w~~n~~n~        \
 						Recuerda que tu frecuente actividad en el foro es vital para estar actualizado~n~  	\
 						con las últimas novedades del servidor. Podrás postularte a miembro de alguna~n~ 	\
 						facción o bien, sugerirnos ideas para mejorar el servidor."));
@@ -37574,7 +37510,7 @@ stock TutorialStep_Forward(i)
 				case 25:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~Introducción ~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~Introducción ~w~~n~~n~					\
 						El objetivo del tutorial, es que te hagas una idea de como funciona todo~n~	\
 						y que empiezes con unos conocimientos básicos acerca de Rol.~n~	\
 						Si te surge una duda, ¡ no seas modesto y compartela con la administración !"));
@@ -37582,7 +37518,7 @@ stock TutorialStep_Forward(i)
 				case 35:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~y~¿Qué es Role Play?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~y~¿Qué es Role Play?~w~~n~~n~					\
 						Role Play es tomar un papel de un personaje, no hay un guion a seguir~n~	\
 						ya que el desarrollo de la historia queda por completo sujeto a las~n~	\
 						decisiones de los jugadores."));
@@ -37590,7 +37526,7 @@ stock TutorialStep_Forward(i)
 				case 50:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~¿Qué es DeatMatch?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~¿Qué es DeatMatch?~w~~n~~n~					\
 						Es cuando tú matas a una o más personas sin razón alguna o por diversión,~n~	\
 						hacer esto está penando. Cuando estás en algún rol de asesinato o es necesario~n~	\
 						asesinar a alguien con ROL, entonces eso no se considera ~r~DeathMatch."));
@@ -37598,7 +37534,7 @@ stock TutorialStep_Forward(i)
 				case 65:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~g~¿Qué es PowerGaming?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~g~¿Qué es PowerGaming?~w~~n~~n~					\
 						Esto se le llama a los actos ficticios o más alla de lo humano, tambien~n~	\
 						obligar o forzar a alguien a hacer un Rol. Tú no puedes hacer roles usando~n~	\
 						el comando /me - ~p~Juan Rojas roba todo su dinero a Javier."));
@@ -37606,7 +37542,7 @@ stock TutorialStep_Forward(i)
 				case 80:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~¿Qué es MetaGaming?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~¿Qué es MetaGaming?~w~~n~~n~					\
 						Este termino debes estudiarlo muy bien para sobrevivir en un servidor de Role Play.~n~	\
 						Se basa en cuando se confunde los canales IC y OOC. Si sabes algo OOC no puedes~n~	\
 						utilizar esa información para beneficiarte IC."));
@@ -37615,7 +37551,7 @@ stock TutorialStep_Forward(i)
 				{
 					ClearChatbox(i, 10);
 					Message(i, -1, "{FFFFFF}Los canales IC son los siguientes: El chat normal - /radio - /g - /low.");
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~¿Qué es In Character [IC]?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~¿Qué es In Character [IC]?~w~~n~~n~					\
 						IC se llama desde la información que tu personaje conoce y el rol que tú hagas.~n~	\
 						No puedes llamar a una persona por su nombre sin antes haberle preguntado~n~	\
 						o que te lo haya dicho, ya que no conoces a esa persona IC."));
@@ -37624,7 +37560,7 @@ stock TutorialStep_Forward(i)
 				{
 					ClearChatbox(i, 10);
 					Message(i, -1, "{FFFFFF}Los Canales OOC son los siguientes: /b - /f - /duda - /reportar - /w - /new");
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~¿Qué es Out Of Character [OOC]?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~¿Qué es Out Of Character [OOC]?~w~~n~~n~					\
 						OOC se llama a lo contrario de IC, la persona que maneja tu personaje, osea tú.~n~	\
 						Todo lo que sabe, todo lo que vive, eso es OOC. Actualmente el tutorial va hacia tí,~n~	\
 						asi que no puedes usar información OOC en IC."));
@@ -37632,7 +37568,7 @@ stock TutorialStep_Forward(i)
 				case 120:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~¿Qué es RevengeKill?~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~¿Qué es RevengeKill?~w~~n~~n~					\
 						Alguna vez tendrás que morir, pero verdaderamente no mueres, te logras~n~	\
 						salvar y eres curado por los medicos, antes de esto te mataron por algún rol, no~n~	\
 						puedes ir a vengarte a la persona que te mato, ya que no recuerdas nada."));
@@ -37640,7 +37576,7 @@ stock TutorialStep_Forward(i)
 				case 135:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~}Final del Tutorial de Conceptos de Rol~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~}Final del Tutorial de Conceptos de Rol~w~~n~~n~					\
 						Esperamos que usted haya aprendido un poco de estas reglas ya que~n~	\
 						son muy importantes cumplirlas. Al final de esto usa ~y~/ayudarol.~n~~n~	\
 						~b~Web   : ~http://www.hermandadzero.com/"));
@@ -37651,7 +37587,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,2442.000,-1659.000,28.000);
 					SetPlayerCameraLookAt(i,2453.000,-1660.000,23.000);
 					SetPosEx(i, 2505.1760,-1706.3964,13.5277,213.2191,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~g~Pandillas y bandas~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~g~Pandillas y bandas~w~~n~~n~					\
 						Evita sus zonas, los 'guettos'. Si decides pasar por ahí~n~ \
 						pasa sin dinero ... lo más probable es que te roben. Ah,~n~   \
 						y siempre están haciendo guerra de bandas por sus terriorios."));
@@ -37662,7 +37598,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,1521.2905,-1659.2491,13.3828);
 					SetPlayerCameraLookAt(i,1553.5359,-1681.7788,25.4430);
 					SetPosEx(i, 1547.3116,-1692.7671,13.9214,263.2561,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~b~Departamento de Policía~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~b~Departamento de Policía~w~~n~~n~					\
 						Si viste algun robo, o te han robado~n~ \
 						no hay mejor lugar que ir al departamento de policia de Los Santos~n~   \
 						Consejo: Aqui puedes conseguir trabajo y ganar dinero.."));
@@ -37670,7 +37606,7 @@ stock TutorialStep_Forward(i)
 				case 180:
 				{
 					ClearChatbox(i, 10);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~w~Tú tambien puedes formar parte de ellos!~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~w~Tú tambien puedes formar parte de ellos!~n~~n~					\
 						Ellos siempre están pendientes en reclutar cadetes para su ciudad~n~ \
 						lo único que tienes que hacer es, tener buen un tiempo ~n~   \
 						en la ciudad y dejar su hoja de vida en su sede. Ellos te llamarán"));
@@ -37681,7 +37617,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,801.000,-1319.000,50.000);
 					SetPlayerCameraLookAt(i,790.000,-1328.000,38.000);
 					SetPosEx(i, 809.3252,-1310.8551,13.5391,184.1351,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~g~San Andreas Radio-Televisión~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~g~San Andreas Radio-Televisión~w~~n~~n~					\
 						Este es el departamento de CNN. Si tienes noticias interesantes~n~ \
 						ponte en contacto con ellos. ¿ Quieres una entrevista ? Ven.~n~   \
 						También tienen un estudio, donde puedes grabar tus discos."));
@@ -37692,7 +37628,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,1201.8060,-1312.1304,17.6054);
 					SetPlayerCameraLookAt(i,1176.0504,-1325.5823,17.6054);
 					SetPosEx(i, 1228.0928,-1294.8286,13.4566,318.1133,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~Servicio de Asistencia Municipal de Urgencia y Rescate~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~Servicio de Asistencia Municipal de Urgencia y Rescate~w~~n~~n~					\
 						El SAMUR se ocupa de la salud de los ciudadanos de San Andreas.~n~ \
 						Si padeces de alguna enfermedad o estás mal, ve a ellos y~n~   \
 						déjate en sus manos. Recuerda que es mejor prevenir que lamentar."));
@@ -37704,7 +37640,7 @@ stock TutorialStep_Forward(i)
 					SetPosEx(i, 889.8480,-1014.2786,37.9250,1.3368,0,0);
 					SetPlayerCameraPos(i, 930.4509,-976.7344,43.4699);
 					SetPlayerCameraLookAt(i, 930.0687,-977.6572,43.5249);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~b~Federal Bureau of Investigation~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~b~Federal Bureau of Investigation~w~~n~~n~					\
 						El ~b~FBI~w~, se encarga de investigaciones en casos de tráfico~n~ \
 						de droga, terrorismo, secuestros, etc.~n~   \
 						Su sede es en ~y~Los Santos."));
@@ -37715,7 +37651,7 @@ stock TutorialStep_Forward(i)
 					SetPosEx(i, 422.2823,-1497.9290,31.1724,271.1912,0,0);
 					SetPlayerCameraPos(i,431.000,-1510.000,34.000);
 					SetPlayerCameraLookAt(i,438.000,-1507.000,35.000);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~Tienda de Ropa~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~Tienda de Ropa~w~~n~~n~					\
 						En la ciudad hay diversas tiendas de ropa.~n~ \
 						Podrás elegir entre una variedad extensa de 'skins'.~n~   \
 						Recuerda que algunas están reservadas a facciones."));
@@ -37726,7 +37662,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,2253.000,-1744.000,17.000);
 					SetPlayerCameraLookAt(i,2248.000,-1738.000,17.000);
 					SetPosEx(i, 2256.0886,-1757.8958,13.5469,5.3080,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~Gimnasio~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~Gimnasio~w~~n~~n~					\
 						En el gimnasio podrás aprender nuevos estilos de lucha~n~ \
 						a un precio razonable. Use ~y~/apelear~w~ dentro~n~   \
 						del gimnasio y podrá ver los estilos."));
@@ -37737,7 +37673,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,1329.000,-1278.000,23.000);
 					SetPlayerCameraLookAt(i,1339.000,-1280.000,23.000);
 					SetPosEx(i, 1332.0735,-1270.7340,13.5525,216.7866,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~g~Habilidad de Armas~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~g~Habilidad de Armas~w~~n~~n~					\
 						Absolutamente nadie nace sabiendo utilizar un Desert Eagle.~n~ \
 						Para eso está Ammunation, donde aprenderás a utilizar las armas~n~   \
 						mediante guias que puedes comprar y asi mejorar su habilidad."));
@@ -37748,7 +37684,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i, 2801.6760, -1838.4375, 18.4401);
 					SetPlayerCameraLookAt(i, 2801.0291, -1837.6775, 18.1051);
 					SetPosEx(i, 2797.9883,-1798.2902,11.5401,225.3631,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~g~PaintBall LS~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~g~PaintBall LS~w~~n~~n~					\
 						Si quieres aumentar tu habilidad con las armas puedes ir al~n~ \
 						paintball con tus amigos, obtener diversion y experiencia~n~   \
 						en el uso de las diferentes armas."));
@@ -37759,7 +37695,7 @@ stock TutorialStep_Forward(i)
 					SetPlayerCameraPos(i,1799.000,-1680.000,23.000);
 					SetPlayerCameraLookAt(i,1809.000,-1682.000,23.000);
 					SetPosEx(i, 1800.7739,-1678.1132,14.4939,213.9432,0,0);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~p~Discotecas~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~p~Discotecas~w~~n~~n~					\
 						Aqui Podras Festejar  Tus Eventos Y fiestas Hay pista De Baile:~n~ \
 						Tambien puedes realizar fiestas privada,O Venir A Tomar Algo~n~   \
 						Eso si, ten cuidado con los mafiosos~~~~~~~~."));
@@ -37767,14 +37703,14 @@ stock TutorialStep_Forward(i)
 				case 305:
 				{
 					ClearChatbox(i, 6);
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~g~Uso del comando /new~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~g~Uso del comando /new~w~~n~~n~					\
 						Fue hecho para los nuevos usuarios, tenemos muchos~n~  \
 						ayudantes \"helpers\" que lo pueden guiar en este modo de juego.~n~   \
 						Recuerda usar el comando ~r~/new ~w~solo para dudas."));
 				}
 				case 315:
 				{
-					TextDrawSetString(Tutorial[i], Desbug("	~h~~r~Fin del Tutorial~w~~n~~n~					\
+					TextDrawSetString(Tutorial[i], convert_encoding("	~h~~r~Fin del Tutorial~w~~n~~n~					\
 						Usa ~y~/new~w~ para preguntas frecuentes del servidor~n~ \
 						Recuerda no abusar de los canales administrativos~n~   \
 						Recuerda visitar nuestro ~h~~b~Foro~w~!"));
@@ -39136,4 +39072,6 @@ stock convert_encoding(string[])
 			}
 		}
 	}
+
+	return string;
 }
