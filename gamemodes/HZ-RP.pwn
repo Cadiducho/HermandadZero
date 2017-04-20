@@ -3780,34 +3780,34 @@ function CamionTimer()
 						new point = random(2);
 						if(point == 1) SetPlayerCheckpoint(i, 2245.7646,-1658.8499,15.2865, 5.0);
 						else SetPlayerCheckpoint(i, 454.2690,-1502.2506,30.8709, 5.0);
-						Message(i, COLOR_WHITE, "¡Has cargado tu camion con prendas de vestir, ve y entregalas a binco!");
+						Message(i, COLOR_WHITE, "¡Has cargado tu camión con prendas de vestir, ve y entregalas a binco!");
 					}
 					case 2:
 					{
 						new mappo = random(2);
 						if(mappo == 1) SetPlayerCheckpoint(i, 1841.0033,-1863.2201,13.3897, 5.0);
 						else SetPlayerCheckpoint(i, 1314.4264,-918.9805,38.0876, 5.0);
-						Message(i, COLOR_WHITE, "¡Has cargado tu camion con comida y accesorios, ve y entregalas al 24-7!");
+						Message(i, COLOR_WHITE, "¡Has cargado tu camión con comida y accesorios, ve y entregalas al 24-7!");
 					}
 					case 3:
 					{
 						SetPlayerCheckpoint(i, 890.6088,-1665.0690,13.5469, 5.0);
-						Message(i, COLOR_WHITE, "¡Has cargado tu camion con medicamentos, ve y entregalas a la farmacia!");
+						Message(i, COLOR_WHITE, "¡Has cargado tu camión con medicamentos, ve y entregalas a la farmacia!");
 					}
 					case 4:
 					{
 						SetPlayerCheckpoint(i, 1361.2109,-1279.8762,13.3828, 5.0);
-						Message(i, COLOR_WHITE, "¡Has cargado tu camion con materiales armamentisticos, ve y entregalos a ammunation!");
+						Message(i, COLOR_WHITE, "¡Has cargado tu camión con materiales armamentisticos, ve y entregalos a ammunation!");
 					}
 					case 5:
 					{
 						SetPlayerCheckpoint(i, -84.9333,-1572.7817,2.6107, 5.0);
-						Message(i, COLOR_WHITE, "¡Has cargado tu camion con materiales ilegales, ve y entregalos pero ten cuidado con la policia!");
+						Message(i, COLOR_WHITE, "¡Has cargado tu camión con materiales ilegales, ve y entregalos pero ten cuidado con la policia!");
 					}
 					case 6:
 					{
 						SetPlayerCheckpoint(i, 1841.4935,-1417.0869,13.5625, 5.0);
-						Message(i, COLOR_WHITE, "¡Has cargado tu camion detergentes, ve y entregalos en la lavanderia!");
+						Message(i, COLOR_WHITE, "¡Has cargado tu camión detergentes, ve y entregalos en la lavanderia!");
 					}
 				}
 			}
@@ -4905,7 +4905,7 @@ public OnGameModeInit()
  	CreateDynamic3DTextLabel("Hospital", 					0xFF0000FF, 1172.8470,-1323.1869,15.3999, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Emergencias", 				0xFF0000FF, 1144.9569,-1329.5032,13.5840, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Ascensor", 				0xFF0000FF, 1159.3601,-1352.9479,26.6766, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
- 	CreateDynamic3DTextLabel("[ Pedir Servicio ]\nUtilize: /psv", 					0x8080FFFF, 251.1073,118.2060,1003.2188, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,10);
+ 	CreateDynamic3DTextLabel("[ Pedir Servicio ]\nUtilice: /psv", 					0x8080FFFF, 251.1073,118.2060,1003.2188, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,10);
  	CreateDynamic3DTextLabel("[!] Oferta de Trabajo\nVendedor móviles", 	0x00D56AFF, 994.3785,-1296.4718,13.5469, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!]  Oferta de Trabajo\nGuardaespaldas", 				0x00D56AFF, 1070.6956,-1861.3844,13.5857, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!] Oferta de Trabajo\nConductor de Tren", 			0x00D56AFF, 1684.6482,-1944.7058,13.5469, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
@@ -20738,42 +20738,42 @@ case DIALOG_SAMUR_ELEVATOR:
 								Mercancia[playerid] = 1;
 								PlayerIsRuta[playerid] = 1;
 								SetPlayerCheckpoint(playerid, 2197.9363,-2659.8430,13.5469, 5.0);
-								Message(playerid, COLOR_WHITE, "¡Dirigete al checkpoint para recoger tu carga!");
+								Message(playerid, COLOR_WHITE, "¡Dirígete al checkpoint para recoger tu carga!");
 							}
 							case 1:
 							{
 								Mercancia[playerid] = 2;
 								PlayerIsRuta[playerid] = 1;
 								SetPlayerCheckpoint(playerid, 2197.9363,-2659.8430,13.5469, 5.0);
-								Message(playerid, COLOR_WHITE, "¡Dirigete al checkpoint para recoger tu carga!");
+								Message(playerid, COLOR_WHITE, "¡Dirígete al checkpoint para recoger tu carga!");
 							}
 							case 2:
 							{
 								Mercancia[playerid] = 3;
 								PlayerIsRuta[playerid] = 1;
 								SetPlayerCheckpoint(playerid, 2197.9363,-2659.8430,13.5469, 5.0);
-								Message(playerid, COLOR_WHITE, "¡Dirigete al checkpoint para recoger tu carga!");
+								Message(playerid, COLOR_WHITE, "¡Dirígete al checkpoint para recoger tu carga!");
 							}
 							case 3:
 							{
 								Mercancia[playerid] = 4;
 								PlayerIsRuta[playerid] = 1;
 								SetPlayerCheckpoint(playerid, 2197.9363,-2659.8430,13.5469, 5.0);
-								Message(playerid, COLOR_WHITE, "¡Dirigete al checkpoint para recoger tu carga!");
+								Message(playerid, COLOR_WHITE, "¡Dirígete al checkpoint para recoger tu carga!");
 							}
 							case 4:
 							{
 								Mercancia[playerid] = 5;
 								PlayerIsRuta[playerid] = 1;
 								SetPlayerCheckpoint(playerid, 2197.9363,-2659.8430,13.5469, 5.0);
-								Message(playerid, COLOR_WHITE, "¡Dirigete al checkpoint para recoger tu carga!");
+								Message(playerid, COLOR_WHITE, "¡Dirígete al checkpoint para recoger tu carga!");
 							}
 							case 5:
 							{
 								Mercancia[playerid] = 6;
 								PlayerIsRuta[playerid] = 1;
 								SetPlayerCheckpoint(playerid, 2197.9363,-2659.8430,13.5469, 5.0);
-								Message(playerid, COLOR_WHITE, "¡Dirigete al checkpoint para recoger tu carga!");
+								Message(playerid, COLOR_WHITE, "¡Dirígete al checkpoint para recoger tu carga!");
 							}
 						}
 					}
@@ -22125,13 +22125,13 @@ zcmd(llorar, playerid, params[])
 		}
 		zcmd(estilocaminar, playerid, params[])
 		{
-			if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /estilocaminar <1-13>");
+			if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /estilocaminar <1-13>");
 			if(params[0] > 0 && params[0] < 14)
 			{
 				PlayerInfo[playerid][pWalk] = params[0];
 				SetPlayerWalkingStyle(playerid, PlayerInfo[playerid][pWalk]);
 				Message(playerid, COLOR_GRAD2, "* Estilo de caminar ha sido cambiado.");
-			} else Message(playerid, COLOR_GRAD2, "Utilize: /estilocaminar <1-13>");
+			} else Message(playerid, COLOR_GRAD2, "Utilice: /estilocaminar <1-13>");
 			return 1;
 		}
 		zcmd(apelear, playerid, params[]){
@@ -22571,7 +22571,7 @@ zcmd(llorar, playerid, params[])
 			new string[32];
 			format(string, sizeof(string), "(%d) - %s",params[0], PlayerName(params[0]));
 			Message(playerid, COLOR_GRAD2, string);
-		} else Message(playerid, COLOR_GRAD2, "Utilize: /id <NombreJugador>");
+		} else Message(playerid, COLOR_GRAD2, "Utilice: /id <NombreJugador>");
 		return 1;
 	}
 	zcmd(clientes, playerid, params[]){
@@ -22590,7 +22590,7 @@ zcmd(llorar, playerid, params[])
 			GetPlayerPos(params[0], X,Y,Z);
 			SetPlayerCheckpoint(playerid, X,Y,Z, 6);
 			Message(playerid, COLOR_YELLOW2, "Posición del jugador marcado en el mapa.");
-		} else Message(playerid, COLOR_GRAD2, "Utilize: /gpsmeca <Nombre_Jugador>");
+		} else Message(playerid, COLOR_GRAD2, "Utilice: /gpsmeca <Nombre_Jugador>");
 		return 1;
 	}
 	zcmd(removegps, playerid, params[]){
@@ -22631,7 +22631,7 @@ zcmd(llorar, playerid, params[])
 					Message(playerid, COLOR_GRAD4, string);
 				} else Message(playerid, COLOR_GRAD2, "¡El jugador no está en el tutorial!");
 			} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-		} else Message(playerid, COLOR_GRAD2, "Utilize: /registrar <PlayerID>");
+		} else Message(playerid, COLOR_GRAD2, "Utilice: /registrar <PlayerID>");
 		return 1;
 	}
 	zcmd(hidetaxi, playerid, params[]){
@@ -22661,7 +22661,7 @@ zcmd(llorar, playerid, params[])
 						} else Message(playerid, COLOR_GRAD2, "El jugador no está en tu vehículo");
 					} else Message(playerid, COLOR_GRAD2, "El jugador no está en un vehículo");
 				} else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-			} else Message(playerid, COLOR_GRAD2, "Utilize: /eject <ID>");
+			} else Message(playerid, COLOR_GRAD2, "Utilice: /eject <ID>");
 		} else Message(playerid, COLOR_GRAD2, "¡No estás en un vehículo!");
 		return 1;
 	}
@@ -22777,7 +22777,7 @@ zcmd(llorar, playerid, params[])
 					} else Message(playerid, COLOR_RED2, "El jugador no te ha alquilado la casa.");
 				} else Message(playerid, COLOR_RED2, "Jugador no conectado.");
 			} else Message(playerid, COLOR_RED2, "No posees una propiedad.");
-		} else Message(playerid, COLOR_GRAD2, "Utilize: /desalojar <PlayerID>");
+		} else Message(playerid, COLOR_GRAD2, "Utilice: /desalojar <PlayerID>");
 		return 1;
 	}
 	zcmd(desrentar, playerid, params[])
@@ -22954,7 +22954,7 @@ zcmd(llorar, playerid, params[])
 		if(PlayerInfo[playerid][pAdminCP] < 2012) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 		if(AntiAbusos[playerid] == 0){
 			SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-			if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /houseint <Casa ID>");
+			if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /houseint <Casa ID>");
 			if(params[0] < 0 || params[0] >= MAX_HOUSES) return Message(playerid, COLOR_GRAD2, "¡ID de casa errónea!");
 			PlayerInfo[playerid][pEntered] = HouseInfo[params[0]][hWorld];
 			SetPosEx(playerid,HouseInfo[params[0]][hExitx],HouseInfo[params[0]][hExity],HouseInfo[params[0]][hExitz],0,HouseInfo[params[0]][hInt],HouseInfo[params[0]][hWorld]);
@@ -22989,7 +22989,7 @@ zcmd(llorar, playerid, params[])
 			if(PlayerInfo[playerid][pAdminCP] < 2012) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 			if(AntiAbusos[playerid] == 0){
 				SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-				if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /house <Casa ID>");
+				if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /house <Casa ID>");
 				if(params[0] < 0 || params[0] >= MAX_HOUSES) return Message(playerid, COLOR_GRAD2, "¡ID de casa errónea!");
 				SetPlayerPos(playerid,HouseInfo[params[0]][hEntrancex],HouseInfo[params[0]][hEntrancey],HouseInfo[params[0]][hEntrancez]);
 				Message(playerid, COLOR_GRAD1, "¡Teleportado!");
@@ -22998,7 +22998,7 @@ zcmd(llorar, playerid, params[])
 			zcmd(houseentrancea, playerid, params[])
 			{
 				if(PlayerInfo[playerid][pAdminCP] != 2014) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-				if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /houseentrace <Casa ID>");
+				if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /houseentrace <Casa ID>");
 				if(params[0] < 0 || params[0] >= MAX_HOUSES) return Message(playerid, COLOR_GRAD2, "¡ID de casa errónea!");
 				new string[80];
 				new Float:X, Float:Y, Float:Z;
@@ -23015,7 +23015,7 @@ zcmd(llorar, playerid, params[])
 			zcmd(houseexita, playerid, params[])
 			{
 				if(PlayerInfo[playerid][pAdminCP] != 2014) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-				if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /houseexit <Casa ID>");
+				if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /houseexit <Casa ID>");
 				if(params[0] < 0 || params[0] >= MAX_HOUSES) return Message(playerid, COLOR_GRAD2, "¡ID de casa errónea!");
 				new string[80];
 				new Float:X, Float:Y, Float:Z;
@@ -23138,7 +23138,7 @@ zcmd(llorar, playerid, params[])
 							Message(playerid, COLOR_YELLOW, string);
 						}
 					} else Message(playerid, COLOR_GRAD2, "¡No estás en tu casa!");
-				} else Message(playerid, COLOR_GRAD2, "Utilize: /gbodega <materiales, droga, speed, ectasy, ritalin, heroina, marihuana> <Cantidad>");
+				} else Message(playerid, COLOR_GRAD2, "Utilice: /gbodega <materiales, droga, speed, ectasy, ritalin, heroina, marihuana> <Cantidad>");
 				return 1;
 			}
 			zcmd(sbodega, playerid, params[])
@@ -23206,7 +23206,7 @@ zcmd(llorar, playerid, params[])
 							Message(playerid, COLOR_YELLOW, string);
 						}
 					} else Message(playerid, COLOR_GRAD2, "¡No estás en tu casa!");
-				} else Message(playerid, COLOR_GRAD2, "Utilize: /sbodega <materiales, droga, speed, ectasy, ritalin, heroina, marihuana> <Cantidad>");
+				} else Message(playerid, COLOR_GRAD2, "Utilice: /sbodega <materiales, droga, speed, ectasy, ritalin, heroina, marihuana> <Cantidad>");
 				return 1;
 			}
 			zcmd(bodega, playerid, params[])
@@ -23321,7 +23321,7 @@ zcmd(llorar, playerid, params[])
 					}
 					else Message(playerid, COLOR_RED2, "No posees una propiedad.");
 				}
-				else Message(playerid, COLOR_GRAD2, "Utilize: /renta <precio>");
+				else Message(playerid, COLOR_GRAD2, "Utilice: /renta <precio>");
 				return 1;
 			}
 			zcmd(abrir, playerid, params[])
@@ -23367,7 +23367,7 @@ zcmd(llorar, playerid, params[])
 					}
 					else
 					{
-						format(string, sizeof(string), "Utilize: /cajafuerte <$> (Tiene %d$ de ganancias)", HouseInfo[bouse][hRentabil]);
+						format(string, sizeof(string), "Utilice: /cajafuerte <$> (Tiene %d$ de ganancias)", HouseInfo[bouse][hRentabil]);
 						Message(playerid, COLOR_GRAD2, string);
 					}
 				}
@@ -23380,7 +23380,7 @@ zcmd(llorar, playerid, params[])
 				if(PlayerInfo[playerid][pAdminCP] < 2012) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 				if(AntiAbusos[playerid] == 0){
 					SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-					if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /bizz <House ID>");
+					if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /bizz <House ID>");
 					if(params[0] < 0 || params[0] >= MAX_BIZZ) return Message(playerid, COLOR_GRAD2, "¡ID de negocio errónea!");
 					SetPlayerPos(playerid,BizzInfo[params[0]][bEntrancex],BizzInfo[params[0]][bEntrancey],BizzInfo[params[0]][bEntrancez]);
 					Message(playerid, COLOR_GRAD2, "¡Teleportado!");
@@ -23450,7 +23450,7 @@ zcmd(llorar, playerid, params[])
 								Message(playerid, COLOR_GRAD4, string);
 								BizzInfo[bid][bTill] -= params[0];
 							} else Message(playerid, COLOR_GRAD4, "Este negocio no está a tu nombre.");
-						} else Message(playerid, COLOR_GRAD2, "Utilize: /sganancias <Cantidad>");
+						} else Message(playerid, COLOR_GRAD2, "Utilice: /sganancias <Cantidad>");
 					} else Message(playerid, COLOR_GRAD4, "¡Debes estar cerca de tu negocio para retirar dinero de la caja!");
 					return 1;
 				}
@@ -23509,7 +23509,7 @@ zcmd(llorar, playerid, params[])
 								} else Message(playerid, COLOR_GRAD2, "¡No te puedes poner como extorcionista tu mismo!");
 							} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
 						} else Message(playerid, COLOR_GRAD2, "¡Debes estar cerca de tu negocio!");
-					} else Message(playerid, COLOR_GRAD2, "Utilize: /extorcion <PlayerID>");
+					} else Message(playerid, COLOR_GRAD2, "Utilice: /extorcion <PlayerID>");
 					return 1;
 				}
 				zcmd(qextorcion, playerid, params[]){
@@ -23531,7 +23531,7 @@ zcmd(llorar, playerid, params[])
 								} else Message(playerid, COLOR_GRAD2, "¡No puedes usar este comando contigo mismo!");
 							} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
 						} else Message(playerid, COLOR_GRAD2, "¡Debes estar cerca de tu negocio!");
-					} else Message(playerid, COLOR_GRAD2, "Utilize: /qextorcion <PlayerID>");
+					} else Message(playerid, COLOR_GRAD2, "Utilice: /qextorcion <PlayerID>");
 					return 1;
 				}
 				zcmd(recaudar, playerid, params[])
@@ -23611,7 +23611,7 @@ zcmd(llorar, playerid, params[])
 								format(string, sizeof(string), "Propiedad %d vendida.", params[0]);
 								Message(playerid, COLOR_GRAD2, string);
 							}
-						} else Message(playerid, COLOR_GRAD2, "Utilize: /asellhouse <HouseID>");
+						} else Message(playerid, COLOR_GRAD2, "Utilice: /asellhouse <HouseID>");
 						return 1;
 					}
 					zcmd(vendernegocio, playerid, params[])
@@ -23626,7 +23626,7 @@ zcmd(llorar, playerid, params[])
 								format(string, sizeof(string), "Negocio %d vendido.", params[0]);
 								Message(playerid, COLOR_GRAD2, string);
 							}
-						} else Message(playerid, COLOR_GRAD2, "Utilize: /asellbizz <BizzID>");
+						} else Message(playerid, COLOR_GRAD2, "Utilice: /asellbizz <BizzID>");
 						return 1;
 					}
 					zcmd(hitman, playerid, params[])
@@ -23655,7 +23655,7 @@ zcmd(llorar, playerid, params[])
 								}
 								else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
 							}
-							else Message(playerid, COLOR_GRAD2, "Utilize: /hitman <PlayerID> <recompensa>");
+							else Message(playerid, COLOR_GRAD2, "Utilice: /hitman <PlayerID> <recompensa>");
 							return 1;
 						}
 						zcmd(disfraz, playerid, params[])
@@ -23805,7 +23805,7 @@ zcmd(llorar, playerid, params[])
 									else Message(playerid, COLOR_GRAD2, "* Ya está apagado.");
 								}
 							}
-							else Message(playerid, COLOR_GRAD2, "Utilize: /walkie <prender, apagar>");
+							else Message(playerid, COLOR_GRAD2, "Utilice: /walkie <prender, apagar>");
 							return 1;
 						}
 						zcmd(frecuencia, playerid, params[]){
@@ -23818,7 +23818,7 @@ zcmd(llorar, playerid, params[])
 									format(string, sizeof string, "* Ahora tu frecuencia es: '%d'.",PFrecuencia[playerid]),
 									Message(playerid, COLOR_GREEN, string);
 								}
-								else Message(playerid, COLOR_GRAD2, "Utilize: /frecuencia <Nro> entre 1 - 9999");
+								else Message(playerid, COLOR_GRAD2, "Utilice: /frecuencia <Nro> entre 1 - 9999");
 							}
 							else Message(playerid, COLOR_GRAD2, "* No tienes una radio con la que hablar / o está apagada.");
 							return 1;
@@ -23826,8 +23826,8 @@ zcmd(llorar, playerid, params[])
 						zcmd(wt, playerid, params[])
 						{
 							if(DetectarSPAM(params[0])) return AccionSPAM(playerid, params[0]);
-							if(!RadioOn[playerid]) return Message(playerid, COLOR_GRAD2, "* Radio apagada. Utilize: '/walkie prender'");
-							if(PFrecuencia[playerid] == 0) return Message(playerid, COLOR_GRAD2, "* No estás en ninguna frecuencia. Utilize: '/frecuencia'");
+							if(!RadioOn[playerid]) return Message(playerid, COLOR_GRAD2, "* Radio apagada. Utilice: '/walkie prender'");
+							if(PFrecuencia[playerid] == 0) return Message(playerid, COLOR_GRAD2, "* No estás en ninguna frecuencia. Utilice: '/frecuencia'");
 							if(!sscanf(params, "s[128]", params[0]))
 							{
 								new string[128];
@@ -23836,7 +23836,7 @@ zcmd(llorar, playerid, params[])
 								format(string, sizeof(string), "* (WT) %s: %s", PlayerName(playerid), params[0]);
 								ProxDetector(20.0, playerid, string,COLOR_FADE1,COLOR_FADE2,COLOR_FADE3,COLOR_FADE4,COLOR_FADE5);
 							}
-							else Message(playerid, COLOR_GRAD2, "Utilize: /wt <Mensaje>");
+							else Message(playerid, COLOR_GRAD2, "Utilice: /wt <Mensaje>");
 							return 1;
 						}
 						zcmd(d, playerid, params[])
@@ -23858,7 +23858,7 @@ zcmd(llorar, playerid, params[])
 									format(string, sizeof(string), "* %s habla por su radio.", PlayerName(playerid));
 									ProxDetector(25.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 								} else Message(playerid, COLOR_GRAD2, "¡No eres parte de un equipo!");
-							} else Message(playerid, COLOR_GRAD2, "Utilize: /d <Texto>");
+							} else Message(playerid, COLOR_GRAD2, "Utilice: /d <Texto>");
 							return 1;
 						}
 						zcmd(f, playerid, params[])
@@ -23872,7 +23872,7 @@ zcmd(llorar, playerid, params[])
 								if(PlayerInfo[playerid][pLeader] > 0) 	SendFamilyMessage(PlayerInfo[playerid][pLeader], 0x00E5FFDC, string);
 								else 									SendFamilyMessage(PlayerInfo[playerid][pMember], 0x7BDDA5AA, string);
 							}
-							else Message(playerid, COLOR_GRAD2, "Utilize: (/f)accion <texto>");
+							else Message(playerid, COLOR_GRAD2, "Utilice: (/f)accion <texto>");
 							return 1;
 						}
 						zcmd(r, playerid, params[])
@@ -23889,7 +23889,7 @@ zcmd(llorar, playerid, params[])
 								format(string, sizeof(string), "* %s habla por su radio.", PlayerName(playerid));
 								ProxDetector(25.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 							}
-							else Message(playerid, COLOR_GRAD2, "Utilize: /r <Texto>");
+							else Message(playerid, COLOR_GRAD2, "Utilice: /r <Texto>");
 							return 1;
 						}
 						zcmd(contratar, playerid, params[])
@@ -23940,7 +23940,7 @@ zcmd(llorar, playerid, params[])
 									}
 									else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
 								}
-								else Message(playerid, COLOR_GRAD2, "Utilize: /contratar <PlayerID>");
+								else Message(playerid, COLOR_GRAD2, "Utilice: /contratar <PlayerID>");
 							}
 							else Message(playerid, COLOR_GRAD2, "Usted no es lider de facción.");
 							return 1;
@@ -23948,7 +23948,7 @@ zcmd(llorar, playerid, params[])
 						zcmd(despedir, playerid, params[])
 						{
 							if(PlayerInfo[playerid][pLeader] == 0) return Message(playerid, COLOR_GRAD2, "Usted no es lider de facción.");
-							if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /despedir <PlayerID>");
+							if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /despedir <PlayerID>");
 							if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
 							if(PlayerInfo[playerid][pLeader] == PlayerInfo[params[0]][pMember])
 							{
@@ -23994,7 +23994,7 @@ zcmd(llorar, playerid, params[])
 								}
 								else Message(playerid, COLOR_GREY, "Jugado desconectado.");
 							}
-							else Message(playerid, COLOR_GRAD2, "Utilize: /giverank <PlayerID> <Rango>");
+							else Message(playerid, COLOR_GRAD2, "Utilice: /giverank <PlayerID> <Rango>");
 							return 1;
 						}
 						zcmd(equipo, playerid, params[]){
@@ -24156,7 +24156,7 @@ zcmd(llorar, playerid, params[])
 						else
 						{
 							ClearChatbox(playerid, 5);
-							Message(playerid, COLOR_GRAD2, "Utilize: /limpiar <ID> <item> 0 [Todos] 1 [Antecedente] 2 [Antecedente] 3 [Antecedente] 4 [N. Busqueda]");
+							Message(playerid, COLOR_GRAD2, "Utilice: /limpiar <ID> <item> 0 [Todos] 1 [Antecedente] 2 [Antecedente] 3 [Antecedente] 4 [N. Busqueda]");
 						}
 						return 1;
 					}
@@ -24194,13 +24194,13 @@ zcmd(llorar, playerid, params[])
 							}
 							else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
 						}
-						else Message(playerid, COLOR_GRAD2, "Utilize: /ant <PlayerID> <Antecedente>");
+						else Message(playerid, COLOR_GRAD2, "Utilice: /ant <PlayerID> <Antecedente>");
 						return 1;
 					}
 					zcmd(expediente, playerid, params[])
 					{
 						if(!IsPlayerConnected(playerid)) return Message(playerid, COLOR_GRAD2, "¡Primero conectate!");
-						if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /expediente <PlayerID>");
+						if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /expediente <PlayerID>");
 						if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
 						if(ProxDetectorS(8.0, playerid, params[0]))
 						{
@@ -24224,7 +24224,7 @@ zcmd(llorar, playerid, params[])
 					}
 					zcmd(nokear, playerid, params[])
 					{
-						if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /nokear <ID>");
+						if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /nokear <ID>");
 						if(PlayerInfo[playerid][pLevel] < 2) return Message(playerid, COLOR_GRAD2, "Usted debe ser mayor al nivel 2.");
 						if(KnockedDown[playerid] == 0 || IsPlayerInAnyVehicle(playerid) || IsPlayerInAnyVehicle(params[0]))
 						{
@@ -24285,7 +24285,7 @@ zcmd(llorar, playerid, params[])
 										}
 										else Message(playerid, COLOR_GRAD2, "Necesitas ser mayor de rango 3.");
 									}
-									else Message(playerid, COLOR_GRAD2, "Utilize: /misil <coordenada X> <coordenada Y> <coordenada Z> <radio> <tipo> <tiempo>");
+									else Message(playerid, COLOR_GRAD2, "Utilice: /misil <coordenada X> <coordenada Y> <coordenada Z> <radio> <tipo> <tiempo>");
 								}
 								else if(PlayerToPoint(1.0,playerid,2752.9141,-2351.3301,31.0923))
 								{
@@ -24303,7 +24303,7 @@ zcmd(llorar, playerid, params[])
 										}
 										else Message(playerid, COLOR_GRAD2, "Necesitas ser mayor de rango 3.");
 									}
-									else Message(playerid, COLOR_GRAD2, "Utilize: /misil <vehículo> <tiempo>");
+									else Message(playerid, COLOR_GRAD2, "Utilice: /misil <vehículo> <tiempo>");
 								}
 								else Message(playerid, COLOR_GRAD2, "No estás en ningún lanzamisiles.");
 							}
@@ -24398,7 +24398,7 @@ zcmd(llorar, playerid, params[])
             	MessageEx(playerid, params[0], COLOR_WHITE, string);
             	return 1;
             }
-        } else Message(playerid, COLOR_GRAD2, "Utilize: /arrestar <PlayerID> <Minutos> <Multa$> <Fianza$>");
+        } else Message(playerid, COLOR_GRAD2, "Utilice: /arrestar <PlayerID> <Minutos> <Multa$> <Fianza$>");
         return 1;
     }
  //----------------Pinchos-------------------------------------------//
@@ -24461,7 +24461,7 @@ zcmd(llorar, playerid, params[])
     				SetPlayerWantedLevel(params[0], PlayerInfo[params[0]][pBusqueda]);
     			}
     		} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: (/su)spect <PlayerID> <crimen>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: (/su)spect <PlayerID> <crimen>");
     	return 1;
     }
     zcmd(retener, playerid, params[]){
@@ -24476,7 +24476,7 @@ zcmd(llorar, playerid, params[])
     			Message(params[0], COLOR_RED2, string);
     			return A_Info(string);
     		} else Message(playerid, COLOR_GREY, "El jugador está muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /retener <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /retener <PlayerID>");
     	return 1;
     }
     zcmd(soltar, playerid, params[])
@@ -24493,7 +24493,7 @@ zcmd(llorar, playerid, params[])
     			Message(params[0], COLOR_RED2, string);
     			return A_Info(string);
     		} else Message(playerid, COLOR_GREY, "El jugador está muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /soltar <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /soltar <PlayerID>");
     	return 1;
     }
     zcmd(camaras, playerid, params[])
@@ -24533,7 +24533,7 @@ zcmd(llorar, playerid, params[])
     				return 1;
     			}
     		} else Message(playerid, COLOR_GREY, "El jugador está muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /esposar <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /esposar <PlayerID>");
     	return 1;
     }
     zcmd(sospechosos, playerid, params[])
@@ -24543,7 +24543,7 @@ zcmd(llorar, playerid, params[])
     	{
     		if(!sscanf(params, "i", params[0]))
     		{
-    			if(params[0] < 1 || params[0] > 6) return Message(playerid, COLOR_GRAD2, "Utilize: /sospechosos < Nivel Búsqueda: 1-6 >");
+    			if(params[0] < 1 || params[0] > 6) return Message(playerid, COLOR_GRAD2, "Utilice: /sospechosos < Nivel Búsqueda: 1-6 >");
     			new string[64];
     			ClearChatbox(playerid, 10);
     			Message(playerid, WANTED_COLOR, "> Sospechosos más buscados <");
@@ -24556,7 +24556,7 @@ zcmd(llorar, playerid, params[])
     				else if(params[0] == 5 && PlayerInfo[i][pBusqueda] == 5){    format(string, sizeof(string), "  Nombre: %s <> Búsqueda: 5", PlayerName(i)); Message(playerid, WANTED_COLOR, string);}
     				else if(params[0] == 6 && PlayerInfo[i][pBusqueda] == 6){    format(string, sizeof(string), "  Nombre: %s <> Búsqueda: 6", PlayerName(i)); Message(playerid, WANTED_COLOR, string);}
     			}
-    		} else Message(playerid, COLOR_GRAD2, "Utilize: /sospechosos < Nivel Búsqueda: 1-6 >");
+    		} else Message(playerid, COLOR_GRAD2, "Utilice: /sospechosos < Nivel Búsqueda: 1-6 >");
     	} else Message(playerid, COLOR_GRAD2, "¡No estas OnDuty!");
     	return 1;
     }
@@ -24654,13 +24654,13 @@ zcmd(llorar, playerid, params[])
     			case 5: CreateRoadblock(1425,plocx,plocy,plocz+0.3,ploca);
     			case 6: CreateRoadblock(3265,plocx,plocy,plocz-0.5,ploca);
     			case 7: CreateRoadblock(3091,plocx,plocy,plocz+0.5,ploca+180);
-    			default: Message(playerid, COLOR_GRAD2, "Utilize: (/bar)rera <ID:1-7>");
+    			default: Message(playerid, COLOR_GRAD2, "Utilice: (/bar)rera <ID:1-7>");
     		}
     		GameTextForPlayer(playerid,"~r~barrera ~w~puesta!",3000,1);
     	}
     	else
     	{
-    		Message(playerid, COLOR_GRAD2, "Utilize: (/bar)rera <ID>");
+    		Message(playerid, COLOR_GRAD2, "Utilice: (/bar)rera <ID>");
     		Message(playerid, COLOR_GRAD2, "IDs: 1. Pequeña | 2. Mediana | 3. Grande");
     		Message(playerid, COLOR_GRAD2, "IDs: 4. Cono | 5. Desvío | 6. Prohibido | 7.Cierre");
     		Message(playerid, COLOR_GRAD2, "Utiliza: /qb para quitar la barrera más cercana");
@@ -24722,7 +24722,7 @@ zcmd(llorar, playerid, params[])
     				Facturing[params[0]] = 1;
     			}
     		} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /multar <ID> <precio> <razón>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /multar <ID> <precio> <razón>");
     	return 1;
     }
     zcmd(darjuicio, playerid, params[])
@@ -24757,7 +24757,7 @@ zcmd(llorar, playerid, params[])
     				Facturing[params[0]] = 1;
     			}
     		} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /darjuicio <ID> <Precio> <Razón>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /darjuicio <ID> <Precio> <Razón>");
     	return 1;
     }
     zcmd(darlicencia, playerid, params[0])
@@ -24773,12 +24773,12 @@ zcmd(llorar, playerid, params[])
     				Message(playerid, COLOR_YELLOW, "* Has obtenido la licencia de armas.");
     			} else Message(playerid, COLOR_GRAD2, "Jugador demasiado lejos.");
     		} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /darlicencia <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /darlicencia <PlayerID>");
     	return 1;
     }
     zcmd(m, playerid, params[])
     {
-    	if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /m <texto>");
+    	if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /m <texto>");
     	if(!IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estás en un vehículo!")
     		if(Team_SAMUR(playerid) || IsACop(playerid))
     		{
@@ -24921,7 +24921,7 @@ zcmd(llorar, playerid, params[])
     		}
     		else
     		{
-    			Message(playerid, COLOR_GRAD2, "Utilize: /aceptar <item>");
+    			Message(playerid, COLOR_GRAD2, "Utilice: /aceptar <item>");
     			Message(playerid, COLOR_GRAD2, "Items: telefono, multa, saludo, regalo");
     		}
     		return 1;
@@ -24996,14 +24996,14 @@ zcmd(llorar, playerid, params[])
     		}
     		else
     		{
-    			Message(playerid, COLOR_GRAD2, "Utilize: /cancelar <item>");
+    			Message(playerid, COLOR_GRAD2, "Utilice: /cancelar <item>");
     			Message(playerid, COLOR_GRAD2, "Items: telefono, multa, taxi, saludo");
     		}
     		return 1;
     	}
     	zcmd(dni, playerid, params[])
     	{
-    		if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /dni <PlayerID>");
+    		if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /dni <PlayerID>");
     		if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
     		if(AntiAbusos[params[0]] == 1) return Message(playerid, COLOR_GRAD2, "No puedes usar esto con un admin duty.");
     		if(ProxDetectorS(8.0, playerid, params[0]))
@@ -25017,7 +25017,7 @@ zcmd(llorar, playerid, params[])
     	}
     	zcmd(dnifalso, playerid, params[])
     	{
-    		if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /dnifalso <PlayerID>");
+    		if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /dnifalso <PlayerID>");
     		if(!IsPlayerConnected(params[0]))  return Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
     		if(PlayerInfo[playerid][pDNIFalse] == 0)    return Message(playerid, COLOR_GRAD2, "No posees un DNI falso.");
     		if(ProxDetectorS(8.0, playerid, params[0]))
@@ -25034,7 +25034,7 @@ zcmd(llorar, playerid, params[])
     		if(PlayerInfo[playerid][pAdminCP] < 4) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
     		if(AntiAbusos[playerid] == 0){
     			SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-    			if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /quitardni <PlayerID>");
+    			if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /quitardni <PlayerID>");
     			if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
     			if(PlayerInfo[params[0]][pDNIFalse] != 0)
     			{
@@ -25073,7 +25073,7 @@ zcmd(llorar, playerid, params[])
     					Message(playerid, COLOR_YELLOW,string);
     					SetTimerEx("Detective_FindPerson", sat+luck*1000, false, "i", playerid);
     				} else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-    			} else Message(playerid, COLOR_GRAD2, "Utilize: /encontrar <PlayerID>");
+    			} else Message(playerid, COLOR_GRAD2, "Utilice: /encontrar <PlayerID>");
     			return 1;
     		}
     		zcmd(localizar, playerid, params[])
@@ -25104,7 +25104,7 @@ zcmd(llorar, playerid, params[])
     					Message(playerid, COLOR_YELLOW,string);
     					SetTimerEx("Detective_FindPerson", sat+luck*1000, false, "i", playerid);
     				} else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-    			} else Message(playerid, COLOR_GRAD2, "Utilize: /localizar <PlayerID>");
+    			} else Message(playerid, COLOR_GRAD2, "Utilice: /localizar <PlayerID>");
     			return 1;
     		}
     zcmd(encontrarveh, playerid, params[])  // agregar comando para negocio
@@ -25134,7 +25134,7 @@ zcmd(llorar, playerid, params[])
     		format(string, sizeof(string), "El satélite volverá a estar disponible en: %d segundos.", UsedFind[playerid]);
     		Message(playerid, COLOR_YELLOW,string);
     		SetTimerEx("Detective_FindCar", sat+luck*1000, false, "i", playerid);
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /encontrar <vehículo>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /encontrar <vehículo>");
     	return 1;
     }
     zcmd(papeles, playerid, params[])
@@ -25150,7 +25150,7 @@ zcmd(llorar, playerid, params[])
     			format(string, sizeof(string), "* %s le muestra a %s los documentos del vehículo.", PlayerName(playerid), PlayerName(params[0]));
     			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
     		} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /papeles <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /papeles <PlayerID>");
     	return 1;
     }
     zcmd(papeles2, playerid, params[])
@@ -25166,7 +25166,7 @@ zcmd(llorar, playerid, params[])
     			format(string, sizeof(string), "* %s le muestra a %s los documentos del vehículo.", PlayerName(playerid), PlayerName(params[0]));
     			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
     		} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /papeles2 <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /papeles2 <PlayerID>");
     	return 1;
     }
     zcmd(papeles3, playerid, params[])
@@ -25182,7 +25182,7 @@ zcmd(llorar, playerid, params[])
     			format(string, sizeof(string), "* %s le muestra a %s los documentos del vehículo.", PlayerName(playerid), PlayerName(params[0]));
     			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
     		} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /papeles3 <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /papeles3 <PlayerID>");
     	return 1;
     }
     zcmd(papeles4, playerid, params[])
@@ -25198,7 +25198,7 @@ zcmd(llorar, playerid, params[])
     			format(string, sizeof(string), "* %s le muestra a %s los documentos del vehículo.", PlayerName(playerid), PlayerName(params[0]));
     			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
     		} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-    	} else Message(playerid, COLOR_GRAD2, "Utilize: /papeles4 <PlayerID>");
+    	} else Message(playerid, COLOR_GRAD2, "Utilice: /papeles4 <PlayerID>");
     	return 1;
     }
 	// zcmd:admin ============================================================================================================================
@@ -25223,7 +25223,7 @@ zcmd(llorar, playerid, params[])
     			if(!sscanf(params, "i", params[0]))
     			{
     				return SetVehicleHealth(GetPlayerVehicleID(playerid), params[0] * 10);
-    			} else Message(playerid, COLOR_GRAD2, "Utilize: /healcar <HP>");
+    			} else Message(playerid, COLOR_GRAD2, "Utilice: /healcar <HP>");
     			return 1;
     		}
     		zcmd(aengineon, playerid, params[]){
@@ -25257,7 +25257,7 @@ zcmd(llorar, playerid, params[])
     							Message(playerid, COLOR_GRAD2, string);
     						}
     					}
-    				} else Message(playerid, COLOR_GRAD2, "Utilize: /searchcar <Nombre Jugador>");
+    				} else Message(playerid, COLOR_GRAD2, "Utilice: /searchcar <Nombre Jugador>");
     				return 1;
     			}
     			zcmd(changeit, playerid, params[]){
@@ -25291,7 +25291,7 @@ zcmd(llorar, playerid, params[])
     							ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
     						} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
     					} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-    				} else Message(playerid, COLOR_GRAD2, "Utilize: /pagar <PlayerID> <Cantidad>");
+    				} else Message(playerid, COLOR_GRAD2, "Utilice: /pagar <PlayerID> <Cantidad>");
     				return 1;
     			}
     			zcmd(llenar, playerid, params[])
@@ -25774,7 +25774,7 @@ zcmd(llorar, playerid, params[])
     				}
     				else
     				{
-    					Message(playerid, COLOR_GRAD2, "Utilize: /v <Item>");
+    					Message(playerid, COLOR_GRAD2, "Utilice: /v <Item>");
     					Message(playerid, COLOR_GRAD2, "Item: motor(2), luces(2), capo(2), maletero(2), seguro(2), vender(2), estacionar(2), tiempo, seguroveh");
     				}
     				return 1;
@@ -25814,7 +25814,7 @@ zcmd(llorar, playerid, params[])
     									} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
     								} else Message(playerid, COLOR_GRAD2, "El jugador necesita ser nivel 2 mínimo.");
     							} else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-    						} else Message(playerid, COLOR_GRAD2, "Utilize: /venderveh <PlayerID> <Cantidad>");
+    						} else Message(playerid, COLOR_GRAD2, "Utilice: /venderveh <PlayerID> <Cantidad>");
     					} else Message(playerid, COLOR_GRAD2, "No estás en tu auto.");
     				} else Message(playerid, COLOR_GRAD2, "No estás en tu auto.");
     				return 1;
@@ -25854,7 +25854,7 @@ zcmd(llorar, playerid, params[])
     									} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
     								} else Message(playerid, COLOR_GRAD2, "El jugador necesita ser nivel 5 mínimo.");
     							} else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-    						} else Message(playerid, COLOR_GRAD2, "Utilize: /venderveh2 <PlayerID> <Cantidad>");
+    						} else Message(playerid, COLOR_GRAD2, "Utilice: /venderveh2 <PlayerID> <Cantidad>");
     					} else Message(playerid, COLOR_GRAD2, "No estás en tu auto.");
     				} else Message(playerid, COLOR_GRAD2, "No estás en tu auto.");
     				return 1;
@@ -25929,7 +25929,7 @@ zcmd(llorar, playerid, params[])
     						}
     						else Message(playerid, COLOR_GRAD2, "Jugador no conectado o muy lejos.");
     					}
-    					else Message(playerid, COLOR_GRAD2, "Utilize: /revisar <PlayerID>");
+    					else Message(playerid, COLOR_GRAD2, "Utilice: /revisar <PlayerID>");
     					return 1;
     				}
     				zcmd(cinturon, playerid, params[]){
@@ -25967,7 +25967,7 @@ zcmd(llorar, playerid, params[])
     						}
     						format(string, sizeof(string), "* %s revisa el cinturón de %s", PlayerName(playerid), PlayerName(params[0]));
     						ProxDetector(20.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-    					} else Message(playerid, COLOR_GRAD2, "Utilize: /vercinturon <PlayerID>");
+    					} else Message(playerid, COLOR_GRAD2, "Utilice: /vercinturon <PlayerID>");
     					return 1;
     				}
     				zcmd(revisarcarga, playerid, params[])
@@ -25992,7 +25992,7 @@ zcmd(llorar, playerid, params[])
     						Message(playerid, COLOR_GREEN, string);
     						format(string, sizeof(string), "* %s revisa el camión de %s", PlayerName(playerid), PlayerName(params[0]));
     						ProxDetector(20.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-    					} else Message(playerid, COLOR_GRAD2, "Utilize: /revisarcarga <PlayerID>");
+    					} else Message(playerid, COLOR_GRAD2, "Utilice: /revisarcarga <PlayerID>");
     					return 1;
     				}
     				zcmd(quitarcarga, playerid, params[])
@@ -26016,7 +26016,7 @@ zcmd(llorar, playerid, params[])
     						PlayerCargando[params[0]] = 0;
     						PlayerDescargando[params[0]] = 0;
     						DisablePlayerCheckpoint(params[0]);
-    					} else Message(playerid, COLOR_GRAD2, "Utilize: /quitarcarga <PlayerID>");
+    					} else Message(playerid, COLOR_GRAD2, "Utilice: /quitarcarga <PlayerID>");
     					return 1;
     				}
     				zcmd(remolcar, playerid, params[])
@@ -26089,7 +26089,7 @@ zcmd(llorar, playerid, params[])
     					}
     					else
     					{
-    						Message(playerid, COLOR_GRAD2, "Utilize: /quitar <item> <PlayerID>");
+    						Message(playerid, COLOR_GRAD2, "Utilice: /quitar <item> <PlayerID>");
     						Message(playerid, COLOR_GRAD2, "Items: lconduccion, lvuelo, larma, drogas, materiales, telefono, armas");
     					}
     					return 1;
@@ -26113,7 +26113,7 @@ zcmd(llorar, playerid, params[])
     						}
     						else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
     					}
-    					else Message(playerid, COLOR_GRAD2, "Utilize: /drag <PlayerID>");
+    					else Message(playerid, COLOR_GRAD2, "Utilice: /drag <PlayerID>");
     					return 1;
     				}
     				zcmd(getip, playerid, params[])
@@ -26127,7 +26127,7 @@ zcmd(llorar, playerid, params[])
     							GetPlayerIp(params[0],ip,sizeof(ip));
     							format(string, sizeof(string), "* Player: %s IP: %s", PlayerName(params[0]), ip);
     							Message(playerid, COLOR_GRAD2, string);
-    						} else Message(playerid, COLOR_GRAD2, "Utilize: /getip <PlayerID>");
+    						} else Message(playerid, COLOR_GRAD2, "Utilice: /getip <PlayerID>");
     						return 1;
     					}
     					zcmd(unbanip, playerid, params[])
@@ -26143,7 +26143,7 @@ zcmd(llorar, playerid, params[])
     								SendRconCommand("reloadbans");
     								format(string, sizeof(string), "IP desbaneada por %s (%s)", PlayerName(playerid), params[0]);
     								A_Info(string);
-    							} else Message(playerid, COLOR_GRAD2, "Utilize: /unbanip <IP>");
+    							} else Message(playerid, COLOR_GRAD2, "Utilice: /unbanip <IP>");
     							return 1;
     						}
     						zcmd(unban, playerid, params[]){
@@ -26163,7 +26163,7 @@ zcmd(llorar, playerid, params[])
     											A_Info(string);
     										} else Message(playerid, COLOR_GRAD2, "¡Esa cuenta no existe!");
     									} else Message(playerid, COLOR_GRAD2, "Ejemplo de Uso: /unban Juan_Perez");
-    								} else Message(playerid, COLOR_GRAD2, "Utilize: /unban <Nombre_Jugador>");
+    								} else Message(playerid, COLOR_GRAD2, "Utilice: /unban <Nombre_Jugador>");
     								return 1;
     							}
     							zcmd(fly, playerid, params[]){
@@ -26243,7 +26243,7 @@ zcmd(llorar, playerid, params[])
 		zcmd(gob, playerid, params[])
 		{
 			new string[128], prank[64];
-			if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /gob <Texto>");
+			if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /gob <Texto>");
 			if(DetectarSPAM(params[0])) return AccionSPAM(playerid, params[0]);
 			if(PlayerInfo[playerid][pLeader] == 1)
 			{
@@ -26296,7 +26296,7 @@ zcmd(llorar, playerid, params[])
 					GlobalMsg(0x00ACFFFF, string);
 
 				}
-				else Message(playerid, COLOR_GRAD2, "Utilize: /impuesto <cantidad>");
+				else Message(playerid, COLOR_GRAD2, "Utilice: /impuesto <cantidad>");
 			}
 			else Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 			return 1;
@@ -26320,7 +26320,7 @@ zcmd(llorar, playerid, params[])
 				}
 				else
 				{
-					Message(playerid, COLOR_GRAD2, "Utilize: /fondoestado <cantidad>");
+					Message(playerid, COLOR_GRAD2, "Utilice: /fondoestado <cantidad>");
 					format(string, 90, "* Hay %d de fondos.", Tax);
 					Message(playerid, COLOR_GRAD2, string);
 				}
@@ -26537,7 +26537,7 @@ zcmd(llorar, playerid, params[])
 					}
 				}
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /robar <24-7> <Persona> <Propiedad> <Bar> <Pizzeria> <Binco>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /robar <24-7> <Persona> <Propiedad> <Bar> <Pizzeria> <Binco>");
 		}
 		return 1;
 	}
@@ -26634,7 +26634,7 @@ zcmd(llorar, playerid, params[])
 		}
 		else
 		{
-			Message(playerid, COLOR_GRAD2, "Utilize: /ayuda <nombre>");
+			Message(playerid, COLOR_GRAD2, "Utilice: /ayuda <nombre>");
 			Message(playerid, COLOR_GRAD2, "General, Chat, Casa, Lider, Faccion, Trabajo, Banco, Teléfono, Premium, Vehiculo, Negocio");
 		}
 		return 1;
@@ -26645,7 +26645,7 @@ zcmd(llorar, playerid, params[])
 		if(PlayerInfo[playerid][pAdminCP] < 2012 && PlayerInfo[playerid][pFacciones] != 1) 	return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 		if(AntiAbusos[playerid] == 0){
 			SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-			if(sscanf(params, "ui", params[0], params[1])) 		return Message(playerid, COLOR_GRAD2, "Utilize: /darlider <PlayerID> <Facción>");
+			if(sscanf(params, "ui", params[0], params[1])) 		return Message(playerid, COLOR_GRAD2, "Utilice: /darlider <PlayerID> <Facción>");
 			if(params[1] < 0 || params[1] > MAX_FACTION) 		return Message(playerid, COLOR_GREY, "ID facción incorrecto.");
 			if(!IsPlayerConnected(params[0]))                   return Message(playerid, COLOR_GREY, "Jugado desconectado.");
 			switch(params[1])
@@ -26720,7 +26720,7 @@ zcmd(llorar, playerid, params[])
 					adds = 60;
 				}
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /AdCompras <anuncio>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /AdCompras <anuncio>");
 			return 1;
 		}
 		zcmd(adventas, playerid, params[])
@@ -26749,7 +26749,7 @@ zcmd(llorar, playerid, params[])
 					adds = 60;
 				}
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /AdVentas <anuncio>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /AdVentas <anuncio>");
 			return 1;
 		}
 		zcmd(adtrabajos, playerid, params[])
@@ -26778,7 +26778,7 @@ zcmd(llorar, playerid, params[])
 					adds = 60;
 				}
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /AdTrabajos <anuncio>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /AdTrabajos <anuncio>");
 			return 1;
 		}
 		zcmd(adeventos, playerid, params[])
@@ -26807,7 +26807,7 @@ zcmd(llorar, playerid, params[])
 					adds = 60;
 				}
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /AdEventos <anuncio>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /AdEventos <anuncio>");
 			return 1;
 		}
 		zcmd(adpro, playerid, params[])
@@ -26836,7 +26836,7 @@ zcmd(llorar, playerid, params[])
 					adds = 60;
 				}
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /AdPro <anuncio>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /AdPro <anuncio>");
 			return 1;
 		}
 	/*zcmd(ad, playerid, params[])
@@ -26865,13 +26865,13 @@ zcmd(llorar, playerid, params[])
 	            adds = 60;
 			}
 		}
-		else Message(playerid, COLOR_GRAD2, "Utilize: /ad <Anuncio>");
+		else Message(playerid, COLOR_GRAD2, "Utilice: /ad <Anuncio>");
         return 1;
 	}*/
         zcmd(rr, playerid, params[])
         {
         	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /rr <PlayerID>");
+        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /rr <PlayerID>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador no está conectado.");
         	if(PlayerNeedsHelp[params[0]] == 1)
         	{
@@ -26888,7 +26888,7 @@ zcmd(llorar, playerid, params[])
         zcmd(ar,playerid, params[])
         {
         	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /ar <PlayerID>");
+        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /ar <PlayerID>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador no está conectado.");
         	if(PlayerNeedsHelp[params[0]] == 1)
         	{
@@ -26904,7 +26904,7 @@ zcmd(llorar, playerid, params[])
         }
         zcmd(aduda, playerid, params[]){
         	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /aduda <id>");
+        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /aduda <id>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GREY, "Jugador no está conectado.");
         	if(PlayerDuda[params[0]] == 1){
         		new string[128];
@@ -26918,7 +26918,7 @@ zcmd(llorar, playerid, params[])
         }
         zcmd(rduda, playerid, params[]){
         	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /rduda <id>");
+        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /rduda <id>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GREY, "Jugador no está conectado.");
         	if(PlayerDuda[params[0]] == 1){
         		new string[128];
@@ -26932,7 +26932,7 @@ zcmd(llorar, playerid, params[])
         }
         zcmd(wtf, playerid, params[]){
         	if(PlayerInfo[playerid][pAdminCP] < 6) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /rduda <id>");
+        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /rduda <id>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GREY, "Jugador no está conectado.");
         	if(PlayerDuda[params[0]] == 1){
         		new string[128];
@@ -27012,7 +27012,7 @@ zcmd(llorar, playerid, params[])
         				Hotdog[params[0]] += 1;
         			} else Message(playerid, COLOR_GRAD2, "¡Esa persona tiene muchos hotdogs!");
         		} else Message(playerid, COLOR_GRAD2, "¡Esta persona esta muy lejos!");
-        	} else Message(playerid, COLOR_GRAD2, "Utilize: /darhotdog <PlayerID>");
+        	} else Message(playerid, COLOR_GRAD2, "Utilice: /darhotdog <PlayerID>");
         	return 1;
         }
         zcmd(comprarentrada, playerid, params[])
@@ -27153,7 +27153,7 @@ zcmd(llorar, playerid, params[])
         			IsPractising[params[0]] = 0;
         		}
         	}
-        	else Message(playerid, COLOR_GRAD2, "Utilize: /evaluar <PlayerID>");
+        	else Message(playerid, COLOR_GRAD2, "Utilice: /evaluar <PlayerID>");
         	return 1;
         }
         zcmd(licencias, playerid, params[])
@@ -27179,7 +27179,7 @@ zcmd(llorar, playerid, params[])
         		}
         		else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
         	}
-        	else Message(playerid, COLOR_GRAD2, "Utilize: /licencias <PlayerID>");
+        	else Message(playerid, COLOR_GRAD2, "Utilice: /licencias <PlayerID>");
         	return 1;
         }
         zcmd(licencia, playerid, params[])
@@ -27227,7 +27227,7 @@ zcmd(llorar, playerid, params[])
         	}
         	else
         	{
-        		Message(playerid, COLOR_GRAD2, "Utilize: /licencia <PlayerID> <Licencia>");
+        		Message(playerid, COLOR_GRAD2, "Utilice: /licencia <PlayerID> <Licencia>");
         		Message(playerid, COLOR_GRAD2, "Licencias: conduccion, aviacion, navegacion");
         	}
         	return 1;
@@ -27236,7 +27236,7 @@ zcmd(llorar, playerid, params[])
         {
         	new string[128];
         	if(!IsAnInstructor(playerid)) return Message(playerid, COLOR_GRAD2, "No eres licenciero.");
-        	if(sscanf(params, "uii", params[0],params[1],params[2])) return Message(playerid, COLOR_GRAD2, "Utilize: /renovarvehiculo <PlayerID> <Llave 1-2> <Días 15-30>");
+        	if(sscanf(params, "uii", params[0],params[1],params[2])) return Message(playerid, COLOR_GRAD2, "Utilice: /renovarvehiculo <PlayerID> <Llave 1-2> <Días 15-30>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
         	if(params[1] == 1 && PlayerInfo[params[0]][pPcarkey] == 9999) return Message(playerid, COLOR_GRAD2, "¡El jugador no posee un auto en su primer slot!");
         	if(params[1] == 2 && PlayerInfo[params[0]][pPcarkey2] == 9999) return Message(playerid, COLOR_GRAD2, "¡El jugador no posee un auto en su segundo slot!");
@@ -27365,7 +27365,7 @@ zcmd(llorar, playerid, params[])
         		}
         		else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
         	}
-        	else Message(playerid, COLOR_GRAD2, "Utilize: /entrevista <PlayerID>");
+        	else Message(playerid, COLOR_GRAD2, "Utilice: /entrevista <PlayerID>");
         	return 1;
         }
         zcmd(centrevista, playerid, params[])
@@ -27459,7 +27459,7 @@ zcmd(llorar, playerid, params[])
         		}
         		else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
         	}
-        	else Message(playerid, COLOR_GRAD2, "Utilize: /placa <PlayerID>");
+        	else Message(playerid, COLOR_GRAD2, "Utilice: /placa <PlayerID>");
         	return 1;
         }
         zcmd(credencial, playerid, params[]){
@@ -27473,7 +27473,7 @@ zcmd(llorar, playerid, params[])
         		Message(params[0], COLOR_WHITE, string);
         		format(string, sizeof(string), "* %s le enseña la placa a %s", PlayerName(playerid), PlayerName(params[0]));
         		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-        	} else Message(playerid, COLOR_GRAD2, "Utilize: /credencia <PlayerID>");
+        	} else Message(playerid, COLOR_GRAD2, "Utilice: /credencia <PlayerID>");
         	return 1;
         }
         zcmd(seguro, playerid, params[]){
@@ -27489,7 +27489,7 @@ zcmd(llorar, playerid, params[])
         		Message(params[0], -1, string);
         		format(string, sizeof(string), "* %s le muestra su tarjeta de seguro a %s.", PlayerName(playerid), PlayerName(params[0]));
         		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-        	} else Message(playerid, COLOR_GRAD2, "Utilize: /seguro <PlayerID>");
+        	} else Message(playerid, COLOR_GRAD2, "Utilice: /seguro <PlayerID>");
         	return 1;
         }
         zcmd(re, playerid, params[])
@@ -27514,7 +27514,7 @@ zcmd(llorar, playerid, params[])
         zcmd(duda, playerid, params[])
         {
         	if(PlayerInfo[playerid][pBanDuda] != 0) return Message(playerid, COLOR_GRAD2, "¡No puedes utilizar este comando, estas baneado del sistema de dudas!");
-        	if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /duda <Pregunta>");
+        	if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /duda <Pregunta>");
         	if((!nod) && duda[playerid] == 0)
         	{
         		new string[128];
@@ -27542,7 +27542,7 @@ zcmd(llorar, playerid, params[])
         zcmd(as, playerid, params[])
         {
         	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /as <id>");
+        	if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /as <id>");
         	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador no está conectado.");
         	if(PlayerSol[params[0]] == 1)
         	{
@@ -27569,7 +27569,7 @@ zcmd(llorar, playerid, params[])
         		if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         		if(AntiAbusos[playerid] == 0){
         			SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-        			if(sscanf(params, "u", params[0])) return Message(playerid,COLOR_GRAD2, "Utilize: /specplayer <PlayerID>");
+        			if(sscanf(params, "u", params[0])) return Message(playerid,COLOR_GRAD2, "Utilice: /specplayer <PlayerID>");
         			if(!IsPlayerConnected(params[0])) return Message(playerid,COLOR_GRAD2,"Jugador no conectado");
         			if (!IsPlayerInAnyVehicle(params[0]))
         			{
@@ -27691,7 +27691,7 @@ zcmd(llorar, playerid, params[])
         								else
         								{
         									new string[128];
-        									format(string, sizeof(string), "{2F99B5}Noticias de la Loteria: {FFFFFF}Hemos empesado la elección de la loteria.");
+        									format(string, sizeof(string), "{2F99B5}Noticias de la Loteria: {FFFFFF}Hemos empezado la elección de la loteria.");
         									OOCOff(COLOR_WHITE, string);
         									new rand = random(51);
         									if(rand == 0) { rand += 1; }
@@ -28083,7 +28083,7 @@ zcmd(llorar, playerid, params[])
         											new string[128];
         											if(!IsPlayerConnected(playerid)) return Message(playerid, COLOR_GRAD2, "No estás conectado");
         											if(PlayerInfo[playerid][pAdminCP] < 2014) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        											if(sscanf(params, "us[128]", params[0], params[1])) return Message(playerid, COLOR_GRAD2, "Utilize: /setname <PlayerID> <Nuevo_Nombre>");
+        											if(sscanf(params, "us[128]", params[0], params[1])) return Message(playerid, COLOR_GRAD2, "Utilice: /setname <PlayerID> <Nuevo_Nombre>");
         											if(params[0] != INVALID_PLAYER_ID)
         											{
         												format(string, sizeof(string), "%s ha cambiado el nombre de %s a %s.",PlayerName(playerid),PlayerName(params[0]), params[1]);
@@ -28158,7 +28158,7 @@ zcmd(llorar, playerid, params[])
         												}
         											}
         											else{
-        												Message(playerid, COLOR_GRAD2, "Utilize: /edit <Item> <Valor>");
+        												Message(playerid, COLOR_GRAD2, "Utilice: /edit <Item> <Valor>");
         												Message(playerid, COLOR_GRAD3, "Items Casas: Nivel, Precio, Cuartos");
         												Message(playerid, COLOR_GRAD3, "Items Negocios: Nivel, Precio, Ganancias");
         												Message(playerid, COLOR_GRAD3, "Items Vehículos: Precio, Venta, Seguro, Multa, Embargos");
@@ -28179,7 +28179,7 @@ zcmd(llorar, playerid, params[])
         													format(string, sizeof(string), "CarID: %d | Nuevo Dueño: %s", idcar, params[0]);
         													Message(playerid, COLOR_GRAD2, string);
         													return 1;
-        												} else return Message(playerid, COLOR_GRAD2, "Utilize: /editcar <Nuevo Dueño>");
+        												} else return Message(playerid, COLOR_GRAD2, "Utilice: /editcar <Nuevo Dueño>");
         											}
         											zcmd(bizzname, playerid, params[]){
         												new string[128];
@@ -28193,7 +28193,7 @@ zcmd(llorar, playerid, params[])
         															format(string, sizeof(string), "NegocioID: %d | Nuevo Nombre: %s", b, params[0]);
         															Message(playerid, COLOR_GRAD2, string);
         															OnBizzTextdrawUpdate(b);
-        														} else Message(playerid, COLOR_GRAD2, "Utilize: /bizzname <Nuevo Nombre>");
+        														} else Message(playerid, COLOR_GRAD2, "Utilice: /bizzname <Nuevo Nombre>");
         													}
         												}
         												return 1;
@@ -28203,7 +28203,7 @@ zcmd(llorar, playerid, params[])
         												if(!sscanf(params, "u", params[0])){
         													if(params[0] == INVALID_PLAYER_ID) return Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
         													ShowStats(playerid,params[0]);
-        												} else Message(playerid, COLOR_GRAD2, "Utilize: /check <ID>");
+        												} else Message(playerid, COLOR_GRAD2, "Utilice: /check <ID>");
         												return 1;
         											}
         											zcmd(verdinero, playerid, params[]){
@@ -28211,7 +28211,7 @@ zcmd(llorar, playerid, params[])
         												if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         												if(AntiAbusos[playerid] == 0){
         													SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-        													if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /checkmoney <PlayerID>");
+        													if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /checkmoney <PlayerID>");
         													format(string, sizeof(string), "%s - En Mano: %d", PlayerName(params[0]), GetPlayerMoney(params[0]));
         													Message(playerid, COLOR_GRAD2, string);
         													return 1;
@@ -28221,7 +28221,7 @@ zcmd(llorar, playerid, params[])
         													if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         													if(AntiAbusos[playerid] == 0){
         														SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-        														if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /checkjail <PlayerID>");
+        														if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /checkjail <PlayerID>");
         														format(string, sizeof(string), "%s - %d segundos restantes", PlayerName(params[0]), PlayerInfo[params[0]][pJailTime]);
         														Message(playerid, COLOR_GRAD2, string);
         														return 1;
@@ -28236,7 +28236,7 @@ zcmd(llorar, playerid, params[])
         																SetPlayerInterior(params[0], params[1]);
         																format(string, sizeof(string), "- Interior de %s es ahora %d", PlayerName(params[0]), params[1]);   Message(playerid, COLOR_GRAD2, string);
         																return Message(params[0], COLOR_GRAD2, string);
-        															} else Message(playerid, COLOR_GRAD2, "Utilize: /setint <PlayerID> <Interior>");
+        															} else Message(playerid, COLOR_GRAD2, "Utilice: /setint <PlayerID> <Interior>");
         															return 1;
         														}
         														zcmd(setvw, playerid, params[]){
@@ -28249,7 +28249,7 @@ zcmd(llorar, playerid, params[])
         																	SetPlayerVirtualWorld(params[0], params[1]);
         																	format(string, sizeof(string), "- VirtualWorld de %s es ahora %d", PlayerName(params[0]), params[1]);   Message(playerid, COLOR_GRAD2, string);
         																	return Message(params[0], COLOR_GRAD2, string);
-        																} else Message(playerid, COLOR_GRAD2, "Utilize: /setvw <PlayerID> <VirtualWorld>");
+        																} else Message(playerid, COLOR_GRAD2, "Utilice: /setvw <PlayerID> <VirtualWorld>");
         																return 1;
         															}
         															zcmd(silenciar, playerid, params[]){
@@ -28271,7 +28271,7 @@ zcmd(llorar, playerid, params[])
         																			Message(params[0],COLOR_RED2,string);
         																			return A_Info(string);
         																		}
-        																	} else Message(playerid, COLOR_GRAD2, "Utilize: /silenciar <PlayerID>");
+        																	} else Message(playerid, COLOR_GRAD2, "Utilice: /silenciar <PlayerID>");
         																	return 1;
         																}
         																zcmd(congelar, playerid, params[]){
@@ -28286,7 +28286,7 @@ zcmd(llorar, playerid, params[])
         																			format(string, sizeof(string), "%s ha congelado a %s",PlayerName(playerid), PlayerName(params[0]));
         																			Message(params[0], COLOR_RED2, string);
         																			return A_Info(string);
-        																		} else Message(playerid, COLOR_GRAD2, "Utilize: /congelar <PlayerID>");
+        																		} else Message(playerid, COLOR_GRAD2, "Utilice: /congelar <PlayerID>");
         																		return 1;
         																	}
         																	zcmd(descongelar, playerid, params[])
@@ -28303,7 +28303,7 @@ zcmd(llorar, playerid, params[])
         																				format(string, sizeof(string), "%s ha descongelado a %s",PlayerName(playerid), PlayerName(params[0]));
         																				Message(params[0], COLOR_RED2, string);
         																				return A_Info(string);
-        																			} else Message(playerid, COLOR_GRAD2, "Utilize: /descongelar <PlayerID>");
+        																			} else Message(playerid, COLOR_GRAD2, "Utilice: /descongelar <PlayerID>");
         																			return 1;
         																		}
         																		zcmd(rtc, playerid, params[]){
@@ -28322,7 +28322,7 @@ zcmd(llorar, playerid, params[])
         																						RespawnVehicle(params[0]);
         																						new string[64]
         																						format(string, sizeof(string), "{B1AAB2}Respawneaste el auto [%d]", params[0]); Message(playerid, -1, string);
-        																					} else Message(playerid, COLOR_GRAD2, "Utilize: /rtcar <VehicleID>");
+        																					} else Message(playerid, COLOR_GRAD2, "Utilice: /rtcar <VehicleID>");
         																					return 1;
         																				}
         																				zcmd(carid, playerid, params[]){
@@ -28348,7 +28348,7 @@ zcmd(llorar, playerid, params[])
         																							SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
         																							if(!sscanf(params, "id", params[0], params[1])){
         																								SetVehicleVirtualWorld(params[0], params[1]);
-        																							} else Message(playerid, COLOR_GRAD2, "Utilize: /setvwcar <VehicleID> <VirtualWorld>");
+        																							} else Message(playerid, COLOR_GRAD2, "Utilice: /setvwcar <VehicleID> <VirtualWorld>");
         																							return 1;
         																						}
         																						zcmd(rac, playerid, params[]){
@@ -28408,7 +28408,7 @@ zcmd(llorar, playerid, params[])
 						SetPosEx(playerid, p_x,p_y,p_z,0,interior,0);
 						return Message(playerid, COLOR_GRAD3, "¡Teleportado!");
 					} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-				} else Message(playerid, COLOR_GRAD2, "Utilize: /ir <PlayerID>");
+				} else Message(playerid, COLOR_GRAD2, "Utilice: /ir <PlayerID>");
 				return 1;
 			}
 			zcmd(activar, playerid, params[]){
@@ -28433,7 +28433,7 @@ zcmd(llorar, playerid, params[])
 						SetPosEx(params[0], p_x,p_y,p_z,0,interior,0);
 						return Message(params[0], COLOR_WHITE, "¡Teleportado!");
 					} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-				} else Message(playerid, COLOR_GRAD2, "Utilize: /traer <PlayerID>");
+				} else Message(playerid, COLOR_GRAD2, "Utilice: /traer <PlayerID>");
 				return 1;
 			}
 			zcmd(verarmas, playerid, params[]){
@@ -28463,7 +28463,7 @@ zcmd(llorar, playerid, params[])
 							}
 						} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
 						return 1;
-					} else Message(playerid, COLOR_GRAD2, "Utilize: /checkwep <PlayerID>");
+					} else Message(playerid, COLOR_GRAD2, "Utilice: /checkwep <PlayerID>");
 					return 1;
 				}
 				zcmd(alimpiar, playerid, params[]){
@@ -28502,7 +28502,7 @@ zcmd(llorar, playerid, params[])
 										A_Info(string);
 										return Message(params[0], COLOR_RED2, string);
 									} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-								} else Message(playerid, COLOR_GRAD2, "Utilize: /slap <PlayerID>");
+								} else Message(playerid, COLOR_GRAD2, "Utilice: /slap <PlayerID>");
 								return 1;
 							}
 							zcmd(setskin, playerid, params[]){
@@ -28518,7 +28518,7 @@ zcmd(llorar, playerid, params[])
 											format(string, sizeof(string), "* %s cambió la skin de %s", PlayerName(playerid), PlayerName(params[0]));
 											MessageEx(playerid, params[0], COLOR_WHITE, string);
 										} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-									} else Message(playerid, COLOR_GRAD2, "Utilize: /setskin <PlayerID> <SkinID>");
+									} else Message(playerid, COLOR_GRAD2, "Utilice: /setskin <PlayerID> <SkinID>");
 									return 1;
 								}
 								zcmd(vehslap, playerid, params[]){
@@ -28534,7 +28534,7 @@ zcmd(llorar, playerid, params[])
 												format(string, sizeof(string), "%s golpeó el vehículo de %s", PlayerName(playerid), PlayerName(params[0])); A_Info(string);
 												return Message(params[0], COLOR_RED2, string);
 											} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-										} else Message(playerid, COLOR_GRAD2, "Utilize: /vehslap <PlayerID> <Altitud>");
+										} else Message(playerid, COLOR_GRAD2, "Utilice: /vehslap <PlayerID> <Altitud>");
 										return 1;
 									}
 									zcmd(irmarca, playerid, params[])
@@ -28571,7 +28571,7 @@ zcmd(llorar, playerid, params[])
 														new Float:plocx,Float:plocy,Float:plocz;
 														GetPlayerPos(playerid, plocx, plocy, plocz);
 														return SetVehiclePos(params[0],plocx,plocy+4, plocz);
-													} else Message(playerid, COLOR_GRAD2, "Utilize: /traercar <VehicleID>");
+													} else Message(playerid, COLOR_GRAD2, "Utilice: /traercar <VehicleID>");
 													return 1;
 												}
 												zcmd(cambiarmiskin, playerid, params[]){
@@ -28585,7 +28585,7 @@ zcmd(llorar, playerid, params[])
 															format(string, sizeof(string), "* %s cambió la skin de %s", PlayerName(playerid), PlayerName(params[0]));
 															MessageEx(playerid, params[0], COLOR_WHITE, string);
 														} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-													} else Message(playerid, COLOR_GRAD2, "Utilize: /setskin <PlayerID> <SkinID>");
+													} else Message(playerid, COLOR_GRAD2, "Utilice: /setskin <PlayerID> <SkinID>");
 													return 1;
 												}
 												zcmd(traercarro, playerid, params[])
@@ -28614,7 +28614,7 @@ zcmd(llorar, playerid, params[])
 															new Float:cwx2,Float:cwy2,Float:cwz2;
 															GetVehiclePos(params[0], cwx2, cwy2, cwz2);
 															return SetPlayerPos(playerid, cwx2, cwy2, cwz2);
-														} else Message(playerid, COLOR_GRAD2, "Utilize: /ircar <VehicleID>");
+														} else Message(playerid, COLOR_GRAD2, "Utilice: /ircar <VehicleID>");
 														return 1;
 													}
 													zcmd(fixveh, playerid, params[]){
@@ -28647,7 +28647,7 @@ zcmd(llorar, playerid, params[])
 																	CreateExplosion(boomx, boomy , boomz, 7, 10);
 																	format(string, sizeof(string), "%s fue explotado por %s",PlayerName(params[0]),PlayerName(playerid)); A_Info(string);
 																	return Message(params[0], COLOR_RED2, string);
-																} else Message(playerid, COLOR_GRAD2, "Utilize: /explode <ID>");
+																} else Message(playerid, COLOR_GRAD2, "Utilice: /explode <ID>");
 																return 1;
 															}
 															zcmd(mascara, playerid, params[]){
@@ -28686,7 +28686,7 @@ zcmd(llorar, playerid, params[])
 																		format(string, 64, "%s cambió el clima global a el ID %d", PlayerName(playerid),params[0]);
 																		return A_Info(string);
 
-																	} else Message(playerid, COLOR_GRAD2, "Utilize: /weatherall <WeatherID>");
+																	} else Message(playerid, COLOR_GRAD2, "Utilice: /weatherall <WeatherID>");
 																	return 1;
 																}
 																zcmd(tod, playerid, params[]){
@@ -28698,7 +28698,7 @@ zcmd(llorar, playerid, params[])
 																			SetWorldTime(params[0]);
 																			format(string, 256, "%s cambió la hora a %d", PlayerName(playerid), params[0]);
 																			return A_Info(string);
-																		} else Message(playerid, COLOR_GRAD2, "Utilize: /tod <Time> No usar este comando sin razón.");
+																		} else Message(playerid, COLOR_GRAD2, "Utilice: /tod <Time> No usar este comando sin razón.");
 																		return 1;
 																	}
 																	zcmd(givegun, playerid, params[]){
@@ -28712,7 +28712,7 @@ zcmd(llorar, playerid, params[])
 																				SafeGivePlayerWeapon(params[0], params[1], params[2]);
 																				format(string, 128, "Administrador %s dió a %s Arma: %d Balas: %d", PlayerName(playerid), PlayerName(params[0]),params[1],params[2]);
 																				return A_Info(string);
-																			} else Message(playerid, COLOR_GRAD2, "Utilize: /givegun <PlayerID> <WeaponID> <Ammo>");
+																			} else Message(playerid, COLOR_GRAD2, "Utilice: /givegun <PlayerID> <WeaponID> <Ammo>");
 																			return 1;
 																		}
 																		zcmd(teleports, playerid, params[]){
@@ -28796,7 +28796,7 @@ zcmd(llorar, playerid, params[])
 																									}
 																								}
 																							} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																						} else Message(playerid, COLOR_GRAD2, "Utilize: /ban <PlayerID> <Razón>");
+																						} else Message(playerid, COLOR_GRAD2, "Utilice: /ban <PlayerID> <Razón>");
 																						return 1;
 																					}
 																					zcmd(banoff, playerid, params[]){
@@ -28813,7 +28813,7 @@ zcmd(llorar, playerid, params[])
 																									A_Info(string);
 																								} else Message(playerid, COLOR_GRAD2, "¡Esa cuenta no existe!");
 																							} else Message(playerid, COLOR_GRAD2, "Ejemplo de Uso: /banoff Juan_Perez")
-																						} else Message(playerid, COLOR_GRAD2, "Utilize: /banoff <Nombre_Jugador>");
+																						} else Message(playerid, COLOR_GRAD2, "Utilice: /banoff <Nombre_Jugador>");
 																						return 1;
 																					}
 																					zcmd(banduda, playerid, params[]){
@@ -28829,7 +28829,7 @@ zcmd(llorar, playerid, params[])
 																									Message(params[0], COLOR_WHITE, "  Atención<------");
 																									Message(params[0], COLOR_GRAD2, "*Usted ha sido bloqueado de usar el sistema de ayuda - Contacte con un Administrador.");
 																								} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																							} else Message(playerid, COLOR_GRAD2, "Utilize: /banduda <PlayerID> <Razón>");
+																							} else Message(playerid, COLOR_GRAD2, "Utilice: /banduda <PlayerID> <Razón>");
 																							return 1;
 																						}
 																						zcmd(unbanduda, playerid, params[]){
@@ -28845,7 +28845,7 @@ zcmd(llorar, playerid, params[])
 																										Message(params[0], -1, "{00DC84}------>{FFFFFF}Atención{00DC84}<------");
 																										Message(params[0], COLOR_GRAD2, "*Usted ha sido desbloqueado de usar el sistema de ayuda.");
 																									} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																								} else Message(playerid, COLOR_GRAD2, "Utilize: /unbanduda <PlayerID>");
+																								} else Message(playerid, COLOR_GRAD2, "Utilice: /unbanduda <PlayerID>");
 																								return 1;
 																							}
 																							zcmd(advertir, playerid, params[])
@@ -28877,7 +28877,7 @@ zcmd(llorar, playerid, params[])
 																												Kick(params[0]);
 																											}
 																										} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																									} else Message(playerid, COLOR_GRAD2, "Utilize: /advertir <PlayerID> <Razon>");
+																									} else Message(playerid, COLOR_GRAD2, "Utilice: /advertir <PlayerID> <Razon>");
 																									return 1;
 																								}
 																								zcmd(advertencia, playerid, params[])
@@ -28903,7 +28903,7 @@ zcmd(llorar, playerid, params[])
 																												Message(params[0], COLOR_WHITE, string);
 																											}
 																										} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																									} else Message(playerid, COLOR_GRAD2, "Utilize: /advertencia <AdminID> <Razon>");
+																									} else Message(playerid, COLOR_GRAD2, "Utilice: /advertencia <AdminID> <Razon>");
 																									return 1;
 																								}
 																								zcmd(checkadver, playerid, params[0])
@@ -28916,7 +28916,7 @@ zcmd(llorar, playerid, params[])
 																											format(string, sizeof(string), "Administrador: %s   -   Advertencias: %d", PlayerName(params[0]), PlayerInfo[params[0]][pAdminAdver]);
 																											Message(playerid, COLOR_GRAD4, string);
 																										} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																									} else Message(playerid, COLOR_GRAD2, "Utilize: /checkadver <PlayerID>");
+																									} else Message(playerid, COLOR_GRAD2, "Utilice: /checkadver <PlayerID>");
 																									return 1;
 																								}
 																								zcmd(editadver, playerid, params[0])
@@ -28929,7 +28929,7 @@ zcmd(llorar, playerid, params[])
 																											format(string, sizeof(string), "%s ha establecido en %d las advertencias administrativas de %s", PlayerName(playerid),params[1],PlayerName(params[0]));
 																											A_Info(string);
 																										} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																									} else Message(playerid, COLOR_GRAD2, "Utilize: /editadver <PlayerID> <Advertencias>");
+																									} else Message(playerid, COLOR_GRAD2, "Utilice: /editadver <PlayerID> <Advertencias>");
 																									return 1;
 																								}
 																								zcmd(noduda, playerid, params[]){
@@ -29140,7 +29140,7 @@ zcmd(llorar, playerid, params[])
 																											if(PlayerInfo[playerid][pAdminCP] > 0 && PlayerInfo[playerid][pAdminCP] < 2012) ABroadCast(0x00A5F4FF, string,1);
 																											else if(PlayerInfo[playerid][pAdminCP] > 2011 && PlayerInfo[playerid][pAdminCP] < 2015) ABroadCast(0xEA7A0BFF, string,1);
 																											else Message(playerid, -1, "{FFFFFF}* No admin {3F96CB}rank{FFFFFF}! (???)");
-																										} else Message(playerid, COLOR_GRAD2, "Utilize: /a <Texto>");
+																										} else Message(playerid, COLOR_GRAD2, "Utilice: /a <Texto>");
 																										return 1;
 																									}
 																									zcmd(update, playerid, params[])
@@ -29188,7 +29188,7 @@ zcmd(llorar, playerid, params[])
 																										}
 																										else
 																										{
-																											Message(playerid, COLOR_GRAD2, "Utilize: /dar <Item> <PlayerID>");
+																											Message(playerid, COLOR_GRAD2, "Utilice: /dar <Item> <PlayerID>");
 																											Message(playerid, COLOR_GRAD2, "Items: arma, chaleco");
 																										}
 																										return 1;
@@ -29271,7 +29271,7 @@ zcmd(llorar, playerid, params[])
 																												Message(params[1], COLOR_YELLOW, string);
 																											}
 																										} else {
-																											Message(playerid, COLOR_GRAD2, "Utilize: /pasar <Item> <PlayerID> <Cantidad>");
+																											Message(playerid, COLOR_GRAD2, "Utilice: /pasar <Item> <PlayerID> <Cantidad>");
 																											Message(playerid, COLOR_GRAD2, "Items: materiales, drogas, speed, ectasy, ritalin, heroina, marihuana");
 																										}
 																										return 1;
@@ -29290,7 +29290,7 @@ zcmd(llorar, playerid, params[])
 																												format(string, sizeof(string), "%s ha asignado administrador nivel %d a %s", PlayerName(playerid), params[1], PlayerName(params[0]));
 																												A_Info(string);
 																											} else Message(playerid, COLOR_GRAD2, " Jugador no conectado.");
-																										} else Message(playerid, COLOR_GRAD2, "Utilize: /daradminael <ID> <Nivel>");
+																										} else Message(playerid, COLOR_GRAD2, "Utilice: /daradminael <ID> <Nivel>");
 																										return 1;
 																									}
 																									zcmd(hacermodfacc, playerid, params[]){
@@ -29319,7 +29319,7 @@ zcmd(llorar, playerid, params[])
 																													default: Message(playerid, COLOR_GRAD2, "¡El nivel debe ser entre 0 y 1!");
 																												}
 																											} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-																										} else Message(playerid, COLOR_GRAD2, "Utilize: /darfacciones <ID> <Nivel>");
+																										} else Message(playerid, COLOR_GRAD2, "Utilice: /darfacciones <ID> <Nivel>");
 																										return 1;
 																									}
 																									zcmd(editadmin, playerid, params[]){
@@ -29334,7 +29334,7 @@ zcmd(llorar, playerid, params[])
 																												format(string, sizeof(string), "%s ha puesto en %d el nivel admin de %s",PlayerName(playerid), params[1], name);
 																												A_Info(string);
 																											} else Message(playerid, COLOR_GRAD2, "¡Esa cuenta no existe!");
-																										} else Message(playerid, COLOR_GRAD2, "Utilize: /editadmin <Nombre_Jugador> <Nivel>");
+																										} else Message(playerid, COLOR_GRAD2, "Utilice: /editadmin <Nombre_Jugador> <Nivel>");
 																										return 1;
 																									}
         zcmd(darvip, playerid, params[]){
@@ -29349,7 +29349,7 @@ zcmd(llorar, playerid, params[])
         			A_Info(string);
         			UpdatePlayerStat(playerid);
         		} else Message(playerid, COLOR_GRAD2, " Jugador no conectado.");
-        	} else Message(playerid, COLOR_GRAD2, "Utilize: /darvip <ID> <0 - 1> [0 = No / 1 = Si]");
+        	} else Message(playerid, COLOR_GRAD2, "Utilice: /darvip <ID> <0 - 1> [0 = No / 1 = Si]");
         	return 1;
         }
         zcmd(color, playerid, params[]){
@@ -29362,7 +29362,8 @@ zcmd(llorar, playerid, params[])
         	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         	if(DetectarSPAM(params[1])) return AccionSPAM(playerid, params[1]);
         	if(AntiAbusos[playerid] == 0){
-        		SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
+        		SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;
+        	}
         		if(!sscanf(params, "us[180]", params[0], params[1])){
         			if(params[0] != INVALID_PLAYER_ID){
         				new string[180];
@@ -29378,7 +29379,7 @@ zcmd(llorar, playerid, params[])
         				Kick(params[0]);
         				return 1;
         			} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-        		} else Message(playerid, COLOR_GRAD2, "Utilize: /kick <PlayerID> <Razón>");
+        		} else Message(playerid, COLOR_GRAD2, "Utilice: /kick <PlayerID> <Razón>");
         		return 1;
         	}
         	zcmd(kickname, playerid, params[])
@@ -29404,7 +29405,7 @@ zcmd(llorar, playerid, params[])
         					Kick(params[0]);
         					return 1;
         				} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-        			} else Message(playerid, COLOR_GRAD2, "Utilize: /nomreanti <PlayerID>");
+        			} else Message(playerid, COLOR_GRAD2, "Utilice: /nomreanti <PlayerID>");
         			return 1;
         		}
         		zcmd(kickafk, playerid, params[])
@@ -29427,7 +29428,7 @@ zcmd(llorar, playerid, params[])
         						Kick(params[0]);
         						return 1;
         					} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-        				} else Message(playerid, COLOR_GRAD2, "Utilize: /tickafk <PlayerID>");
+        				} else Message(playerid, COLOR_GRAD2, "Utilice: /tickafk <PlayerID>");
         				return 1;
 
         			}
@@ -29436,7 +29437,7 @@ zcmd(llorar, playerid, params[])
         				if(PlayerInfo[playerid][pAdminCP] < 2) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         				if(AntiAbusos[playerid] == 0){
         					SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-        					if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /disarm <PlayerID>");
+        					if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /disarm <PlayerID>");
         					if(params[0] != INVALID_PLAYER_ID)
         					{
         						new string[120];
@@ -29481,7 +29482,7 @@ zcmd(llorar, playerid, params[])
         										} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
         									} else Message(playerid, COLOR_GRAD2, "El jugador necesita ser nivel 2 mínimo.");
         								} else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-        							} else Message(playerid, COLOR_GRAD2, "Utilize: /venderacliente <PlayerID> <Cantidad>");
+        							} else Message(playerid, COLOR_GRAD2, "Utilice: /venderacliente <PlayerID> <Cantidad>");
         						} else Message(playerid, COLOR_GRAD2, "No estás en tu auto.");
         					} else Message(playerid, COLOR_GRAD2, "No estás en tu auto.");
         					return 1;
@@ -29507,7 +29508,7 @@ zcmd(llorar, playerid, params[])
         								GlobalMsg(-1, string);
         								return A_Info(string);
         							} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-        						} else Message(playerid, COLOR_GRAD2, "Utilize: /jail <PlayerID> <Minutos> <Razón>");
+        						} else Message(playerid, COLOR_GRAD2, "Utilice: /jail <PlayerID> <Minutos> <Razón>");
         						return 1;
         					}
         					zcmd(ls, playerid, params[])
@@ -29610,7 +29611,7 @@ zcmd(llorar, playerid, params[])
         													if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         													if(AntiAbusos[playerid] == 0){
         														SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-        														if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /mandarls <PlayerID>");
+        														if(sscanf(params, "u", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /mandarls <PlayerID>");
         														if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
         														SetPosEx(params[0], 1529.6,-1691.2,13.3, 0, 0 ,0);
         														MessageEx(playerid, params[0], COLOR_GRAD4, "¡Jugador teleportado!");
@@ -29623,7 +29624,7 @@ zcmd(llorar, playerid, params[])
         															if(!sscanf(params, "i", params[0])){
         																PutPlayerInVehicle(playerid, params[0], 1);
         																return Message(playerid, COLOR_GRAD1, "¡Teleportado!");
-        															} else Message(playerid, COLOR_GRAD2, "Utilize: /entercar <VehicleID>");
+        															} else Message(playerid, COLOR_GRAD2, "Utilice: /entercar <VehicleID>");
         															return 1;
         														}
         														zcmd(fuelcars, playerid, params[]){
@@ -29657,7 +29658,7 @@ zcmd(llorar, playerid, params[])
         																				GameTextForPlayer(i, string, 5000, params[0]);
         																			}
         																		}
-        																	} else Message(playerid, COLOR_GRAD2, "Utilize: /rcn <Tipo> <Texto>");
+        																	} else Message(playerid, COLOR_GRAD2, "Utilice: /rcn <Tipo> <Texto>");
         																	return 1;
         																}
 	// zcmd:dialogs ============================================================================================================================
@@ -29669,7 +29670,7 @@ zcmd(llorar, playerid, params[])
         																}
 	// zcmd:taxi
         																zcmd(tarifa, playerid, params[]){
-        																	if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /tarifa [$] (Establece tu tarifa)");
+        																	if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /tarifa [$] (Establece tu tarifa)");
         																	if(PlayerInfo[playerid][pJob] == 9){
         																		if(params[0] < 1 || params[0] > 100) return Message(playerid, COLOR_WHITE, "Valor entre 1-100");
         																		TarifaTaxi[playerid] = params[0];
@@ -29952,7 +29953,7 @@ zcmd(llorar, playerid, params[])
 			}
 			else Message(playerid, COLOR_GRAD2, "Jugador no conectado");
 		}
-		else Message(playerid, COLOR_GRAD2, "Utilize: /sacarsangre <PlayerID>");
+		else Message(playerid, COLOR_GRAD2, "Utilice: /sacarsangre <PlayerID>");
 		return 1;
 	}
 	zcmd(rescatar, playerid, params[])
@@ -29984,7 +29985,7 @@ zcmd(llorar, playerid, params[])
 			}
 			else Message(playerid, COLOR_GRAD2, "Jugador no conectado");
 		}
-		else Message(playerid, COLOR_GRAD2, "Utilize: /rescatar <id>");
+		else Message(playerid, COLOR_GRAD2, "Utilice: /rescatar <id>");
 		return 1;
 	}
 	zcmd(pcinfo, playerid, params[]){
@@ -30070,7 +30071,7 @@ zcmd(llorar, playerid, params[])
 		}
 		else
 		{
-			Message(playerid, COLOR_GRAD2, "Utilize: /operar <PlayerID> <Item>");
+			Message(playerid, COLOR_GRAD2, "Utilice: /operar <PlayerID> <Item>");
 			Message(playerid, COLOR_GRAD2, "Items: epilepsia, cancer, sida");
 		}
 		return 1;
@@ -30126,7 +30127,7 @@ zcmd(llorar, playerid, params[])
 			}
 			else Message(playerid, COLOR_GRAD2, "Jugador no conectado");
 		}
-		else Message(playerid, COLOR_GRAD2, "Utilize: /diagnostico <PlayerID>");
+		else Message(playerid, COLOR_GRAD2, "Utilice: /diagnostico <PlayerID>");
 		return 1;
 	}
 	zcmd(curar, playerid, params[])
@@ -30165,7 +30166,7 @@ zcmd(llorar, playerid, params[])
 			}
 			else Message(playerid, COLOR_GRAD2, "Jugador no conectado");
 		}
-		else Message(playerid, COLOR_GRAD2, "Utilize: /curar <ID>");
+		else Message(playerid, COLOR_GRAD2, "Utilice: /curar <ID>");
 		return 1;
 	}
 	zcmd(gmlimits, playerid, params[])
@@ -30200,12 +30201,12 @@ zcmd(llorar, playerid, params[])
 				case 1:
 				{
 					Skate[playerid] = 20; Message(playerid, COLOR_GRAD2, "ACTIVADO ACCIÓN 2 --> Velocidad moderada");
-					return Message(playerid, COLOR_YELLOW, "Utilize: ESPACIO [correr] y ALT [parar] - Utilize /patines 0");
+					return Message(playerid, COLOR_YELLOW, "Utilice: ESPACIO [correr] y ALT [parar] - Utilize /patines 0");
 				}
 				case 2:
 				{
 					Skate[playerid] = 30; Message(playerid, COLOR_GRAD2, "ACTIVADO ACCIÓN 3 --> Sprint");
-					return Message(playerid, COLOR_YELLOW, "Utilize: ESPACIO [correr] y ALT [parar] - Utilize /patines 0");
+					return Message(playerid, COLOR_YELLOW, "Utilice: ESPACIO [correr] y ALT [parar] - Utilize /patines 0");
 				}
 				default: Message(playerid,COLOR_GREY,"Utiliza: /patines [acción] (0:parar,1:correr,2:sprint)");
 			}
@@ -30469,7 +30470,7 @@ zcmd(llorar, playerid, params[])
 			}
 			else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
 		}
-		else Message(playerid, COLOR_GRAD2, "Utilize: /atar <ID>");
+		else Message(playerid, COLOR_GRAD2, "Utilice: /atar <ID>");
 		return 1;
 	}
 	zcmd(vendar, playerid, params[])
@@ -30505,7 +30506,7 @@ zcmd(llorar, playerid, params[])
 				}
 				else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
 			}
-			else Message(playerid, COLOR_GRAD2, "Utilize: /vendar <ID>");
+			else Message(playerid, COLOR_GRAD2, "Utilice: /vendar <ID>");
 		}
 		else Message(playerid, COLOR_GRAD2, "No autorizado.");
 		return 1;
@@ -30514,7 +30515,7 @@ zcmd(llorar, playerid, params[])
 	{
 		new Float:x, Float:y, Float:z, string[100];
 		if(PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-		if(sscanf(params, "fff", x, y, z)) return Message(playerid, COLOR_GRAD2, "Utilize: /irpunto <X> <Y> <Z>");
+		if(sscanf(params, "fff", x, y, z)) return Message(playerid, COLOR_GRAD2, "Utilice: /irpunto <X> <Y> <Z>");
 		SetPlayerPos(playerid, x, y, z);
 		format(string, sizeof(string), "Teleportado a %f, %f, %f", x, y, z);
 		Message(playerid, 0xFFFFFFFF, string);
@@ -30602,7 +30603,7 @@ zcmd(llorar, playerid, params[])
 			}
 			else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
 		}
-		else Message(playerid, COLOR_GREY, "Utilize: /transferir <PlayerID> <Monto>");
+		else Message(playerid, COLOR_GREY, "Utilice: /transferir <PlayerID> <Monto>");
 		return 1;
 	}
 	zcmd(darcheque, playerid, params[]){
@@ -30624,7 +30625,7 @@ zcmd(llorar, playerid, params[])
 					Message(params[0], COLOR_GRAD4, string);
 				} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
 			} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-		} else Message(playerid, COLOR_GRAD2, "Utilize: /darcheque <PlayerID> <Cantidad>");
+		} else Message(playerid, COLOR_GRAD2, "Utilice: /darcheque <PlayerID> <Cantidad>");
 		return 1;
 	}
 	zcmd(cobrarcheques, playerid, params[]){
@@ -30931,7 +30932,7 @@ zcmd(enmascarados, playerid, params[]){
 					}
 					else Message(playerid, COLOR_GREY, "Item incorrecto.");
 				}
-				else Message(playerid, COLOR_GREY, "Utilize: /mochila <nombre> (garma, sarma, agarrar)");
+				else Message(playerid, COLOR_GREY, "Utilice: /mochila <nombre> (garma, sarma, agarrar)");
 			}
 			return 1;
 		}
@@ -31477,7 +31478,7 @@ zcmd(enmascarados, playerid, params[]){
 				if(!IsANarco(playerid)) return Message(playerid, COLOR_GREY, "¡No eres un narcotraficante!");
 				new gunname[12], string[128];
 				if(GetPlayerWeapon(playerid) == 0) return Message(playerid, COLOR_GRAD2, "No tienes ningún arma en mano!");
-				if(sscanf(params, "ud", params[0], params[1])) return Message(playerid, COLOR_GRAD2, "Utilize: /venderarma <ID> <precio>");
+				if(sscanf(params, "ud", params[0], params[1])) return Message(playerid, COLOR_GRAD2, "Utilice: /venderarma <ID> <precio>");
 				if(params[1] < 1 || params[1] > 9999) return Message(playerid, COLOR_GRAD2, "Precio: 1 - 9999$");
 				if(IsPlayerConnected(params[0]))
 				{
@@ -31552,7 +31553,7 @@ zcmd(enmascarados, playerid, params[]){
 						}
 						else
 						{
-							Message(playerid, COLOR_GRAD2, "Utilize: /importar <Nombre> <Cantidad>");
+							Message(playerid, COLOR_GRAD2, "Utilice: /importar <Nombre> <Cantidad>");
 							Message(playerid, COLOR_GRAD2, "Nombre: speed, extasy, ritalin, heroina, marihuana.");
 						}
 					}
@@ -31679,7 +31680,7 @@ zcmd(enmascarados, playerid, params[]){
   		if(Maskuse[playerid] == 1) format(string, sizeof(string), "* Desconocido %s.", params[0]);
   		else format(string, sizeof(string), "* %s %s.", PlayerName(playerid), params[0]);
   		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /me <Acción>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /me <Acción>");
   	return 1;
   }
   zcmd(b, playerid, params[])
@@ -31690,7 +31691,7 @@ zcmd(enmascarados, playerid, params[]){
   		new string[128];
   		format(string, sizeof(string), "(( [OOC] %s(%d) dice: %s ))", PlayerName(playerid), playerid, params[0]);
   		ProxDetector(20.0, playerid, string,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /b <Canal OOC>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /b <Canal OOC>");
   	return 1;
   }
   zcmd(c, playerid, params[])
@@ -31702,7 +31703,7 @@ zcmd(enmascarados, playerid, params[]){
   		if(Maskuse[playerid] == 1)	format(string, sizeof(string), "Desconocido dice: %s", params[0]);
   		else format(string, sizeof(string), "%s dice: %s", PlayerName(playerid), params[0]);
   		ProxDetector(20.0, playerid, string,COLOR_FADE1,COLOR_FADE2,COLOR_FADE3,COLOR_FADE4,COLOR_FADE5);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /c <Texto>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /c <Texto>");
   	return 1;
   }
   zcmd(intentar, playerid, params[])
@@ -31710,7 +31711,7 @@ zcmd(enmascarados, playerid, params[]){
   	if(DetectarSPAM(params[0])) return AccionSPAM(playerid, params[0]);
   	if(Intentar[playerid] > 0) return Message(playerid, COLOR_GRAD2, "Espera 10 segundos para volver a utilizar este comando!");
   	new randa = random(2)+1, string[128];
-  	if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /intentar <Acción>");
+  	if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /intentar <Acción>");
   	if(Maskuse[playerid] == 1){
   		if(randa == 1){
   			format(string, sizeof(string), "* Desconocido consigue %s.", params[0]);
@@ -31746,7 +31747,7 @@ zcmd(enmascarados, playerid, params[]){
   		if(Maskuse[playerid] == 1) format(string, sizeof(string), "* Desconocido (( %s )).", params[0]);
   		else format(string, sizeof(string), "* %s (( %s )).", PlayerName(playerid), params[0]);
   		ProxDetector(30.0, playerid, string, 0xB6DB22FF,0xB6DB22FF,0xB6DB22FF,0xB6DB22FF,0xB6DB22FF);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /do <Acción>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /do <Acción>");
   	return 1;
   }
   zcmd(low, playerid, params[])
@@ -31758,7 +31759,7 @@ zcmd(enmascarados, playerid, params[]){
   		if(Maskuse[playerid] == 1) format(string, sizeof(string), "Desconocido susurra: %s", params[0]);
   		else format(string, sizeof(string), "%s susurra: %s", PlayerName(playerid), params[0]);
   		ProxDetector(3.0, playerid, string,COLOR_FADE1,COLOR_FADE2,COLOR_FADE3,COLOR_FADE4,COLOR_FADE5);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /low <Texto>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /low <Texto>");
   	return 1;
   }
   zcmd(j, playerid, params[]){
@@ -31768,7 +31769,7 @@ zcmd(enmascarados, playerid, params[]){
   		new string[128];
   		format(string, sizeof(string), "%s Administrador dice: %s", PlayerName(playerid), params[0]);
   		ProxDetector(30.0, playerid, string,ORANGE_ADMIN,ORANGE_ADMIN,ORANGE_ADMIN,ORANGE_ADMIN,ORANGE_ADMIN);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /j <Texto>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /j <Texto>");
   	return 1;
   }
   zcmd(g, playerid, params[])
@@ -31780,7 +31781,7 @@ zcmd(enmascarados, playerid, params[]){
   		if(Maskuse[playerid] == 1) format(string, sizeof(string), "Desconocido grita: ¡¡ %s !!", params[0]);
   		else format(string, sizeof(string), "%s grita: ¡¡ %s !!", PlayerName(playerid), params[0]);
   		ProxDetector(30.0, playerid, string,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_FADE1,COLOR_FADE2);
-  	} else Message(playerid, COLOR_GRAD2, "Utilize: /g <Texto>");
+  	} else Message(playerid, COLOR_GRAD2, "Utilice: /g <Texto>");
   	return 1;
   }
   zcmd(w, playerid, params[])
@@ -31816,7 +31817,7 @@ zcmd(enmascarados, playerid, params[]){
   		}
   		else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
   	}
-  	else Message(playerid, COLOR_GRAD2, "Utilize: /w <PlayerID> <Texto>");
+  	else Message(playerid, COLOR_GRAD2, "Utilice: /w <PlayerID> <Texto>");
   	return 1;
   }
   zcmd(ita, playerid, params[])
@@ -31848,7 +31849,7 @@ zcmd(enmascarados, playerid, params[]){
   			}
   		}
   	}
-  	else Message(playerid, COLOR_GRAD2, "Utilize: /ita <Texto>");
+  	else Message(playerid, COLOR_GRAD2, "Utilice: /ita <Texto>");
   	return 1;
   }
   zcmd(jap, playerid, params[])
@@ -31880,7 +31881,7 @@ zcmd(enmascarados, playerid, params[]){
   			}
   		}
   	}
-  	else Message(playerid, COLOR_GRAD2, "Utilize: /jap <Texto>");
+  	else Message(playerid, COLOR_GRAD2, "Utilice: /jap <Texto>");
   	return 1;
   }
   zcmd(rus, playerid, params[])
@@ -31912,7 +31913,7 @@ zcmd(enmascarados, playerid, params[]){
   			}
   		}
   	}
-  	else Message(playerid, COLOR_GRAD2, "Utilize: /rus <Texto>");
+  	else Message(playerid, COLOR_GRAD2, "Utilice: /rus <Texto>");
   	return 1;
   }
   zcmd(aooc, playerid, params[]){
@@ -31925,7 +31926,7 @@ zcmd(enmascarados, playerid, params[]){
   				new string[128];
   				format(string, sizeof(string), "[{FFFFFF}AOOC{2684FF}] Admin %s: %s " , PlayerName(playerid), params[0])
   				GlobalMsg(0x62B382AA,string);
-  			} else Message(playerid, COLOR_GRAD2, "Utilize: /aooc <Texto>");
+  			} else Message(playerid, COLOR_GRAD2, "Utilice: /aooc <Texto>");
   		} else Message(playerid, COLOR_GRAD2, "¡No autorizado!");
   		return 1;
   	}
@@ -31952,7 +31953,7 @@ zcmd(enmascarados, playerid, params[]){
   		if(NewUsed[playerid] == 1) return Message(playerid, COLOR_GRAD2, "Tiene que esperar 2 minutos para volver a usar este canal.");
   		if(PlayerInfo[playerid][pBanDuda] != 0) return Message(playerid, COLOR_GRAD2, "¡No puedes utilizar este comando, estas baneado del sistema de ayuda!");
   		if((noooc)) return Message(playerid, COLOR_GRAD2, "El canal de ayuda ha sido deshabilitado por un administrador.");
-  		if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilize: /new <Texto>");
+  		if(sscanf(params, "s[128]", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /new <Texto>");
   		if(PlayerInfo[playerid][pHelper] == 1){
   			format(string, sizeof(string), "(( [%d] Helper %s: %s ))" , playerid, PlayerName(playerid), params[0]);
   			OOCOff(CHATNEW,string);
@@ -31968,7 +31969,7 @@ zcmd(enmascarados, playerid, params[]){
   	}
   	zcmd(darhelp, playerid, params[]){
   		if(PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-  		if(sscanf(params, "ui", params[0], params[1])) return Message(playerid, COLOR_GRAD2, "Utilize: /darhelp <ID> <Nivel>");
+  		if(sscanf(params, "ui", params[0], params[1])) return Message(playerid, COLOR_GRAD2, "Utilice: /darhelp <ID> <Nivel>");
   		if(IsPlayerConnected(params[0])){
   			new string[128]
   			switch(params[1])
@@ -32061,7 +32062,7 @@ zcmd(enmascarados, playerid, params[]){
   								Message(playerid, COLOR_WHITE, string);
   							}
   						}
-  						format(string, sizeof(string), "| Chaleco: %f%", vehTrunkArmour[result]);
+  						format(string, sizeof(string), "| Chaleco: %f", vehTrunkArmour[result]);
   						Message(playerid, COLOR_WHITE, string);
   						format(string, sizeof(string), "* %s abre el maletero de su vehículo.", PlayerName(playerid));
   						ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -32143,7 +32144,7 @@ zcmd(enmascarados, playerid, params[]){
   			}
   			else
   			{
-  				Message(playerid, COLOR_GRAD2, "Utilize: /maletero <item>");
+  				Message(playerid, COLOR_GRAD2, "Utilice: /maletero <item>");
   				Message(playerid, COLOR_GRAD2, "Items: garma, sarma, gchaleco, schaleco, info");
   			}
   			return 1;
@@ -32267,7 +32268,7 @@ zcmd(enmascarados, playerid, params[]){
   			}
   			else
   			{
-  				Message(playerid, COLOR_GRAD2, "Utilize: /pastilla <nombre>");
+  				Message(playerid, COLOR_GRAD2, "Utilice: /pastilla <nombre>");
   				Message(playerid, COLOR_GRAD2, "Nombres: Ibuprofeno, Nicotina, Energysil, Cancer, Epilepsia, SIDA");
   			}
   			return 1;
@@ -32398,7 +32399,7 @@ zcmd(enmascarados, playerid, params[]){
   					PlayerInfo[playerid][pMarihuana] -= 1;
   				}
   			}
-  			else Message(playerid, COLOR_GRAD2, "Utilize: /usardrogas <nombre> (speed, extasis, ritalin, heroina, marihuana)");
+  			else Message(playerid, COLOR_GRAD2, "Utilice: /usardrogas <nombre> (speed, extasis, ritalin, heroina, marihuana)");
   			return 1;
   		}
   		zcmd(estadodeshb, playerid, params[])
@@ -32570,7 +32571,7 @@ zcmd(enmascarados, playerid, params[]){
   							} else Message(playerid, COLOR_GRAD2, "¡Esa persona no consta como tu esposo(a)!");
   						} else Message(playerid, COLOR_GRAD2, "¡No estás casado!");
   					} else Message(playerid, COLOR_GRAD2, "¡No estás en el lugar adecuado!");
-  				} else Message(playerid, COLOR_GRAD2, "Utilize: /divorciar <PlayerID>");
+  				} else Message(playerid, COLOR_GRAD2, "Utilice: /divorciar <PlayerID>");
   				return 1;
   			}
   			zcmd(liberar, playerid, params[]){
@@ -32584,7 +32585,7 @@ zcmd(enmascarados, playerid, params[]){
   							Message(playerid, COLOR_GRAD4, "¡El jugador ha sido liberado del matrimonio!");
   							UpdatePlayerStat(params[0]);
   						} else Message(playerid, COLOR_GRAD2, "¡Jugador no conectado!");
-  					} else Message(playerid, COLOR_GRAD2, "Utilize: /liberar <PlayerID>");
+  					} else Message(playerid, COLOR_GRAD2, "Utilice: /liberar <PlayerID>");
   					return 1;
   				}
   				zcmd(carsno, playerid, params[]){
@@ -32664,7 +32665,7 @@ zcmd(enmascarados, playerid, params[]){
   										SetTimerEx("VolverApostar", 10000, false, "i", playerid);
   									}
   								}
-  							} else Message(playerid, COLOR_GRAD2, "Utilize: /apostar <Apuesta 1-5000>");
+  							} else Message(playerid, COLOR_GRAD2, "Utilice: /apostar <Apuesta 1-5000>");
   						}
   						else if(PlayerToPoint(2.0,playerid,2239.2478,1678.3411,6.9099) || PlayerToPoint(2.0,playerid,2241.8176,1679.1023,6.9099)){
   							if(!sscanf(params,"dd",numero,apuesta)){
@@ -32689,7 +32690,7 @@ zcmd(enmascarados, playerid, params[]){
   									Message(playerid, COLOR_WHITE, "¡Lo siento! Has perdido, suerte para la próxima.");
   									SetTimerEx("VolverApostar", 10000, false, "i", playerid);
   								}
-  							} else Message(playerid, COLOR_GRAD2, "Utilize: /apostar <Numero 1-5> <Apuesta 1-8000>");
+  							} else Message(playerid, COLOR_GRAD2, "Utilice: /apostar <Numero 1-5> <Apuesta 1-8000>");
   						} else Message(playerid, COLOR_GRAD2, "¡No estás en un lugar para apostar!");
   						return 1;
   					}
@@ -32721,7 +32722,7 @@ zcmd(enmascarados, playerid, params[]){
   									Message(playerid, COLOR_WHITE, "¡Lo siento! Has perdido, suerte para la próxima.");
   									SetTimerEx("VolverApostar", 10000, false, "i", playerid);
   								}
-  							} else Message(playerid, COLOR_GRAD2, "Utilize: /ruleta <Numero 1-5> <Apuesta 1-1500>");
+  							} else Message(playerid, COLOR_GRAD2, "Utilice: /ruleta <Numero 1-5> <Apuesta 1-1500>");
   						} else Message(playerid, COLOR_GRAD2, "¡No estás en un lugar para jugar a la ruleta rusa!");
   						return 1;
   					}
@@ -32771,7 +32772,7 @@ zcmd(enmascarados, playerid, params[]){
   									Message(playerid, COLOR_GRAD3, string);
   								} else Message(playerid, COLOR_GRAD2, "¡La cuenta que has señalado no existe!");
   							} else Message(playerid, COLOR_GRAD2, "Ejemplo de Uso: /cuentaoof Juan_David");
-  						} else Message(playerid, COLOR_GRAD2, "Utilize: /cuentaoof <Nombre_Jugador>");
+  						} else Message(playerid, COLOR_GRAD2, "Utilice: /cuentaoof <Nombre_Jugador>");
   						return 1;
   					}
   					zcmd(richs, playerid, params[]){
@@ -32860,7 +32861,7 @@ zcmd(enmascarados, playerid, params[]){
   								Message(playerid, COLOR_GRAD4, string);
   								format(string, sizeof(string), "* %s ha retirado %d de los fondos de la faccion.", PlayerName(playerid), params[0]);
   								SendFamilyMessage(PlayerInfo[playerid][pLeader], COLOR_YELLOW, string);
-  							} else Message(playerid, COLOR_GRAD2, "Utilize: /retirarfondos <Cantidad>");
+  							} else Message(playerid, COLOR_GRAD2, "Utilice: /retirarfondos <Cantidad>");
   							return 1;
   						}
   						zcmd(condon, playerid, params[])
@@ -33004,7 +33005,7 @@ zcmd(enmascarados, playerid, params[]){
 						} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
 					} else Message(playerid, COLOR_GRAD2, "No puedes saludarte a ti mismo.");
 				} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-			} else Message(playerid, COLOR_GRAD2, "Utilize: /saludar <PlayerID>");
+			} else Message(playerid, COLOR_GRAD2, "Utilice: /saludar <PlayerID>");
 			return 1;
 		}
 		zcmd(emisora, playerid, params[])
@@ -37921,7 +37922,7 @@ RadioMsg(const channel, const string[])
 		new robmoney = random(50000);
 		Earn(playerid, 150000+robmoney);
 		TogglePlayerControllable(playerid, 1);
-		format(string, sizeof(string), "¡Han robado $%d, ahora salgan de ahi antes de que llegue la policia!", robmoney);
+		format(string, sizeof(string), "¡Han robado $%d, ahora salgan de ahí antes de que llegue la policia!", robmoney);
 		Message(playerid, COLOR_GRAD2, string);
 		SaveRobs();
 		return 1;
@@ -38533,7 +38534,7 @@ function CheckPeso()
 			fclose(file);	printf(" > %d palabras de spam fueron cargadas", AntiSpamC);
 		}
 	}
-// de ropa binco
+	// de ropa binco
 	public OnPlayerModelSelection(playerid, response, listid, modelid)
 	{
 		if(listid == skinlist)
@@ -38542,14 +38543,14 @@ function CheckPeso()
 			{
 				PlayerInfo[playerid][pChar] = modelid;
 				SetPlayerSkin(playerid, PlayerInfo[playerid][pChar]);
-				SendClientMessage(playerid, 0xFF0000FF, "Has comprado ropa nueva te ha costado 200$");
+				SendClientMessage(playerid, 0xFF0000FF, "Has comprado ropa nueva. Te ha costado 200$");
 				GivePlayerMoney(playerid, -200);
 				new datos[128];
 				format(datos, sizeof(datos),"%s\n%d\0", PlayerName(playerid), GetPlayerSkin(playerid));
 				dini_IntSet("armario.ini",datos,GetPlayerSkin(playerid));
 				SendClientMessage(playerid, COLOR_GREEN, "Recordatorio: Usa /armario para ver las prendas de ropa que has adquirido");
 			}
-			else SendClientMessage(playerid, 0xFF0000FF, "Cancelado la seleccion de skin");
+			else SendClientMessage(playerid, 0xFF0000FF, "Cancelado la selección de skin");
 			return 1;
 		}
 		if(listid == armariolist)
@@ -38558,7 +38559,7 @@ function CheckPeso()
 			{
 				SetPlayerSkin(playerid, modelid);
 			}
-			else SendClientMessage(playerid, 0xFF0000FF, "Cancelado la seleccion de Skin");
+			else SendClientMessage(playerid, 0xFF0000FF, "Cancelado la selección de Skin");
 			return 1;
 		}
 		return 1;

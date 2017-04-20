@@ -140,7 +140,7 @@ public PayDay()
 					if(PlayerInfo[i][pRank] <= 1)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $200");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $200");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 200);
@@ -148,7 +148,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 3)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $500");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $500");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 500);
@@ -156,7 +156,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 5)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $600");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $600");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 600);
@@ -164,7 +164,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] >= 6)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $800");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $800");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 800);
@@ -187,7 +187,7 @@ public PayDay()
 					if(PlayerInfo[i][pRank] <= 1)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $200");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $200");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 200);
@@ -195,7 +195,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 2)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $300");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $300");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 300);
@@ -203,7 +203,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 3)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $400");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $400");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 400);
@@ -211,7 +211,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] >= 5)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $500");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $500");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 500);
@@ -231,7 +231,7 @@ public PayDay()
 					if(PlayerInfo[i][pRank] <= 1)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $200");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $200");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 200);
@@ -239,7 +239,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 3)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $300");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $300");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 300);
@@ -247,7 +247,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 4)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $400");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $400");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 400);
@@ -255,7 +255,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 5)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acredito $600");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $600");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 600);
