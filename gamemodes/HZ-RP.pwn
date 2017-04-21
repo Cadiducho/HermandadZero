@@ -632,27 +632,6 @@ new Muted[MAX_PLAYERS];
 new skinlist = mS_INVALID_LISTID; //skins del binco
 new armariolist = mS_INVALID_LISTID;
 
-/* - Sistema de novedades via web - */
-
-forward UpdateResponse(playerid, response_code, data[]);
-public UpdateResponse(playerid, response_code, data[])
-{
-
-	new string[ 1028 ];
-
-	if(response_code == 200)
-	{
-		format(string, sizeof(string), "%s", data);
-		return ShowPlayerDialog(playerid,512,DIALOG_STYLE_MSGBOX, "{FF231D}Versión del Servidor", string, "Ok", "");
-	}
-	else
-	{
-		format(string, sizeof(string), "The request failed! The response code was: %d", response_code);
-		SendClientMessage(playerid, 0xFFFFFFFF, string);
-	}
-	return 0;
-}
-
 /* --- Kick con retraso --- */
 new ckick[MAX_PLAYERS]; 
 
@@ -1583,6 +1562,7 @@ new Float:PaintPvPSpawns[3][3] = {
 #include "system/mapeados.pwn"
 #include "system/pickups.pwn"
 #include "system/3DLabels.pwn"
+#include "system/novedades.pwn"
 
 main()
 {
@@ -13150,13 +13130,6 @@ zcmd(llorar, playerid, params[])
 				Message(playerid, -1, "{FFFFFF}- Reportar a un jugador por infringir las normas - {46ED8F}/re");
 				return Message(playerid, -1, "{FFFFFF}- ¿Necesistas asistencia? - {00A400}/solicitaradmin");
 			}
-			zcmd(info, playerid, params[]){
-		/*new string[1024];
-		format(string, sizeof(string),"%s %s",ver,ver2);
-        return ShowPlayerDialog(playerid,512,DIALOG_STYLE_MSGBOX, "{FF231D}Versión del Servidor", string, "Ok", "");*/
-		HTTP(playerid, HTTP_GET, "hermandadzero.com/info.txt","","UpdateResponse");
-		return 1;
-	}
 	zcmd(timevehinfo, playerid, params[]){
 		new string[800];
 		new tveh[] = "{FFFFFF}Este servidor cuenta con un sistema de tiempo vehicular diseñado para evitar que existan\nvehiculos de personas que ya no entran al servidor y asi poder tener mas carros en venta\npara aquellos usuarios que son mas activos. Si posees un vehiculo puedes ver el tiempo\n";
