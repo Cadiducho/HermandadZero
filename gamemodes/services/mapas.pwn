@@ -21,7 +21,7 @@ Mapas_OnGameModeInit() {
 
 DialogCreate:mapa(playerid)
 {
-	Dialog_Open(playerid, Dialog:lottoBuy, DIALOG_STYLE_LIST, "{018CFE}Puntos de interes", 
+	Dialog_Open(playerid, Dialog:mapa, DIALOG_STYLE_LIST, "{018CFE}Puntos de interes", 
 		"{FFFFFF}Ayuntamiento\nJuzgados\nComisaria\nTaller\nLicencieria\nBinco\n24-7 Vinewood\n24-7 Unity\n24-7\nLavanderia\nJoyeria\nBanco\nGrotti\nCyber\nBiblioteca\nBowling\nIglesia\nCasino", 
 		"Aceptar", "Salir");
 }
@@ -53,10 +53,12 @@ DialogResponse:mapa(playerid, response, listitem, inputtext[])
 		} 
 		Message(playerid, COLOR_WHITE, "{FFFFFF}Se marcó la ubicación en el minimapa en forma de checkpoint (punto rojo).");
 	}
+	return 1;
 }
 
 zcmd(mapa, playerid, params[])
 {
 	if(!IsAtMap(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estas delante de un mapa!");
-	return Dialog_Show(playerid, Dialog:mapa);
+	Dialog_Show(playerid, Dialog:mapa);
+	return 1;
 }
