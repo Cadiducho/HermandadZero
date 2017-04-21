@@ -59,7 +59,7 @@ Pickups_OnGameModeInit() {
 	CreateDynamicPickup(1239, 1, 2556.0679,-1290.1639,1044.1250); // FABRICAR ARMAS
 	CreateDynamicPickup(1239, 1, 1623.6274,-2150.6238,13.6528); // Equipo Mecanico
 	CreateDynamicPickup(1239, 1, 366.6122,158.6483,1008.3828); // Equipo Gobierno
-	/* Pickups mapas informaciÃ³n */
+	/* Pickups mapas información */
 	CreateDynamicPickup(1239, 1, 1181.4065,-1318.3972,13.6281);
 	CreateDynamicPickup(1239, 1, 772.0750,-1327.3168,13.5469);
 	CreateDynamicPickup(1239, 1, 1813.9435,-1901.8436,13.5730);
@@ -80,26 +80,26 @@ public OnPlayerPickUpDynamicPickup(playerid, pickupid) {
 	new mats = random(20);
  	if(pickupid == pMatI)
  	{
- 		if(!IsANarco(playerid)) return Message(playerid, COLOR_GRAD2, "Â¡No eres narcotraficante!");
- 		if(Delivery[playerid] > 0) return Message(playerid, COLOR_GRAD2, "Â¡Ya tienes un paquete, entrÃ©galo antes!");
+ 		if(!IsANarco(playerid)) return Message(playerid, COLOR_GRAD2, "¡No eres narcotraficante!");
+ 		if(Delivery[playerid] > 0) return Message(playerid, COLOR_GRAD2, "¡Ya tienes un paquete, entrégalo antes!");
  		Delivery[playerid] = mats;
- 		Message(playerid, COLOR_WHITE, "Has recogido un paquete, entrÃ©gaselo a su dueÃ±o.");
+ 		Message(playerid, COLOR_WHITE, "Has recogido un paquete, entrégaselo a su dueño.");
  		GText(playerid, "paquete recogido", 5000, 1);
  	}
  	else if(pickupid == pMatII)
  	{
- 		if(!IsANarco(playerid)) return Message(playerid, COLOR_GRAD2, "Â¡No eres narcotraficante!");
- 		if(Delivery[playerid] > 0) return Message(playerid, COLOR_GRAD2, "Â¡Ya tienes un paquete, entrÃ©galo antes!");
+ 		if(!IsANarco(playerid)) return Message(playerid, COLOR_GRAD2, "¡No eres narcotraficante!");
+ 		if(Delivery[playerid] > 0) return Message(playerid, COLOR_GRAD2, "¡Ya tienes un paquete, entrégalo antes!");
  		Delivery[playerid] = mats;
- 		Message(playerid, COLOR_WHITE, "Has recogido un paquete, entrÃ©gaselo a su dueÃ±o.");
+ 		Message(playerid, COLOR_WHITE, "Has recogido un paquete, entrégaselo a su dueño.");
  		GText(playerid, "paquete recogido", 5000, 1);
  	}
  	else if(pickupid == pMatIII)
  	{
- 		if(!IsANarco(playerid)) return Message(playerid, COLOR_GRAD2, "Â¡No eres narcotraficante!");
- 		if(Delivery[playerid] > 0) return Message(playerid, COLOR_GRAD2, "Â¡Ya tienes un paquete, entrÃ©galo antes!");
+ 		if(!IsANarco(playerid)) return Message(playerid, COLOR_GRAD2, "¡No eres narcotraficante!");
+ 		if(Delivery[playerid] > 0) return Message(playerid, COLOR_GRAD2, "¡Ya tienes un paquete, entrégalo antes!");
  		Delivery[playerid] = mats+2;
- 		Message(playerid, COLOR_WHITE, "Has recogido un paquete, entrÃ©gaselo a su dueÃ±o.");
+ 		Message(playerid, COLOR_WHITE, "Has recogido un paquete, entrégaselo a su dueño.");
  		GText(playerid, "paquete recogido", 5000, 1);
  	}
  	return 1;

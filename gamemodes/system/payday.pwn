@@ -51,7 +51,7 @@ public SyncTime()
 		if(tmphour == 10 || tmphour == 15 ||tmphour == 20 || tmphour == 3)
 		{
 			new string[80];
-			format(string, sizeof(string), "{2F99B5}Noticias de la Loteria: {FFFFFF}Hemos empesado la elecciÃ³n de la loteria.");
+			format(string, sizeof(string), "{2F99B5}Noticias de la Loteria: {FFFFFF}Hemos empesado la elección de la loteria.");
 			OOCOff(COLOR_WHITE, string);
 			new rand = random(51);
 			if(rand == 0) { rand += 1; }
@@ -75,8 +75,11 @@ public PayDay()
 				account = PlayerInfo[i][pAccount];
 				key = PlayerInfo[i][pPhousekey];
 				rent = PlayerInfo[i][pRent];
-				if(PlayerInfo[i][pDonateT] == 1) checks = 2000;
-				else checks = 1000;
+				switch (PlayerInfo[i][pDonateT]) {
+					case 2: checks = 2500;
+					case 1: checks = 2000;
+					case 0: checks = 1000;
+				}
 				account += checks;
 				interest = PlayerInfo[i][pAccount]/20000;
 				PlayerInfo[i][pAccount] = account+interest;
@@ -99,7 +102,7 @@ public PayDay()
 					{
 						HouseInfo[key][hRooms] += 1;
 						PlayerInfo[i][pPhousekey] = 9999;
-						Message(i, COLOR_WHITE, "No puedes pagar el alquiler del cuarto, despÃ­dete.");
+						Message(i, COLOR_WHITE, "No puedes pagar el alquiler del cuarto, despídete.");
 						PlayerInfo[i][pRent] = 0;
 						rent = 0;
 					}
@@ -122,7 +125,7 @@ public PayDay()
 				Message(i, COLOR_GRAD1, string);
 				format(string, sizeof(string), "  Seguro Medico: -$%d", secur);
 				Message(i, COLOR_GRAD2, string);
-				format(string, sizeof(string), "  InterÃ©s $%d", interest);
+				format(string, sizeof(string), "  Interés $%d", interest);
 				Message(i, COLOR_GRAD2, string);
 				format(string, sizeof(string), "  Gastos totales: $%d", TaxValue + ebill + rent + secur);
 				Message(i, COLOR_GRAD3, string);
@@ -140,7 +143,7 @@ public PayDay()
 					if(PlayerInfo[i][pRank] <= 1)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $200");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $200");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 200);
@@ -148,7 +151,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 3)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $500");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $500");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 500);
@@ -156,7 +159,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 5)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $600");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $600");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 600);
@@ -164,7 +167,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] >= 6)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $800");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $800");
 						SendClientMessage(i, COLOR_WHITE, "Por ser policia de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 800);
@@ -187,7 +190,7 @@ public PayDay()
 					if(PlayerInfo[i][pRank] <= 1)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $200");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $200");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 200);
@@ -195,7 +198,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 2)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $300");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $300");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 300);
@@ -203,7 +206,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 3)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $400");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $400");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 400);
@@ -211,7 +214,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] >= 5)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $500");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $500");
 						SendClientMessage(i, COLOR_WHITE, "Por ser FBI/Militar de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 500);
@@ -231,7 +234,7 @@ public PayDay()
 					if(PlayerInfo[i][pRank] <= 1)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $200");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $200");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 200);
@@ -239,7 +242,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 3)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $300");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $300");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 300);
@@ -247,7 +250,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 4)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $400");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $400");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 400);
@@ -255,7 +258,7 @@ public PayDay()
 					else if(PlayerInfo[i][pRank] <= 5)
 					{
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
-						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditÃ³ $600");
+						SendClientMessage(i, COLOR_WHITE, "El jefe te acreditó $600");
 						SendClientMessage(i, COLOR_WHITE, "Por ser Medico de Los Santos");
 						SendClientMessage(i, COLOR_RED, "|-------------------------------------------------------|");
 						GivePlayerMoney(i, 600);
@@ -282,7 +285,7 @@ public PayDay()
 				if(TripleOn == 1) PlayerInfo[i][pExp] += 2;
 				if(Advertencia_Debe[i]==1)
 				{
-					SendClientMessage(i, COLOR_LIGHTRED, "Usted fallo en pagar su deuda, estara uno segundos en la prisiÃ³n.");
+					SendClientMessage(i, COLOR_LIGHTRED, "Usted fallo en pagar su deuda, estara uno segundos en la prisión.");
 					GameTextForPlayer(i, "~r~Atrapado!", 2000, 1);
 					SetPosEx(i,197.5159,174.6245,1003.0234,3.1802,3,0);
 					PlayerInfo[i][pJailed] = 3
@@ -306,7 +309,7 @@ public PayDay()
 
 zcmd(setpayday, playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GRAD2, "Â¡No autorizado!");
+	if(PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 	if(!sscanf(params, "i", params[0]))
 	{
 		new string[32];
