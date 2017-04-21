@@ -1,9 +1,9 @@
 
-#if defined pickups
+#if defined _pickups_included
 	#endinput
 #endif
 
-#define pickups
+#define _pickups_included
 
 new pMatI, pMatII, pMatIII;
 

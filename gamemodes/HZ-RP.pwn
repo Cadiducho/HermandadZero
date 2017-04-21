@@ -21,7 +21,7 @@
 #include <SpikeStrip>
 #include <mSelection>
 #include <SetVehicleAttachedObject[inc]>
-
+#include <mdialog>
 #include <a_http>
 
 // -================= AntiDeAMX ====================- //
@@ -765,7 +765,6 @@ function SetHP(playerid, Float:hp)
 #define EDITTOYSRZ      525
 // -=========24/7\SHOPS===========-
 #define D247_BUY 		550
-#define LOTTO_BUY       559
 // -================== NARCO & MAFIA ======================-
 #define CAMEL_MENU 			2200
 #define CREATE_WEAPON     	2201
@@ -923,7 +922,6 @@ forward LoadUser(playerid, name[], value[]);
 forward OnPlayerRegister(playerid, password[]);
 forward ProxDetector(Float:radi, playerid, string[],col1,col2,col3,col4,col5);
 forward ProxDetectorS(Float:radi, playerid, targetid);
-forward Lotto(number);
 forward DiseaseSystem();
 forward CheckGas();
 forward SaveAccounts();
@@ -1580,6 +1578,7 @@ new Float:PaintPvPSpawns[3][3] = {
 };
 
 //Incluir partes modulares de HermandadZero
+#include "services/lottery.pwn"
 #include "system/payday.pwn"
 #include "system/mapeados.pwn"
 #include "system/pickups.pwn"
@@ -2309,50 +2308,6 @@ public OnPlayerConnect(playerid)
 INI_Exist(filename[]) {
 	if (fexist(filename)) return true;
 	return false;
-}
-
-public Lotto(number)
-{
-	new JackpotFallen = 0;
-	new string[100];
-	format(string, sizeof(string), "Noticias de la Loteria: {FFFFFF}Hoy en dia el numero ganador ha recaido en: {FF0000}%d", number);
-	OOCOff(COLOR_ORANGE, string);
-	for(new i = 0; i < MAX_PLAYERS; i++){
-		if(IsPlayerConnected(i)){
-			if(PlayerInfo[i][pLottoNr] > 0){
-				if(PlayerInfo[i][pLottoNr] == number){
-					JackpotFallen = 1;
-					format(string, sizeof(string), "Noticias de la Loteria: %s ha ganado el acumulado de $%d .", PlayerName(i), Jackpot);
-					OOCOff(COLOR_DBLUE, string);
-					format(string, sizeof(string), "* Usted ha ganado $%d con su billete de loteria.", Jackpot);
-					Message(i, COLOR_YELLOW, string);
-					GivePlayerMoney(i, Jackpot);
-				}
-				else
-				{
-					Message(i, COLOR_WHITE, "* Usted no ha ganado con su billete de loteria este momento.");
-				}
-			}
-			PlayerInfo[i][pLottoNr] = 0;
-		}
-	}
-	if(JackpotFallen)
-	{
-		new rand = random(20000); rand += 5000;
-		Jackpot = rand;
-		SaveStuff();
-		format(string, sizeof(string), "El nuevo Jackpot se ha iniciado con {9EC73D}$%d", Jackpot);
-		OOCOff(0xFFFFFFFF, string);
-	}
-	else
-	{
-		new rand = random(5000); rand += 2158;
-		Jackpot += rand;
-		SaveStuff();
-		format(string, sizeof(string), "El bote se ha aumentado a {9EC73D}$%d", Jackpot);
-		OOCOff(0xFFFFFFFF, string);
-	}
-	return 1;
 }
 
 public OnPlayerDisconnect(playerid, reason)
@@ -4285,9 +4240,9 @@ UpdatePlayerStat(playerid)
 
 		switch (PlayerInfo[playerid][pDonateT]) 
 		{
-			case 0: PlayerStatInfo[playerid][5] = "No"; break;
-			case 1: PlayerStatInfo[playerid][5] = "Nivel 1"; break;
-			case 2: PlayerStatInfo[playerid][5] = "Nivel 2"; break;
+			case 0: PlayerStatInfo[playerid][5] = "No";
+			case 1: PlayerStatInfo[playerid][5] = "Nivel 1";
+			case 2: PlayerStatInfo[playerid][5] = "Nivel 2";
 		}
 
 		if(PlayerInfo[playerid][pMarried] == 1) PlayerStatInfo[playerid][6] = "Si";
@@ -8792,8 +8747,7 @@ case D247_BUY:
 			{
 				if(CheckMoney(playerid,5))
 				{
-					ShowPlayerDialog(playerid, LOTTO_BUY, DIALOG_STYLE_INPUT, "Lotería Nacional","Inserta un número entre 1 y 50. Mucha Suerte!","Comprar","Cancelar");
-					return 1;
+					return Dialog_Show(playerid, Dialog:lottoBuy);
 				}
 			}
 			case 1:
@@ -8908,21 +8862,6 @@ case D247_BUY:
 					return 1;
 				}
 			}
-		}
-	}
-}
-case LOTTO_BUY:
-{
-	if(response)
-	{
-		if(strval(inputtext) > 0 && strval(inputtext) < 51)
-		{
-			PlayerInfo[playerid][pLottoNr] = strval(inputtext);
-			Message(playerid, COLOR_WHITE, "Lotería comprada!");
-			Bought(playerid, 5);
-			if(PlayerToPoint(5.0,playerid,-22.3260,-138.6221,1003.5469))    Till(3, 5);
-			if(PlayerToPoint(5.0,playerid,-25.6448,-56.6718,1003.5469))  	Till(4, 5);
-			if(PlayerToPoint(5.0,playerid,-29.3554,-28.8020,1003.5573))    	Till(5, 5);
 		}
 	}
 }
@@ -18562,23 +18501,6 @@ zcmd(llorar, playerid, params[])
         								PayDay();
         								return 1;
         							}
-        							zcmd(loteria, playerid, params[])
-        							{
-        								if(PlayerInfo[playerid][pAdminCP] < 6) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        								if(AntiAbusos[playerid] == 0){
-        									SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;
-        								}
-        								else
-        								{
-        									new string[128];
-        									format(string, sizeof(string), "{2F99B5}Noticias de la Loteria: {FFFFFF}Hemos empezado la elección de la loteria.");
-        									OOCOff(COLOR_WHITE, string);
-        									new rand = random(51);
-        									if(rand == 0) { rand += 1; }
-        									Lotto(rand);
-        								}
-        								return 1;
-        							}
         							
     // Inicio Comandos Especiales by KrozT
         							zcmd(lavar, playerid, params[])
@@ -19975,10 +19897,10 @@ zcmd(llorar, playerid, params[])
 																										Message(playerid, COLOR_GREEN, "| Users Premium |");
 																										for(new i = 0; i < MAX_PLAYERS; i++){
 																											if(IsPlayerConnected(i)){
-																												new string[128], viptext[24];;
+																												new string[128], viptext[24];
 																												switch (PlayerInfo[i][pDonateT]) {
-																													case 1: viptext = "Premium 1"; break;
-																													case 2: viptext = "Premium 2"; break;
+																													case 1: viptext = "Premium 1";
+																													case 2: viptext = "Premium 2";
 																												}
 																												format(string, sizeof(string),"  %s - %s", viptext, PlayerName(i));
 																												Message(playerid, 0xC0C0C0FF, string);

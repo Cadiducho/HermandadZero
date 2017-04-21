@@ -50,12 +50,7 @@ public SyncTime()
 		}
 		if(tmphour == 10 || tmphour == 15 ||tmphour == 20 || tmphour == 3)
 		{
-			new string[80];
-			format(string, sizeof(string), "{2F99B5}Noticias de la Loteria: {FFFFFF}Hemos empesado la elección de la loteria.");
-			OOCOff(COLOR_WHITE, string);
-			new rand = random(51);
-			if(rand == 0) { rand += 1; }
-			Lotto(rand);
+			Lottery_OnSyncTime();
 		}
 	}
 }
