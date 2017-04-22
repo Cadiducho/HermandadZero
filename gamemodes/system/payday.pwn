@@ -273,11 +273,21 @@ public PayDay()
 				cNicotina[i] = 0;	cEnergysil[i] = 0;	cSIDA[i] = 0;	cCancer[i] = 0;		cEpilepsia[i] = 0;
 				PlayerInfo[i][pRob] = 0;
 				PlayerInfo[i][pConnectTime] += 1;
-				PlayerInfo[i][pExp] += 1;
 				PlayerInfo[i][pSuciedad] += 5;
 				PlayerInfo[i][pContract] -= 1;
-				if(DobleOn == 1) PlayerInfo[i][pExp] += 1;
-				if(TripleOn == 1) PlayerInfo[i][pExp] += 2;
+
+				//Dar experiencia con multiplicadores
+				new nuevaExperiencia = 1;
+				switch (PlayerInfo[i][pDonateT]) {
+					case 1: nuevaExperiencia *= 2;
+					case 2: nuevaExperiencia *= 3;
+				}
+				if(DobleOn == 1) nuevaExperiencia *= 2;
+				if(TripleOn == 1) nuevaExperiencia *= 3;
+
+				PlayerInfo[i][pExp] += nuevaExperiencia;
+
+
 				if(Advertencia_Debe[i]==1)
 				{
 					SendClientMessage(i, COLOR_LIGHTRED, "Usted fallo en pagar su deuda, estara uno segundos en la prisión.");
