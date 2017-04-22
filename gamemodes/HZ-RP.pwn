@@ -825,9 +825,6 @@ function SetHP(playerid, Float:hp)
 // -= Estado =- //
 #define DIALOG_ESTADO   	930
 #define DIALOG_REG_ESTADO   931
-// -= Renovacion Vehicular =- //
-#define RENOVEH_15_DIALOG	932
-#define RENOVEH_30_DIALOG   933
 // -= IPOD =- //
 #define IPOD_MENU       934
 /*#define IPOD_RADIO      935 -- Removido en 2.8.1 Fix B y sustituido por Radios 42 */
@@ -1066,8 +1063,6 @@ new Delivery[MAX_PLAYERS];
 new TicketOffer[MAX_PLAYERS];
 new CorteJudicial[MAX_PLAYERS];
 new TicketMoney[MAX_PLAYERS];
-new TimeCarOffer[MAX_PLAYERS];
-new RenoveLlave[MAX_PLAYERS];
 new PropRob[MAX_PLAYERS];
 new TutTime[MAX_PLAYERS];
 new PlayerDrunk[MAX_PLAYERS];
@@ -2173,8 +2168,8 @@ public OnPlayerConnect(playerid)
     CorteJudicial[playerid] = 999;
     HireKey[playerid] = 9999;		BuyNarco[playerid] = 999;	PlayerInfo[playerid][pCash] = dollah; 								NoFuel[playerid] = 0;
     DeathPlayer[playerid] = 0;		PropRob[playerid] = 999;        UsingRayBan[playerid] = 0;      TarifaTaxi[playerid] = 5;       RecentlyShot[playerid] = 0;
-    TransportTime[playerid] = 0; 	TransportCost[playerid] = 0; TransportDriver[playerid] = 999;   TimeCarOffer[playerid] = 999;
-    GivePlayerMoney(playerid,PlayerInfo[playerid][pCash]);     	RenoveLlave[playerid] = 0;          Hotdog[playerid] = 0;
+    TransportTime[playerid] = 0; 	TransportCost[playerid] = 0; TransportDriver[playerid] = 999;
+    GivePlayerMoney(playerid,PlayerInfo[playerid][pCash]);     	Hotdog[playerid] = 0;
     gEngine[playerid] = 0; 			JustDied[playerid] = 0; 	KnockedDown[playerid] = 0; 			Divorciar[playerid] = 999;      Speaker[playerid] = 0;
     UsingDrugs[playerid] = 0; 		AFK[playerid] = 0;              AFKTime[playerid] = 0;          Saludo_ID[playerid] = 999;
     UsingEctasy[playerid] = 0; 		EctasyEffect[playerid] = 0; UsingRitalin[playerid] = 0; 		RitalinEffect[playerid] = 0; 	UsingMarihuana[playerid] = 0;
@@ -10416,82 +10411,6 @@ case DIALOG_SAMUR_ELEVATOR:
 						}
 					}
 				}
-				case RENOVEH_15_DIALOG:
-				{
-					if(response)
-					{
-						if(!ProxDetectorS(10.0, playerid, TimeCarOffer[playerid])) return Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-						format(string, sizeof(string), "* %s saca firma un cheque y se lo da a %s.", PlayerName(playerid), PlayerName(TimeCarOffer[playerid]));
-						ProxDetector(30.0,playerid, string, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE);
-						if(RenoveLlave[playerid] == 1){
-							format(string, sizeof(string), "* Has renovado tu %s por un periodo de 15 dias, utiliza /v tiempo", CarInfo[PlayerInfo[playerid][pPcarkey]][cName]);
-							Message(playerid, COLOR_GREEN, string);
-							format(string, sizeof(string), "* Has renovado el %s de %s y has recibido un cheque por 6000$.", CarInfo[PlayerInfo[playerid][pPcarkey]][cName], PlayerName(playerid));
-							Message(TimeCarOffer[playerid], COLOR_GREEN, string);
-							CarInfo[PlayerInfo[playerid][pPcarkey]][cVehTime] = gettime() + 1296000;
-							PlayerInfo[playerid][pTimeCar] = gettime() + 1296000;
-						}
-						else if(RenoveLlave[playerid] == 2){
-							format(string, sizeof(string), "* Has renovado tu %s por un periodo de 15 dias, utiliza /v tiempo", CarInfo[PlayerInfo[playerid][pPcarkey2]][cName]);
-							Message(playerid, COLOR_GREEN, string);
-							format(string, sizeof(string), "* Has renovado el %s de %s y has recibido un cheque por 6000$.", CarInfo[PlayerInfo[playerid][pPcarkey2]][cName], PlayerName(playerid));
-							Message(TimeCarOffer[playerid], COLOR_GREEN, string);
-							CarInfo[PlayerInfo[playerid][pPcarkey2]][cVehTime] = gettime() + 1296000;
-							PlayerInfo[playerid][pTimeCar2] = gettime() + 1296000;
-						}
-						PlayerInfo[playerid][pAccount] -= 6000;
-						PlayerInfo[TimeCarOffer[playerid]][pCheques] += 6000;
-						TimeCarOffer[playerid] = 999;
-						RenoveLlave[playerid] = 0;
-					}
-					else
-					{
-						format(string, sizeof(string), "* %s rechaza una peticion.", PlayerName(playerid));
-						ProxDetector(30.0,playerid, string, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE);
-						format(string, sizeof(string), "* {FFC990}%s {FFFFFF}ha rechazado firmar el contrato de renovacion.", PlayerName(playerid));
-						MessageEx(playerid, TimeCarOffer[playerid], -1, string);
-						TimeCarOffer[playerid] = 999;
-						RenoveLlave[playerid] = 0;
-					}
-				}
-				case RENOVEH_30_DIALOG:
-				{
-					if(response)
-					{
-						if(!ProxDetectorS(10.0, playerid, TimeCarOffer[playerid])) return Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-						format(string, sizeof(string), "* %s saca firma un cheque y se lo da a %s.", PlayerName(playerid), PlayerName(TimeCarOffer[playerid]));
-						ProxDetector(30.0,playerid, string, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE);
-						if(RenoveLlave[playerid] == 1){
-							format(string, sizeof(string), "* Has renovado tu %s por un periodo de 30 dias, utiliza /v tiempo", CarInfo[PlayerInfo[playerid][pPcarkey]][cName]);
-							Message(playerid, COLOR_GREEN, string);
-							format(string, sizeof(string), "* Has renovado el %s de %s y has recibido un cheque por 15000$.", CarInfo[PlayerInfo[playerid][pPcarkey]][cName], PlayerName(playerid));
-							Message(TimeCarOffer[playerid], COLOR_GREEN, string);
-							CarInfo[PlayerInfo[playerid][pPcarkey]][cVehTime] = gettime() + 2592000;
-							PlayerInfo[playerid][pTimeCar] = gettime() + 2592000;
-						}
-						else if(RenoveLlave[playerid] == 2){
-							format(string, sizeof(string), "* Has renovado tu %s por un periodo de 30 dias, utiliza /v tiempo", CarInfo[PlayerInfo[playerid][pPcarkey2]][cName]);
-							Message(playerid, COLOR_GREEN, string);
-							format(string, sizeof(string), "* Has renovado el %s de %s y has recibido un cheque por 15000$.", CarInfo[PlayerInfo[playerid][pPcarkey2]][cName], PlayerName(playerid));
-							Message(TimeCarOffer[playerid], COLOR_GREEN, string);
-							CarInfo[PlayerInfo[playerid][pPcarkey2]][cVehTime] = gettime() + 2592000;
-							PlayerInfo[playerid][pTimeCar2] = gettime() + 2592000;
-						}
-						PlayerInfo[playerid][pAccount] -= 15000;
-						PlayerInfo[TimeCarOffer[playerid]][pCheques] += 15000;
-						TimeCarOffer[playerid] = 999;
-						RenoveLlave[playerid] = 0;
-					}
-					else
-					{
-						format(string, sizeof(string), "* %s rechaza una peticion.", PlayerName(playerid));
-						ProxDetector(30.0,playerid, string, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE, COLOR_PURPLE);
-						format(string, sizeof(string), "* {FFC990}%s {FFFFFF}ha rechazado firmar el contrato de renovacion.", PlayerName(playerid));
-						MessageEx(playerid, TimeCarOffer[playerid], -1, string);
-						TimeCarOffer[playerid] = 999;
-						RenoveLlave[playerid] = 0;
-					}
-				}
 				case IPOD_MENU:
 				{
 					if(response)
@@ -17362,58 +17281,28 @@ zcmd(llorar, playerid, params[])
         }
         zcmd(renovarvehiculo, playerid, params[])
         {
+        	if(!PlayerToPoint(10.0,playerid,362.2792,173.5607,1008.3828)) return Message(playerid, COLOR_GRAD2, "Solo puedes renovar tu vehículo en el ayuntamiento");
         	new string[128];
-        	if(!IsAnInstructor(playerid)) return Message(playerid, COLOR_GRAD2, "No eres licenciero.");
-        	if(sscanf(params, "uii", params[0],params[1],params[2])) return Message(playerid, COLOR_GRAD2, "Utilice: /renovarvehiculo <PlayerID> <Llave 1-2> <Días 15-30>");
-        	if(!IsPlayerConnected(params[0])) return Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-        	if(params[1] == 1 && PlayerInfo[params[0]][pPcarkey] == 9999) return Message(playerid, COLOR_GRAD2, "¡El jugador no posee un auto en su primer slot!");
-        	if(params[1] == 2 && PlayerInfo[params[0]][pPcarkey2] == 9999) return Message(playerid, COLOR_GRAD2, "¡El jugador no posee un auto en su segundo slot!");
-        	if(ProxDetectorS(5.0, playerid, params[0]))
+        	if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /renovarvehiculo <Llave 1-2>");
+        	if(params[0] == 1 && PlayerInfo[playerid][pPcarkey] == 9999) return Message(playerid, COLOR_GRAD2, "¡No posees ningún vehiculo en el primer slot!");
+        	if(params[0] == 2 && PlayerInfo[playerid][pPcarkey2] == 9999) return Message(playerid, COLOR_GRAD2, "¡No posees ningún vehículo en el segundo slot!");
+
+        	if(PlayerInfo[playerid][pAccount] >= 6000)
         	{
-        		RenoveLlave[params[0]] = params[1];
-        		switch(params[2])
-        		{
-        			case 15:
-        			{
-        				if(PlayerInfo[params[0]][pAccount] >= 6000)
-        				{
-        					TimeCarOffer[params[0]] = playerid;
-        					if(RenoveLlave[params[0]] == 1){
-        						format(string, sizeof(string), "* Ofreciste a %s renovar su %s, espera su respuesta.", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey]][cName]);
-        						Message(playerid, COLOR_WHITE, string);
-        						format(string, sizeof(string), "Licenciero %s te ofrece renovar tu %s por 6000$ (15 días)\n\t\tPresiona aceptar para firmar el contrato", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey]][cName]);
-        						ShowPlayerDialog(params[0], RENOVEH_15_DIALOG, DIALOG_STYLE_MSGBOX, "Contrato de Renovacion Vehicular", string, "Aceptar", "Rechazar");
-        					}
-        					else if(RenoveLlave[params[0]] == 2){
-        						format(string, sizeof(string), "* Ofreciste a %s renovar su %s, espera su respuesta.", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey2]][cName]);
-        						Message(playerid, COLOR_WHITE, string);
-        						format(string, sizeof(string), "Licenciero %s te ofrece renovar tu %s por 6000$ (15 días)\n\t\tPresiona aceptar para firmar el contrato", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey2]][cName]);
-        						ShowPlayerDialog(params[0], RENOVEH_15_DIALOG, DIALOG_STYLE_MSGBOX, "Contrato de Renovacion Vehicular", string, "Aceptar", "Rechazar");
-        					}
-        				} else Message(playerid, COLOR_GRAD2, "El jugador no tiene fondos suficientes.");
-        			}
-        			case 30:
-        			{
-        				if(PlayerInfo[params[0]][pAccount] >= 15000)
-        				{
-        					TimeCarOffer[params[0]] = playerid;
-        					if(RenoveLlave[params[0]] == 1){
-        						format(string, sizeof(string), "* Ofreciste a %s renovar su %s, espera su respuesta.", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey]][cName]);
-        						Message(playerid, COLOR_WHITE, string);
-        						format(string, sizeof(string), "Licenciero %s te ofrece renovar tu %s por 15000$ (30 días)\n\t\tPresiona aceptar para firmar el contrato", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey]][cName]);
-        						ShowPlayerDialog(params[0], RENOVEH_30_DIALOG, DIALOG_STYLE_MSGBOX, "Contrato de Renovacion Vehicular", string, "Aceptar", "Rechazar");
-        					}
-        					else if(RenoveLlave[params[0]] == 2){
-        						format(string, sizeof(string), "* Ofreciste a %s renovar su %s, espera su respuesta.", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey2]][cName]);
-        						Message(playerid, COLOR_WHITE, string);
-        						format(string, sizeof(string), "Licenciero %s te ofrece renovar tu %s por 15000$ (30 días)\n\t\tPresiona aceptar para firmar el contrato", PlayerName(params[0]), CarInfo[PlayerInfo[params[0]][pPcarkey2]][cName]);
-        						ShowPlayerDialog(params[0], RENOVEH_30_DIALOG, DIALOG_STYLE_MSGBOX, "Contrato de Renovacion Vehicular", string, "Aceptar", "Rechazar");
-        					}
-        				} else Message(playerid, COLOR_GRAD2, "El jugador no tiene fondos suficientes.");
-        			}
-        			default: Message(playerid,  COLOR_GRAD2, "Tiempo Incorrecto: Debes seleccionar entre 15 o 30 dias.");
+        		if(params[0] == 1) {
+        			format(string, sizeof(string), "* Has renovado tu %s por un periodo de 15 dias, utiliza /v tiempo", CarInfo[PlayerInfo[playerid][pPcarkey]][cName]);
+        			Message(playerid, COLOR_GREEN, string);
+        			CarInfo[PlayerInfo[playerid][pPcarkey]][cVehTime] = gettime() + 1296000;
+        			PlayerInfo[playerid][pTimeCar] = gettime() + 1296000;
         		}
-        	}
+        		else if(params[0] == 2) {
+        			format(string, sizeof(string), "* Has renovado tu %s por un periodo de 15 dias, utiliza /v tiempo", CarInfo[PlayerInfo[playerid][pPcarkey2]][cName]);
+        			Message(playerid, COLOR_GREEN, string);
+        			CarInfo[PlayerInfo[playerid][pPcarkey2]][cVehTime] = gettime() + 1296000;
+        			PlayerInfo[playerid][pTimeCar2] = gettime() + 1296000;
+        		} else return Message(playerid, COLOR_GRAD2, "Utilice: /renovarvehiculo <Llave 1-2>");
+        		PlayerInfo[playerid][pAccount] -= 6000;
+        	} else Message(playerid, COLOR_GRAD2, "No tienes fondos suficientes fondos suficientes. (6000$)");
         	return 1;
         }
         zcmd(noticias, playerid, params[])

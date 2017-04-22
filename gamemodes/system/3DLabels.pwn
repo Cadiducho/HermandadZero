@@ -90,6 +90,7 @@ Labels_OnGameModeInit() {
  	CreateDynamic3DTextLabel("       Juzgado Municipal", 				0x00D56AFF, 1495.1257,-1550.9364,15.3703, 25.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("Oficina Concesionario", 		                0x24FF65FF, 593.6577,-1250.7083,18.2470, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Ficha para trabajar: /fichar", 				0xFF9B6AFF, 338.2341,-1503.8063,15.7878, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+ 	CreateDynamic3DTextLabel("Pare renovar tu vehiculo 15 días usa \n{FFFFFF}/renovarvehiculo", 			COLOR_LIGHTBLUE, 362.2792,173.5607,1008.3828, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,3);
 
  	//Map icons
 	CreateDynamicMapIcon(1185.0560,-1323.9019,13.5730, 22, 0, 0, 0); // Hospital
