@@ -126,7 +126,6 @@ new npctoggle = 0;
 #define MAX_CANCER  		(100)
 #define MAX_EPILEPSIA   	(75)
 #define MAX_HOUSES			219
-#define MAX_BIZZ            32
 #define MAX_FACTION			26
 #define MAX_PLAYERTOYS		5
 // -========= Dialogs ========- //
@@ -766,10 +765,7 @@ function SetHP(playerid, Float:hp)
 #define DIALOG_LSPD_ELEVATOR   576
 // -=================== Transportes ======================-
 #define DIALOG_TAXI_RADAR 577
-// -================== DIALOG BAR =======================- //
-#define BAR_MENU 			578
-#define BAR_MENU_TAPAS 		579
-#define BAR_MENU_BEBIDAS    580
+
 // -================= DIALOG FARMACIA ===================- //
 #define DIALOG_FARMACIA 581
 // -================= DIALOGO AYUDA ===================- //
@@ -889,7 +885,6 @@ forward LoadProperty();
 forward Tiempos();
 forward CambiarClima();
 forward LoadCar();
-forward LoadBizz();
 forward SetPlayerSpawn(playerid);
 forward SetPlayerUnjail();
 forward GameModeExitFunc();
@@ -1290,9 +1285,7 @@ new Text:RegDraw[MAX_PLAYERS];
 new Text:RegInfo;
 new Text:Taximeter[MAX_PLAYERS];
 new Text3D:House3DText[MAX_HOUSES];
-new Text3D:Bizz3DText[MAX_BIZZ];
 new HousePickup[MAX_HOUSES];
-new BizzPickup[MAX_BIZZ];
 
 #define GasMax 180
 #define RunOutTime 120000
@@ -1419,8 +1412,6 @@ enum bInfo //By David
 	bTill,
 	bTillEx
 };
-
-new BizzInfo[MAX_BIZZ][bInfo];
 
 enum Faction
 {
@@ -1555,14 +1546,24 @@ new Float:PaintPvPSpawns[3][3] = {
 	{2003.1938,1598.9515,-11.8828}
 };
 
-//Incluir partes modulares de HermandadZero
+/* Incluir partes modulares de HermandadZero */
+
+//Headers
+#include "system/negocios.h"
+
+//Servicios
 #include "services/lottery.pwn"
 #include "services/mapas.pwn"
+
+//Sistemas
 #include "system/payday.pwn"
 #include "system/mapeados.pwn"
 #include "system/pickups.pwn"
 #include "system/3DLabels.pwn"
 #include "system/novedades.pwn"
+
+//Negocios
+#include "system/negocios.pwn"
 
 main()
 {
@@ -2053,23 +2054,6 @@ IsAtMap(playerid)
 		else if (PlayerToPoint(5.0,playerid,1450.84, -1026.94, 23.62))  return 1;
 		else if(PlayerToPoint(5.0,playerid,2089.01, -1824.00, 13.34))   return 1;
 		else if(PlayerToPoint(5.0,playerid,1718.75,-1866.16,13.57))   return 1;
-	}
-	return 0;
-}
-
-IsAtBar(playerid)
-{
-	if(IsPlayerConnected(playerid)){
-		if(PlayerToPoint(10.0,playerid,496.3752,-76.0410,998.7578))         return 1;
-		else if(PlayerToPoint(10.0,playerid,499.9703,-20.3358,1000.6797))   return 1;
-		else if(PlayerToPoint(10.0,playerid,1779.2051,-1556.7195,-49.6550)) return 1;
-		else if(PlayerToPoint(10.0,playerid,1215.9480,-13.3519,1000.9219))  return 1;
-		else if(PlayerToPoint(10.0,playerid,1259.2834,-791.0306,1084.0078)) return 1;
-		else if(PlayerToPoint(10.0,playerid,681.2731,-453.8256,-25.6172))   return 1;
-		else if(PlayerToPoint(10.0,playerid,2246.8252,1661.6531,6.9099))    return 1;
-		else if(PlayerToPoint(25.0,playerid,1291.1887,-1869.6744,13.5659))  return 1; 
-		else if(PlayerToPoint(10.0,playerid,1392.5297,-1893.1754,17.4266))  return 1;
-		else if(PlayerToPoint(15.0,playerid,1138.9811,-4.4557,1017.7200)) 	return 1;
 	}
 	return 0;
 }
@@ -4679,36 +4663,6 @@ public LoadProperty()
 	return 1;
 }
 
-public LoadBizz()
-{
-	new arrCoords[11][64];
-	new strFromFile2[256];
-	new File: file = fopen("bizz.cfg", io_read);
-	if (file)
-	{
-		new idx;
-		while (idx < sizeof(BizzInfo))
-		{
-			fread(file, strFromFile2);
-			split(strFromFile2, arrCoords, ',');
-			BizzInfo[idx][bOwned] = strval(arrCoords[0]);
-			strmid(BizzInfo[idx][bOwner], arrCoords[1], 0, strlen(arrCoords[1]), 255);
-			strmid(BizzInfo[idx][bName], arrCoords[2], 0, strlen(arrCoords[2]), 255);
-			strmid(BizzInfo[idx][bExtortion], arrCoords[3], 0, strlen(arrCoords[3]), 255);
-			BizzInfo[idx][bEntrancex] = floatstr(arrCoords[4]);
-			BizzInfo[idx][bEntrancey] = floatstr(arrCoords[5]);
-			BizzInfo[idx][bEntrancez] = floatstr(arrCoords[6]);
-			BizzInfo[idx][bLevelNeeded] = strval(arrCoords[7]);
-			BizzInfo[idx][bBuyPrice] = strval(arrCoords[8]);
-			BizzInfo[idx][bTill] = strval(arrCoords[9]);
-			BizzInfo[idx][bTillEx] = strval(arrCoords[10]);
-			idx++;
-		}
-		fclose(file);
-	}
-	return 1;
-}
-
 public OnGameModeInit()
 {
     skinlist = LoadModelSelectionMenu("skins.txt"); //skins del binco
@@ -4732,7 +4686,9 @@ public OnGameModeInit()
 	UsePlayerPedAnims(); // CJ Anims
 	LoadCar();
 	LoadTrunk();
-	LoadBizz();
+	
+	Negocios_OnGameModeInit();
+
 	LoadProperty();
 	INI_Load("robs.ini");
 	INI_Load("stuff.ini");
@@ -9562,259 +9518,7 @@ case DIALOG_SAMUR_ELEVATOR:
 							case 8: { return 1; }
 						}
 					}
-				}
-				case BAR_MENU:
-				{
-					if(response)
-					{
-						switch(listitem)
-						{
-							case 0: { ShowPlayerDialog(playerid, BAR_MENU_TAPAS, DIALOG_STYLE_LIST, "Platos del Día", "Huevos con Chorizo (20$)\nJamón Ibérico (30$)\nSopa de Marisco (25$)\nMacarrones a la Bolognesa (15$)\nEnsalada (10$)", "Pedir", "Atrás"); return 1; }
-							case 1: { ShowPlayerDialog(playerid, BAR_MENU_BEBIDAS, DIALOG_STYLE_LIST, "Bebidas y refrescos", "Cerveza (3$)\nVino tinto (5$)\nChampagne (6$)\nCoca-Cola (2$)\nAgua (1$)", "Pedir", "Atrás"); return 1; }
-						}
-					}
-				}
-				case BAR_MENU_TAPAS:
-				{
-					if(response)
-					{
-						switch(listitem)
-						{
-							case 0:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+20); 	}
-								format(string, sizeof(string), "* %s come un plato de Huevos con Chorizo", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 20);
-								CheckBizz(playerid, 20);
-								ApplyAnimation(playerid,"FOOD","EAT_Burger",4.1,0,1,1,0,0);
-								if(PlayerDrunk[playerid] > 10)
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha comido", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 3;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 1:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+30); 	}
-								format(string, sizeof(string), "* %s come un plato de Jamón Ibérico", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 30);
-								CheckBizz(playerid, 30);
-								ApplyAnimation(playerid,"FOOD","EAT_Burger",4.1,0,1,1,0,0);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha comido", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 3;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 2:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+25); 	}
-								format(string, sizeof(string), "* %s come un plato de Sopa de Marisco", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 25);
-								CheckBizz(playerid, 25);
-								ApplyAnimation(playerid,"FOOD","EAT_Burger",4.1,0,1,1,0,0);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha comido", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 3;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 3:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+15); 	}
-								format(string, sizeof(string), "* %s come un plato de Macarrones a la Bolognesa", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 15);
-								CheckBizz(playerid, 15);
-								ApplyAnimation(playerid,"FOOD","EAT_Burger",4.1,0,1,1,0,0);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha comido", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 3;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 4:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+10); 	}
-								format(string, sizeof(string), "* %s come un plato de Ensalada", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 10);
-								CheckBizz(playerid, 10);
-								ApplyAnimation(playerid,"FOOD","EAT_Burger",4.1,0,1,1,0,0);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha comido", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 3;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-						}
-					}
-				}
-				case BAR_MENU_BEBIDAS:
-				{
-					if(response)
-					{
-						switch(listitem)
-						{
-							case 0:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+3); 	}
-								format(string, sizeof(string), "* %s se bebe una Cerveza.", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 3);
-								CheckBizz(playerid, 3);
-								PlayerDrunk[playerid] += 2;
-								SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_BEER);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha bebido.", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 5;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									PlayerDrunk[playerid]  += 1;
-									SetPlayerSpecialAction(playerid,SPECIAL_ACTION_NONE);
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 1:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+5); 	}
-								format(string, sizeof(string), "* %s se bebe una copa de Vino.", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 5);
-								CheckBizz(playerid, 5);
-								PlayerDrunk[playerid] += 1;
-								SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_WINE);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha bebido.", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 5;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									PlayerDrunk[playerid]  += 1;
-									SetPlayerSpecialAction(playerid,SPECIAL_ACTION_NONE);
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 2:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+6); 	}
-								format(string, sizeof(string), "* %s se bebe una copa de Champagne.", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 6);
-								CheckBizz(playerid, 6);
-								PlayerDrunk[playerid] += 3;
-								SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_WINE);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha bebido.", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerInfo[playerid][pCancer] += 5;
-									PlayerInfo[playerid][pEpilepsia] += 1;
-									PlayerDrunk[playerid]  += 1;
-									SetPlayerSpecialAction(playerid,SPECIAL_ACTION_NONE);
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 3:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+2); 	}
-								format(string, sizeof(string), "* %s se bebe una Coca-Cola.", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 2);
-								CheckBizz(playerid, 2);
-								SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_SPRUNK);
-								if(PlayerDrunk[playerid] > 10)
-									
-								{
-									
-									SetHP(playerid, 20);
-									format(string, sizeof(string), "* %s vomita lo que ha bebido.", PlayerName(playerid));
-									ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-									PlayerDrunk[playerid]  += 1;
-									SetPlayerSpecialAction(playerid,SPECIAL_ACTION_NONE);
-									ApplyAnimation(playerid, "FOOD", "EAT_Vomit_P", 3.0, 0, 0, 0, 0, 0);
-								}
-							}
-							case 4:
-							{
-								new Float:Health;
-								GetPlayerHealth(playerid, Health);
-								if(Health < 101)	{	SetHP(playerid, Health+1); 	}
-								format(string, sizeof(string), "* %s se bebe una botella pequeña de agua.", PlayerName(playerid));
-								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-								Bought(playerid, 1);
-								CheckBizz(playerid, 1);
-								SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_SPRUNK);
-								if(PlayerDrunk[playerid] > 0)
-									
-								{
-									PlayerDrunk[playerid]  -= 1;
-								}
-							}
-						}
-					}
-				}
-				
+				}				
 				case DIALOG_FARMACIA:
 				{
 					if(response)
@@ -11945,33 +11649,6 @@ function UpdateCars()
 	}
 }
 
-function UpdateBizz()
-{
-	new idx, File: file2, coordsstring[256];
-	while (idx < sizeof(BizzInfo))
-	{
-		format(coordsstring, sizeof(coordsstring), "%d,%s,%s,%s,%f,%f,%f,%d,%d,%d,%d\n",
-			BizzInfo[idx][bOwned],
-			BizzInfo[idx][bOwner],
-			BizzInfo[idx][bName],
-			BizzInfo[idx][bExtortion],
-			BizzInfo[idx][bEntrancex],
-			BizzInfo[idx][bEntrancey],
-			BizzInfo[idx][bEntrancez],
-			BizzInfo[idx][bLevelNeeded],
-			BizzInfo[idx][bBuyPrice],
-			BizzInfo[idx][bTill],
-			BizzInfo[idx][bTillEx]);
-
-		if(idx == 0)	file2 = fopen("bizz.cfg", io_write);
-		else			file2 = fopen("bizz.cfg", io_append);
-
-		fwrite(file2, coordsstring);
-		idx++;
-		fclose(file2);
-	}
-}
-
 function BroadCast(color,const string[])
 {
 	SendClientMessageToAll(color, string);
@@ -12931,16 +12608,6 @@ zcmd(llorar, playerid, params[])
 				ClearAnimations(playerid);
 			} else Message(playerid, COLOR_GREY, "¡No está fumando!");
 			return 1;
-		}
-		zcmd(comer, playerid, params[]){
-			if(!IsAtBar(playerid)) return Message(playerid, COLOR_GRAD2, "  No estas en un lugar donde beber!");
-			if(GetPlayerMoney(playerid) < 0) return Message(playerid, COLOR_FADE2, "Camarero dice: Vete a otro lugar a comer gratis!");
-        //PlayerInfo[playerid][pHambre] -= 3;
-        //PlayerInfo[playerid][pPeso] += 1;
-			if(IsPlayerConnected(playerid)){
-				ShowPlayerDialog(playerid, BAR_MENU, DIALOG_STYLE_LIST, "Menú del Día", "Platos Combinados & Tapas\nRefrescos & Bebidas & Vinos", "Ver", "Salir");
-			} else Message(playerid, COLOR_GRAD2, " Usted no esta conectado! ");
-			return 1
 		}
 		zcmd(lockhq, playerid, params[])
 		{
@@ -14035,191 +13702,13 @@ zcmd(llorar, playerid, params[])
 				else Message(playerid, COLOR_RED2, "No posees una propiedad.");
 				return 1;
 			}
-	//zcmd (CMD's Bizzes)
-			zcmd(bizz, playerid, params[])
-			{
-				if(PlayerInfo[playerid][pAdminCP] < 2012) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-				if(AntiAbusos[playerid] == 0){
-					SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
-					if(sscanf(params, "i", params[0])) return Message(playerid, COLOR_GRAD2, "Utilice: /bizz <House ID>");
-					if(params[0] < 0 || params[0] >= MAX_BIZZ) return Message(playerid, COLOR_GRAD2, "¡ID de negocio errónea!");
-					SetPlayerPos(playerid,BizzInfo[params[0]][bEntrancex],BizzInfo[params[0]][bEntrancey],BizzInfo[params[0]][bEntrancez]);
-					Message(playerid, COLOR_GRAD2, "¡Teleportado!");
-					return 1;
-				}
-				zcmd(comprarnegocio, playerid, params[])
-				{
-					for(new b = 0; b < sizeof(BizzInfo); b++)
-					{
-						new string[128];
-						if(PlayerToPoint(2.0, playerid, BizzInfo[b][bEntrancex], BizzInfo[b][bEntrancey], BizzInfo[b][bEntrancez]))
-						{
-							if(BizzInfo[b][bOwned] == 1) return Message(playerid, COLOR_RED2, "¡Este negocio ya tiene dueño!");
-							if(PlayerInfo[playerid][pPbizzkey] != 9999) return Message(playerid, COLOR_RED2, "¡Ya posees un negocio!");
-							if(PlayerInfo[playerid][pLevel] < BizzInfo[b][bLevelNeeded])
-							{
-								format(string, sizeof(string), "Este negocio requiere que seas nivel %d", BizzInfo[b][bLevelNeeded]);
-								Message(playerid, COLOR_RED2, string);
-								return 1;
-							}
-							if(GetPlayerMoney(playerid) >= BizzInfo[b][bBuyPrice])
-							{
-								PlayerInfo[playerid][pPbizzkey] = b;
-								BizzInfo[b][bOwned] = 1;
-								strmid(BizzInfo[b][bOwner], PlayerName(playerid), 0, strlen(PlayerName(playerid)), 255);
-								Bought(playerid, BizzInfo[b][bBuyPrice]);
-								Message(playerid, COLOR_WHITE, "Felicidades, has adquirido este negocio. Utiliza /ayuda negocio");
-								OnBizzTextdrawUpdate(b);
-								UpdateBizz();
-								return 1;
-							} else Message(playerid, COLOR_RED2, "No tienes los fondos necesarios para adquirir este negocio.");
-						}
-					}
-					return 1;
-				}
-				zcmd(asellbizz, playerid, params[])
-				{
-					new string[128], bid = PlayerInfo[playerid][pPbizzkey];
-					if(PlayerInfo[playerid][pPbizzkey] == 9999) return Message(playerid, COLOR_RED2, "No tienes un negocio.");
-					if(PlayerToPoint(3.0, playerid, BizzInfo[bid][bEntrancex],BizzInfo[bid][bEntrancey],BizzInfo[bid][bEntrancez]))
-					{
-						if(PlayerInfo[playerid][pPbizzkey] != 9999 && strcmp(PlayerName(playerid), BizzInfo[bid][bOwner], true) == 0)
-						{
-							new money = BizzInfo[bid][bBuyPrice]+BizzInfo[bid][bTill]+BizzInfo[bid][bTillEx];
-							Earn(playerid, money);
-							format(string, sizeof(string), "Has vendido tu negocio. Has recuperado %d$",money);
-							Message(playerid, COLOR_WHITE, string);
-							SellBizz(bid);
-							PlayerInfo[playerid][pPbizzkey] = 9999;
-						} else Message(playerid, COLOR_RED2, "Este negocio no está a tu nombre.");
-					} else Message(playerid, COLOR_RED2, "¡Debes estar cerca de tu negocio para vernderlo!");
-					return 1;
-				}
-				zcmd(sganancias, playerid, params[])
-				{
-					new string[128], bid = PlayerInfo[playerid][pPbizzkey];
-					if(PlayerInfo[playerid][pPbizzkey] == 9999) return Message(playerid, COLOR_RED, "No tienes un negocio.");
-					if(PlayerToPoint(3.0, playerid, BizzInfo[bid][bEntrancex],BizzInfo[bid][bEntrancey],BizzInfo[bid][bEntrancez]))
-					{
-						if(!sscanf(params,"d",params[0])){
-							if(params[0] < 1 || params[0] > BizzInfo[bid][bTill]) return Message(playerid, COLOR_GRAD2, "Cantidad incorrecta.");
-							if(PlayerInfo[playerid][pPbizzkey] != 9999 && strcmp(PlayerName(playerid), BizzInfo[bid][bOwner], true) == 0)
-							{
-								
-								Earn(playerid, params[0]);
-								format(string, sizeof(string), "Has retirado %d$ de la caja fuerte de tu negocio.", params[0]);
-								Message(playerid, COLOR_GRAD4, string);
-								BizzInfo[bid][bTill] -= params[0];
-							} else Message(playerid, COLOR_GRAD4, "Este negocio no está a tu nombre.");
-						} else Message(playerid, COLOR_GRAD2, "Utilice: /sganancias <Cantidad>");
-					} else Message(playerid, COLOR_GRAD4, "¡Debes estar cerca de tu negocio para retirar dinero de la caja!");
-					return 1;
-				}
-				zcmd(binfo, playerid, params[])
-				{
-					new string[128];
-					for(new b = 0; b < sizeof(BizzInfo); b++)
-					{
-						if(PlayerToPoint(3.0, playerid, BizzInfo[b][bEntrancex], BizzInfo[b][bEntrancey], BizzInfo[b][bEntrancez]))
-						{
-							if(BizzInfo[b][bOwned] == 0)
-							{
-								Message(playerid, 0xAAAAFFFF, "- Negocio en Venta - Información");
-								format(string, sizeof(string), "Nombre: %s", BizzInfo[b][bName]);
-								Message(playerid, COLOR_WHITE, string);
-								format(string, sizeof(string), "Valor: %d   -   Nivel: %d", BizzInfo[b][bBuyPrice],BizzInfo[b][bLevelNeeded]);
-								Message(playerid, COLOR_WHITE, string);
-								format(string, sizeof(string), "Negocio ID: %d", b);
-								Message(playerid, COLOR_WHITE, string);
-								Message(playerid, AMARILLO_ADMIN, "- Utiliza /comprarnegocio, para comprar este negocio.");
-								return 1;
-							}
-							if(PlayerInfo[playerid][pPbizzkey] == b)
-							{
-								Message(playerid, 0xAAAAFFFF, "- Propiedad Privada -");
-								format(string, sizeof(string), "Nombre: %s", BizzInfo[b][bName]);
-								Message(playerid, COLOR_WHITE, string);
-								format(string, sizeof(string), "Valor: %d   -   Nivel: %d", BizzInfo[b][bBuyPrice],BizzInfo[b][bLevelNeeded]);
-								Message(playerid, COLOR_WHITE, string);
-								format(string, sizeof(string), "Ganancias: %d", BizzInfo[b][bTill]);
-								Message(playerid, COLOR_WHITE, string);
-								return 1;
-							} else Message(playerid, COLOR_GRAD2, "No hay información disponible para este negocio.");
-						}
-					}
-					return 1;
-				}
-				zcmd(extorcion, playerid, params[]){
-					new string[128], bkey = PlayerInfo[playerid][pPbizzkey];
-					if(PlayerInfo[playerid][pPbizzkey] == 9999) return Message(playerid, COLOR_RED2, "¡No tienes un negocio!");
-					if(!sscanf(params,"u",params[0])){
-						if(PlayerToPoint(4.0, playerid, BizzInfo[bkey][bEntrancex], BizzInfo[bkey][bEntrancey], BizzInfo[bkey][bEntrancez])){
-							if(IsPlayerConnected(params[0])){
-								if(params[0] != playerid){
-									if(ProxDetectorS(5.0, playerid, params[0])){
-										if(strcmp("Nadie", BizzInfo[bkey][bExtortion], true) == 0){
-											strmid(BizzInfo[bkey][bExtortion], PlayerName(params[0]), 0, strlen(PlayerName(params[0])), 255);
-											format(string, sizeof(string), "Desde ahora {FF4FD4}%s {FFFFFF}será el extorcionista de tu negocio.", PlayerName(params[0]));
-											Message(playerid, COLOR_WHITE, string);
-											format(string, sizeof(string), "%s te ha puesto como extorcionista de su negocio, ahora puedes usar {FF4FD4}/recaudar.", PlayerName(playerid));
-											Message(params[0], COLOR_WHITE, string);
-											OnBizzTextdrawUpdate(bkey);
-											UpdateBizz();
-										} else Message(playerid, COLOR_GRAD2, "* Tu negocio ya tiene un extorcionista, primero usa /qextorcion.");
-									} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-								} else Message(playerid, COLOR_GRAD2, "¡No te puedes poner como extorcionista tu mismo!");
-							} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-						} else Message(playerid, COLOR_GRAD2, "¡Debes estar cerca de tu negocio!");
-					} else Message(playerid, COLOR_GRAD2, "Utilice: /extorcion <PlayerID>");
-					return 1;
-				}
-				zcmd(qextorcion, playerid, params[]){
-					new string[128], bkey = PlayerInfo[playerid][pPbizzkey];
-					if(PlayerInfo[playerid][pPbizzkey] == 9999) return Message(playerid, COLOR_RED2, "¡No tienes un negocio!");
-					if(!sscanf(params,"u",params[0])){
-						if(PlayerToPoint(4.0, playerid, BizzInfo[bkey][bEntrancex], BizzInfo[bkey][bEntrancey], BizzInfo[bkey][bEntrancez])){
-							if(IsPlayerConnected(params[0])){
-								if(params[0] != playerid){
-									if(ProxDetectorS(5.0, playerid, params[0])){
-										if(strcmp(PlayerName(params[0]), BizzInfo[bkey][bExtortion], true) == 0){
-											format(string, sizeof(string), "{FFFFFF}%s ha dedicido quitarte como extorcionista de su negocio.\n\t¿Estás de acuerdo con esta decisión?",PlayerName(playerid));
-											ShowPlayerDialog(params[0], QUIT_EXTORTION, DIALOG_STYLE_MSGBOX, "Confirmacion Negocios", string, "Si", "No");
-											Message(playerid, COLOR_GRAD4, "* La solicitud fue enviada, espera su respuesta.");
-											QuitExtortion[params[0]] = bkey;
-											ExtortionID[params[0]] = playerid;
-										} else Message(playerid, COLOR_GRAD2, "* Esa persona no es extorcionista de tu negocio.");
-									} else Message(playerid, COLOR_GRAD2, "Jugador muy lejos.");
-								} else Message(playerid, COLOR_GRAD2, "¡No puedes usar este comando contigo mismo!");
-							} else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
-						} else Message(playerid, COLOR_GRAD2, "¡Debes estar cerca de tu negocio!");
-					} else Message(playerid, COLOR_GRAD2, "Utilice: /qextorcion <PlayerID>");
-					return 1;
-				}
-				zcmd(recaudar, playerid, params[])
-				{
-					for(new b = 0; b < sizeof(BizzInfo); b++)
-					{
-						if(PlayerToPoint(2.0, playerid, BizzInfo[b][bEntrancex], BizzInfo[b][bEntrancey], BizzInfo[b][bEntrancez]))
-						{
-							if(strcmp(PlayerName(playerid), BizzInfo[b][bExtortion], true) == 0){
-								if(BizzInfo[b][bTillEx] > 0){
-									new string[128];
-									Earn(playerid, BizzInfo[b][bTillEx]);
-									format(string, sizeof(string), "Has recaudado {DC092F}%d$ {FFFFFF}de este negocio del cual eres extorcionista.", BizzInfo[b][bTillEx]);
-									Message(playerid, COLOR_WHITE, string);
-									BizzInfo[b][bTillEx] = 0;
-								} else Message(playerid, COLOR_GRAD2, "* No hay dinero para recaudar.");
-							}
-						}
-					}
-					return 1;
-				}
-    //zcmd [Sell Adm]
+    		//zcmd [Sell Adm]
 				zcmd(venderauto, playerid, params[]){
 					new vehid = GetPlayerVehicleID(playerid);
 					if(PlayerInfo[playerid][pAdminCP] < 2012) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 					if(AntiAbusos[playerid] == 0){
-						SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;}
+						SendClientMessage(playerid, COLOR_GRAD2, "{FF2E3F}[Sistema Anti Abuso]{FFFFFF} {E5E5C5}No puedes usar este comando sin estar en /adminduty {E5BEC5}"); return 1;
+					}
 						if(!IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estás en un vehículo!");
 						if(!IsAnOwnableCar(vehid)) return Message(playerid, COLOR_GRAD2, "¡No es un vehículo de venta!");
 						new Float:x,Float:y,Float:z,Float:a;
@@ -14274,22 +13763,7 @@ zcmd(llorar, playerid, params[])
 							}
 						} else Message(playerid, COLOR_GRAD2, "Utilice: /asellhouse <HouseID>");
 						return 1;
-					}
-					zcmd(vendernegocio, playerid, params[])
-					{
-						if(PlayerInfo[playerid][pAdminCP] < 2012) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-						if(!sscanf(params, "i", params[0]))
-						{
-							new string[128];
-							if(params[0] >= MAX_BIZZ || params[0] < 0) return Message(playerid, COLOR_GRAD2, "ID incorrecto.");
-							else{
-								SellBizz(params[0]);
-								format(string, sizeof(string), "Negocio %d vendido.", params[0]);
-								Message(playerid, COLOR_GRAD2, string);
-							}
-						} else Message(playerid, COLOR_GRAD2, "Utilice: /asellbizz <BizzID>");
-						return 1;
-					}
+					}	
 					zcmd(hitman, playerid, params[])
 					{
 						if(!PlayerToPoint(5.0, playerid, 1425.2998,-1291.2107,13.5560)) return Message(playerid, COLOR_GRAD2, "¡No estás en el lugar!");
@@ -18819,23 +18293,7 @@ zcmd(llorar, playerid, params[])
         												return 1;
         											} else return Message(playerid, COLOR_GRAD2, "Utilice: /editcar <Nuevo Dueño>");
         										}
-        										zcmd(bizzname, playerid, params[]){
-        											new string[128];
-        											if(PlayerInfo[playerid][pAdminCP] < 2014) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-        											for(new b = 0; b < sizeof(BizzInfo); b++){
-        												if(PlayerToPoint(3.0, playerid, BizzInfo[b][bEntrancex], BizzInfo[b][bEntrancey], BizzInfo[b][bEntrancez]))
-        												{
-        													if(!sscanf(params,"s[32]",params[0]))
-        													{
-        														strmid(BizzInfo[b][bName], params[0], 0, strlen(params[0]), 255);
-        														format(string, sizeof(string), "NegocioID: %d | Nuevo Nombre: %s", b, params[0]);
-        														Message(playerid, COLOR_GRAD2, string);
-        														OnBizzTextdrawUpdate(b);
-        													} else Message(playerid, COLOR_GRAD2, "Utilice: /bizzname <Nuevo Nombre>");
-        												}
-        											}
-        											return 1;
-        										}
+        										
         										zcmd(check,playerid, params[]){
         											if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
         											if(!sscanf(params, "u", params[0])){
@@ -26536,36 +25994,7 @@ function OnPropTextdrawUpdate(hid)
 	return 1;
 }
 
-function OnGlobalBizzTextdrawUpdate()
-{
-	for(new b = 0; b < sizeof(BizzInfo); b++)
-	{
-		OnBizzTextdrawUpdate(b);
-	}
-	return 1;
-}
 
-function OnBizzTextdrawUpdate(bid)
-{
-	new string[256];
-	if(BizzInfo[bid][bOwned] == 0)
-	{
-		DestroyDynamic3DTextLabel(Bizz3DText[bid]);
-		DestroyDynamicPickup(BizzPickup[bid]);
-		format(string, sizeof(string), "Negocio en Venta\n%s\nPrecio : %d$\nNivel: %d\nID: %d\nUsa /comprarnegocio",BizzInfo[bid][bName],BizzInfo[bid][bBuyPrice],BizzInfo[bid][bLevelNeeded],bid);
-		Bizz3DText[bid] = CreateDynamic3DTextLabel(string,0xAAAAFFFF, BizzInfo[bid][bEntrancex], BizzInfo[bid][bEntrancey], BizzInfo[bid][bEntrancez],5.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
-		BizzPickup[bid] = CreateDynamicPickup(1272, 1, BizzInfo[bid][bEntrancex], BizzInfo[bid][bEntrancey], BizzInfo[bid][bEntrancez]);
-	}
-	else
-	{
-		DestroyDynamic3DTextLabel(Bizz3DText[bid]);
-		DestroyDynamicPickup(BizzPickup[bid]);
-		format(string, sizeof(string), "%s\nDueño: %s\nExtorcion: %s",BizzInfo[bid][bName],BizzInfo[bid][bOwner],BizzInfo[bid][bExtortion]);
-		Bizz3DText[bid] = CreateDynamic3DTextLabel(string,0xAAAAFFFF, BizzInfo[bid][bEntrancex], BizzInfo[bid][bEntrancey], BizzInfo[bid][bEntrancez],5.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
-		BizzPickup[bid] = CreateDynamicPickup(1272, 1, BizzInfo[bid][bEntrancex], BizzInfo[bid][bEntrancey], BizzInfo[bid][bEntrancez]);
-	}
-	return 1;
-}
 
 function ShootAgain(playerid)
 {
@@ -28372,8 +27801,6 @@ Ayuda(playerid, tip)
 				Message(playerid, -1, "{FFFFFF}Mafiosos");
 				Message(playerid, -1, "{FFDD11}/robarpieza /cerrajear /atar /vendar /robarbanco /lockhq");
 			}
-
-
 			else if(Ballas_pand(playerid))
 			{
 				Message(playerid, -1, "{FFFFFF}Ballas");
@@ -28735,18 +28162,6 @@ SellHouse(playerid, houseid)
 	return 1;
 }
 
-SellBizz(bizzid)
-{
-	BizzInfo[bizzid][bOwned] = 0;
-	strmid(BizzInfo[bizzid][bOwner], "El Estado", 0, strlen("El Estado"), 64);
-	strmid(BizzInfo[bizzid][bExtortion], "Nadie", 0, strlen("Nadie"), 32);
-	BizzInfo[bizzid][bTill] = 0;
-	BizzInfo[bizzid][bTillEx] = 0;
-	UpdateBizz();
-	OnBizzTextdrawUpdate(bizzid);
-	return 1;
-}
-
 function SmokingCigarette(playerid)
 {
 	Connect
@@ -28802,30 +28217,6 @@ function CloseEstac2()
 	return 1;
 }
 
-function TillTimer()
-{
-	for(new b = 0; b < sizeof(BizzInfo); b++)
-	{
-		new bearn = BizzInfo[b][bBuyPrice]/500;
-		Till(b, bearn);
-	}
-}
-
-stock Till(bizzid, amount)
-{
-	if(BizzInfo[bizzid][bOwned] == 1){
-		if(strcmp("Nadie", BizzInfo[bizzid][bExtortion], true ) == 0){
-			BizzInfo[bizzid][bTill] += amount;
-		}
-		else{
-			new money = amount / 4;
-			BizzInfo[bizzid][bTill] += money * 3;
-			BizzInfo[bizzid][bTillEx] += money;
-		}
-	}
-	return 1;
-}
-
 function SendJobMessage(job, color, string[])
 {
 	for(new i = 0; i < MAX_PLAYERS; i++)
@@ -28838,16 +28229,6 @@ function SendJobMessage(job, color, string[])
 			}
 		}
 	}
-}
-
-function CheckBizz(playerid, earn)
-{
-	if(PlayerToPoint(10.0,playerid,499.9703,-20.3358,1000.6797))    Till(0, earn);
-	if(PlayerToPoint(10.0,playerid,1779.2051,-1556.7195,-49.6550))  Till(1, earn);
-	if(PlayerToPoint(10.0,playerid,496.3752,-76.0410,998.7578))     Till(2, earn);
-	if(PlayerToPoint(10.0,playerid,1392.5297,-1893.1754,17.4266))   Till(26,earn);
-	if(PlayerToPoint(25.0,playerid,1291.1887,-1869.6744,13.5659))   Till(27,earn); // cambiar coordenadas a nuevo negoció
-	return 0;
 }
 
 function CheckSuciedad()
