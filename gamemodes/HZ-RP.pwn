@@ -22712,6 +22712,7 @@ zcmd(enmascarados, playerid, params[]){
   							format(string, sizeof(string), "{FFFFFF}%s ha {F80F60}desactivado {FFFFFF}la doble experiencia.", PlayerName(playerid));
   							GlobalMsg(-1, string);
   						}
+  						TripleOn = 0; //Desactivar otros multiplicadores
   						return 1;
   					}
   					zcmd(tripleexp, playerid, params[]){
@@ -22726,6 +22727,7 @@ zcmd(enmascarados, playerid, params[]){
   							format(string, sizeof(string), "{FFFFFF}%s ha {F80F60}desactivado {FFFFFF}la TRIPLE experiencia.", PlayerName(playerid));
   							GlobalMsg(-1, string);
   						}
+  						DobleOn = 0; //Desactivar otros multiplicadores 
   						return 1;
   					}
   					zcmd(misfichas, playerid, params[]){
