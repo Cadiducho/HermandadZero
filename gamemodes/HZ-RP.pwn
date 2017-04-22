@@ -1551,19 +1551,18 @@ new Float:PaintPvPSpawns[3][3] = {
 //Headers
 #include "system/negocios.h"
 
-//Servicios
-#include "services/lottery.pwn"
-#include "services/mapas.pwn"
-
 //Sistemas
 #include "system/payday.pwn"
 #include "system/mapeados.pwn"
 #include "system/pickups.pwn"
 #include "system/3DLabels.pwn"
 #include "system/novedades.pwn"
-
-//Negocios
 #include "system/negocios.pwn"
+
+//Servicios
+#include "services/lottery.pwn"
+#include "services/mapas.pwn"
+#include "services/bar.pwn"
 
 main()
 {
