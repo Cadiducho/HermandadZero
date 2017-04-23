@@ -6,6 +6,7 @@
 #define SCRIPT_VERSION "3.0 Los Santos"
 
 #include <a_samp>
+#include <a_http>
 #include <core>
 #include <float>
 #include <time>
@@ -20,9 +21,8 @@
 #include <progressbar>
 #include <SpikeStrip>
 #include <mSelection>
-#include <SetVehicleAttachedObject[inc]>
+#include <SetVehicleAttachedObject>
 #include <mdialog>
-#include <a_http>
 
 // -================= AntiDeAMX ====================- //
 AntiDeAMX()
