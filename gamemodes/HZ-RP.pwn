@@ -26605,7 +26605,7 @@ function FuelCar(playerid, gasid)
 	new string[128], idcar = GetPlayerVehicleID(playerid), engine,lights,alarm,doors,bonnet,boot,objective;
 	if(engineOn[idcar] == 1)
 	{
-		format(string, sizeof(string), "* %s agarra la mangera y la introduce en el depósito.", PlayerName(playerid));
+		format(string, sizeof(string), "* %s agarra la manguera y la introduce en el depósito.", PlayerName(playerid));
 		ProxDetector(30.0,playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 		new Float:boomx,Float:boomy,Float:boomz;
 		GetVehiclePos(idcar,boomx,boomy,boomz);
@@ -26620,7 +26620,7 @@ function FuelCar(playerid, gasid)
 	{
 		Refueling[playerid] = gasid;
 		TogglePlayerControllable(playerid, 0);
-		format(string, sizeof(string), "* %s agarra la mangera y la introduce en el depósito.", PlayerName(playerid));
+		format(string, sizeof(string), "* %s agarra la manguera y la introduce en el depósito.", PlayerName(playerid));
 		ProxDetector(30.0,playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 		Message(playerid, COLOR_WHITE, "  El vehículo se está llenando, espera.");
 		SetTimerEx("FillUp", RefuelWait, false, "i", playerid);

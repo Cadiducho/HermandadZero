@@ -76,6 +76,29 @@ Pickups_OnGameModeInit() {
 	CreateDynamicPickup(1239, 1, 362.2792,173.5607,1008.3828,-1, 3);
 	/* Pickup sacar licencias */
 	CreateDynamicPickup(1239, 1, 2045.5239,-1907.7998,13.5469);
+	/* Pickups gasolineras */
+	CreateDynamicPickup(1650, 1, 1004.0070,-939.3102,42.1797);
+	CreateDynamicPickup(1650, 1, 1944.3260,-1772.9254,13.3906);
+	CreateDynamicPickup(1650, 1, -90.5515,-1169.4578,2.4079);
+	CreateDynamicPickup(1650, 1, -1609.7958,-2718.2048,48.5391);
+	CreateDynamicPickup(1650, 1, 2114.5444,920.1169,10.8203);
+	CreateDynamicPickup(1650, 1, 2640.6272,1106.5349,10.8203);
+	CreateDynamicPickup(1650, 1, 1625.0463,-2167.6428,13.4402);
+	CreateDynamicPickup(1650, 1, -1676.6323,414.0262,6.9484);
+	CreateDynamicPickup(1650, 1, 2202.2349,2474.3494,10.5258);
+	CreateDynamicPickup(1650, 1, 614.9333,1689.7418,6.6968);
+	CreateDynamicPickup(1650, 1, -1328.8250,2677.2173,49.7665);
+	CreateDynamicPickup(1650, 1, 70.3882,1218.6783,18.5165);
+	CreateDynamicPickup(1650, 1, 2113.7390,920.1079,10.5255);
+	CreateDynamicPickup(1650, 1, -1327.7218,2678.8723,50.0625);
+	CreateDynamicPickup(1650, 1, 1637.0149,2331.5129,10.8722);
+	CreateDynamicPickup(1650, 1, 1636.6686,2325.8711,10.8722);
+	CreateDynamicPickup(1650, 1, 1636.6140,2320.6423,10.8722);
+	CreateDynamicPickup(1650, 1, 1595.5337,2198.9404,10.8203);
+	CreateDynamicPickup(1650, 1, 656.4265,-559.8610,16.5015);
+	CreateDynamicPickup(1650, 1, 656.3797,-570.4138,16.5015);
+	CreateDynamicPickup(1650, 1, 1099.2325,-350.4425,73.9922);
+
 
 	printf("HZ-RP: %d Pickups Cargados", CountDynamicPickups());
 }

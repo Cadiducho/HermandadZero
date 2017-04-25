@@ -89,8 +89,31 @@ Labels_OnGameModeInit() {
  	CreateDynamic3DTextLabel("       Juzgado Municipal", 				0x00D56AFF, 1495.1257,-1550.9364,15.3703, 25.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("Oficina Concesionario", 		                0x24FF65FF, 593.6577,-1250.7083,18.2470, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Ficha para trabajar: /fichar", 				0xFF9B6AFF, 338.2341,-1503.8063,15.7878, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
- 	CreateDynamic3DTextLabel("Pare renovar tu vehiculo 15 días usa \n{FFFFFF}/renovarvehiculo", 			COLOR_LIGHTBLUE, 362.2792,173.5607,1008.3828, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,3);
+ 	CreateDynamic3DTextLabel("Para renovar tu vehiculo 15 días usa \n{FFFFFF}/renovarvehiculo", 			COLOR_LIGHTBLUE, 362.2792,173.5607,1008.3828, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,3);
  	CreateDynamic3DTextLabel("Para obtener tu licencia utiliza \n{FFFFFF}/evaluar", 		0xE6DE48FF, 2045.5239,-1907.7998,13.5469, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+
+ 	//Gasolina
+ 	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1004.0070,-939.3102,42.1797, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1944.3260,-1772.9254,13.3906, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, -90.5515,-1169.4578,2.4079, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, -1609.7958,-2718.2048,48.5391, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 2114.5444,920.1169,10.8203, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 2640.6272,1106.5349,10.8203, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1625.0463,-2167.6428,13.4402, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, -1676.6323,414.0262,6.9484, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 2202.2349,2474.3494,10.5258, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 614.9333,1689.7418,6.6968, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, -1328.8250,2677.2173,49.7665, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 70.3882,1218.6783,18.5165, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 2113.7390,920.1079,10.5255, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, -1327.7218,2678.8723,50.0625, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1637.0149,2331.5129,10.8722, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1636.6686,2325.8711,10.8722, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1636.6140,2320.6423,10.8722, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1595.5337,2198.9404,10.8203, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 656.4265,-559.8610,16.5015, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 656.3797,-570.4138,16.5015, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
+	CreateDynamic3DTextLabel("Para llenar tu vehiculo usa \n{FFFFFF}/llenar", COLOR_LIGHTBLUE, 1099.2325,-350.4425,73.9922, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 
  	//Map icons
 	CreateDynamicMapIcon(1185.0560,-1323.9019,13.5730, 22, 0, 0, 0); // Hospital
