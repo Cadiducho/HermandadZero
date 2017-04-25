@@ -33,7 +33,6 @@ Labels_OnGameModeInit() {
  	CreateDynamic3DTextLabel("HQ Piratas", 				0xF4BA0BFF, 1080.9240,-345.3622,73.9847, 5.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Mansión Rusa", 			0xF4BA0BFF, 691.5781,-1275.9139,13.5607, 6.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Subir Terraza", 			0xDF00DFFF, 725.5151,-1276.4104,13.6484, 5.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
- 	CreateDynamic3DTextLabel("Centro de Licencias", 		0xE6DE48FF, 2045.5239,-1907.7998,13.5469, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Central de Taxis", 			0xE6DE48FF, 1752.7571,-1894.2361,13.5573, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Pizza Stack", 				0xFF9B6AFF, 2105.2734,-1806.5475,13.5547, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Mercado Negro\nUtilize /bmbuy", 				0x400000FF, 1400.0763,-1444.9131,8.6699, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
@@ -91,6 +90,7 @@ Labels_OnGameModeInit() {
  	CreateDynamic3DTextLabel("Oficina Concesionario", 		                0x24FF65FF, 593.6577,-1250.7083,18.2470, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Ficha para trabajar: /fichar", 				0xFF9B6AFF, 338.2341,-1503.8063,15.7878, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Pare renovar tu vehiculo 15 días usa \n{FFFFFF}/renovarvehiculo", 			COLOR_LIGHTBLUE, 362.2792,173.5607,1008.3828, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,3);
+ 	CreateDynamic3DTextLabel("Para obtener tu licencia utiliza \n{FFFFFF}/evaluar", 		0xE6DE48FF, 2045.5239,-1907.7998,13.5469, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 
  	//Map icons
 	CreateDynamicMapIcon(1185.0560,-1323.9019,13.5730, 22, 0, 0, 0); // Hospital

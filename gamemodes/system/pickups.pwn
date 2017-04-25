@@ -74,6 +74,8 @@ Pickups_OnGameModeInit() {
 	CreateDynamicPickup(1239, 1, 1909.8049,-1783.8279,13.3828);
 	/* Pickup renovar vehiculo ayuntamiento */
 	CreateDynamicPickup(1239, 1, 362.2792,173.5607,1008.3828,-1, 3);
+	/* Pickup sacar licencias */
+	CreateDynamicPickup(1239, 1, 2045.5239,-1907.7998,13.5469);
 
 	printf("HZ-RP: %d Pickups Cargados", CountDynamicPickups());
 }

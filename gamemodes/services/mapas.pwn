@@ -19,6 +19,23 @@ Mapas_OnGameModeInit() {
 	CreateDynamic3DTextLabel("Para ver el mapa usa\n{FFFFFF}/mapa", 			COLOR_LIGHTBLUE, 1451.2942,-1026.9141,23.8281, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
 }
 
+IsAtMap(playerid)
+{
+	if(IsPlayerConnected(playerid)){
+		if(PlayerToPoint(5.0,playerid,1181.39,-1317.95,13.62))         return 1;
+		else if(PlayerToPoint(5.0,playerid,772.53, -1327.30, 13.35))   return 1;
+		else if(PlayerToPoint(5.0,playerid,1813.88, -1901.38, 13.36))   return 1;
+		else if (PlayerToPoint(5.0,playerid,1639.07, -2187.55, 13.37))  return 1;
+		else if(PlayerToPoint(5.0,playerid,1839.23, -1422.26, 13.38))   return 1;
+		else if(PlayerToPoint(5.0,playerid,1193.81, -1156.84, 23.69))   return 1;
+		else if (PlayerToPoint(5.0,playerid,456.63, -1494.42, 30.89))  return 1;
+		else if (PlayerToPoint(5.0,playerid,1450.84, -1026.94, 23.62))  return 1;
+		else if(PlayerToPoint(5.0,playerid,2089.01, -1824.00, 13.34))   return 1;
+		else if(PlayerToPoint(5.0,playerid,1718.75,-1866.16,13.57))   return 1;
+	}
+	return 0;
+}
+
 DialogCreate:mapa(playerid)
 {
 	Dialog_Open(playerid, Dialog:mapa, DIALOG_STYLE_LIST, "{018CFE}Puntos de interes", 

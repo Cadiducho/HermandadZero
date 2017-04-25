@@ -1273,9 +1273,6 @@ new cj[] ="       \n {45F86C}CarJack {FFFFFF} - Esta es una de las reglas muy im
 new rk[] ="       \n {45F86C}RevengeKill {FFFFFF} - Es la acción de cobrar vengaza despues de que usted haya {DEDC44}'muerto' \n {FFFFFF}Verdaderamente usted no muere, usted logra salvarse y aparece en el hospital. \n Lo que usted no debe hacer es volver al rol en el cual usted {DEDC44}'murio'.";
 new na[] ="       \n {45F86C}Noob Abuser {FFFFFF} - Hacer NA se considera abusar de un usuario nuevo {0096E5}(Novato - Noob). \n\n {54F288}Por Ejemplo: \n\n {45F86C}> {FFFFFF}Confundirlo para aprovecharse de su inexperiencia en RolePlay.\n {45F86C}> {FFFFFF}Obligarlo a que te de dinero o que siga un rol de secuestro. \n\n {F4E3D5}* Recuerde nunca Abusar de un novato. {FFFFFF}Usted puede resultar {FF150E}baneado {FFFFFF}del servidor.";
 
-// AutoEscuela
-new IsPractising[MAX_PLAYERS];
-
 new Text:RegDraw[MAX_PLAYERS];
 new Text:RegInfo;
 new Text:Taximeter[MAX_PLAYERS];
@@ -1553,6 +1550,7 @@ new Float:PaintPvPSpawns[3][3] = {
 #include "system/3DLabels.pwn"
 #include "system/novedades.pwn"
 #include "system/negocios.pwn"
+#include "system/licencias.pwn"
 
 //Servicios
 #include "services/lottery.pwn"
@@ -2035,23 +2033,6 @@ IsAtHotdog(playerid)
 	return 0;
 }
 
-IsAtMap(playerid)
-{
-	if(IsPlayerConnected(playerid)){
-		if(PlayerToPoint(5.0,playerid,1181.39,-1317.95,13.62))         return 1;
-		else if(PlayerToPoint(5.0,playerid,772.53, -1327.30, 13.35))   return 1;
-		else if(PlayerToPoint(5.0,playerid,1813.88, -1901.38, 13.36))   return 1;
-		else if (PlayerToPoint(5.0,playerid,1639.07, -2187.55, 13.37))  return 1;
-		else if(PlayerToPoint(5.0,playerid,1839.23, -1422.26, 13.38))   return 1;
-		else if(PlayerToPoint(5.0,playerid,1193.81, -1156.84, 23.69))   return 1;
-		else if (PlayerToPoint(5.0,playerid,456.63, -1494.42, 30.89))  return 1;
-		else if (PlayerToPoint(5.0,playerid,1450.84, -1026.94, 23.62))  return 1;
-		else if(PlayerToPoint(5.0,playerid,2089.01, -1824.00, 13.34))   return 1;
-		else if(PlayerToPoint(5.0,playerid,1718.75,-1866.16,13.57))   return 1;
-	}
-	return 0;
-}
-
 LSPD_IsACopCar(carid)		{	if((carid >= 1) 	&&		(carid <= 22))			{	return 1;	}	return 0;	}
 IsAPlane(carid)				{	if((carid >= 163) 	&&		(carid <= 167))			{	return 1;	}	return 0;	}
 FBI_Vehicle(carid)			{	if((carid >= 216) 	&& 		(carid <= 225))			{	return 1;	}	return 0;	}
@@ -2070,7 +2051,6 @@ IsABallas(carid)			{	if((carid >= 84) 	&& 		(carid <= 87))			{	return 1;	}	retur
 Ita_Vehicle(carid)			{	if((carid >= 88) 	&& 		(carid <= 98))			{	return 1;	}	return 0;	}
 Yak_Vehicle(carid)			{	if((carid >= 99) 	&& 		(carid <= 105))			{	return 1;	}	return 0;	}
 Rus_Vehicle(carid)			{	if((carid >= 106) 	&& 		(carid <= 114))			{	return 1;	}	return 0;	}
-Practise_Car(carid)			{	if((carid >= 148) 	&& 		(carid <= 152))			{	return 1;	}	return 0;	}
 CNN_Vehicle(carid)			{	if((carid >= 120) 	&& 		(carid <= 124))			{	return 1;	}	return 0;	}
 Narco_Vehicle(carid)		{	if((carid >= 168) 	&& 		(carid <= 182))			{	return 1;	}	return 0;	}
 Harvest_Vehicle(carid)		{	if((carid >= 169) 	&& 		(carid <= 171))			{	return 1;	}	return 0;	}
@@ -2156,7 +2136,7 @@ public OnPlayerConnect(playerid)
     RegText[playerid] = 0;			RegConfig[playerid] = 0; 	PuedePresionar[playerid] = true;    Accesory[playerid] = 0;         CallCost[playerid] = 0;
     HidePM[playerid] = 0; 			PhoneOnline[playerid] = 0;	UsedFind[playerid] = 0;             ActiveTeleport[playerid] = 0;   Camion[playerid] = 9999;
     Freezed[playerid] = 0; 			Condom[playerid] = 0;		TalkingLive[playerid] = 0;          PlayerDescargando[playerid] = 0;
-    LiveOffer[playerid] = 999; 		IsPractising[playerid] = 0; Fichas[playerid] = 0;               FailTuto[playerid] = 0;
+    LiveOffer[playerid] = 999; 		Fichas[playerid] = 0;               FailTuto[playerid] = 0;
     PlayerCuffed[playerid] = 0;		PlayerTazeado[playerid] = 0; Tazer[playerid] = 0;				RStep[playerid] = 0;		 	OnDuty[playerid] = 0;
     Muted[playerid] = 0;			Train_Route[playerid] = 0; 	 Plane_Route[playerid] = 0;			PlayerIsSweeping[playerid] = 0; PlayerIsRuta[playerid] = 0;
     TransportDuty[playerid] = 0;	Mobile[playerid] = 255;      PlayerCargando[playerid] = 0;   Mercancia[playerid] = 0;
@@ -2782,6 +2762,8 @@ public OnPlayerDeath(playerid, killerid, reason)
 
  public OnPlayerEnterCheckpoint(playerid)
  {
+ 	Licencias_OnPlayerEnterCP(playerid);
+
  	DisablePlayerCheckpoint(playerid);
  	new carid = GetPlayerVehicleID(playerid), string[128];
  	if(PlayerInfo[playerid][pJob] == 1 && Train_Route[playerid] > 0)
@@ -2993,6 +2975,9 @@ public OnPlayerDeath(playerid, killerid, reason)
  	{
  		return 1;
  	}
+
+ 	Licencias_OnPlayerStateChange(playerid, newstate);
+
  	new string[128];
  	new engine,lights,alarm,doors,bonnet,boot,objective;
  	if(newstate == PLAYER_STATE_ONFOOT)
@@ -3106,6 +3091,7 @@ public OnPlayerDeath(playerid, killerid, reason)
 	    {
 	    	GetVehicleParamsEx(newcar,engine,lights,alarm,doors,bonnet,boot,objective);
 	    	SetVehicleParamsEx(newcar,engineOn[newcar],lights,alarm,doors,bonnet,boot,objective);
+
 		// =================================Carros de Renta ==================================//
 	    	if(Hire_Vehicle(newcar))
 	    	{
@@ -3257,11 +3243,6 @@ public OnPlayerDeath(playerid, killerid, reason)
 		{
 			if(Mafia_Rusa(playerid)) { return 1; }
 			else RemovePlayerFromVehicle(playerid); Message(playerid, COLOR_GRAD2, "¡Este vehículo no es de tu facción!");return 1;
-		}
-		else if(Practise_Car(newcar))
-		{
-			if(IsAnInstructor(playerid) || IsPractising[playerid] == 1) { return 1; }
-			else RemovePlayerFromVehicle(playerid); Message(playerid, COLOR_GRAD2, "¡No puedes utilizar este vehículo ahora!");return 1;
 		}
 		else if(CNN_Vehicle(newcar))
 		{
@@ -15406,6 +15387,8 @@ zcmd(llorar, playerid, params[])
     								SetTimerEx("StartingTheVehicle",2500,false,"i",playerid);
     								GameTextForPlayer(playerid, "~w~Encendiendo motor",2500,3);
     								gEngine[playerid] = 1;
+
+    								Licencias_checkTestConducir(playerid);
     								return 1;
     							}
     							else {
@@ -17178,107 +17161,7 @@ zcmd(llorar, playerid, params[])
         		SendClientMessage(playerid, COLOR_YELLOW, string);
         	} else Message(playerid, COLOR_GREY, "¡No estás en un cajero!");
         	return 1;
-        }
-        zcmd(evaluar, playerid, params[])
-        {
-        	if(!IsAnInstructor(playerid)) return Message(playerid, COLOR_GRAD2, "¡No eres instructor!");
-        	if(!sscanf(params, "u", params[0]))
-        	{
-        		if(!IsPlayerConnected(params[0]))            return Message(playerid, COLOR_GRAD2, "¡Jugador no conectado!");
-        		if(!ProxDetectorS(8.0, playerid, params[0])) return Message(playerid, COLOR_GRAD2, "¡Jugador muy lejos!");
-        		if(IsPractising[params[0]] == 0)
-        		{
-        			new string[128];
-        			format(string, sizeof(string), "El examen práctico ha comenzado. Evaluador: %s - Alumno: %s", PlayerName(playerid), PlayerName(params[0]));
-        			Message(playerid,0xEEBE1AFF,string);
-        			Message(params[0],0xEEBE1AFF,string);
-        			IsPractising[params[0]] = 1;
-        		}
-        		else
-        		{
-        			MessageEx(playerid,params[0],0xEEBE1AFF,"Examen finalizado.");
-        			IsPractising[params[0]] = 0;
-        		}
-        	}
-        	else Message(playerid, COLOR_GRAD2, "Utilice: /evaluar <PlayerID>");
-        	return 1;
-        }
-        zcmd(licencias, playerid, params[])
-        {
-        	if(!sscanf(params, "u", params[0]))
-        	{
-        		if(IsPlayerConnected(params[0]))
-        		{
-        			if(ProxDetectorS(5.0, playerid, params[0]))
-        			{
-        				new string[64];
-        				ClearChatbox(params[0], 10);
-        				format(string, sizeof(string), "|__ Licencias de %s __|", PlayerName(playerid));
-        				Message(params[0], COLOR_WHITE, string);
-        				if(PlayerInfo[playerid][pCarLic] > 0)   Message(params[0], COLOR_GRAD2, " Licencia de conducción");
-        				if(PlayerInfo[playerid][pFlyLic] > 0)   Message(params[0], COLOR_GRAD2, " Licencia de vuelo");
-        				if(PlayerInfo[playerid][pBoatLic] > 0)  Message(params[0], COLOR_GRAD2, " Licencia de navegación");
-        				if(PlayerInfo[playerid][pGunLic] > 0)   Message(params[0], COLOR_GRAD2, " Licencia de armas");
-        				format(string, sizeof(string), "* %s muestra sus licencias a %s.", PlayerName(playerid), PlayerName(params[0]));
-        				ProxDetector(30.0,playerid,string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-        			}
-        			else Message(playerid, COLOR_GRAD2, "Muy lejos del jugador.");
-        		}
-        		else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-        	}
-        	else Message(playerid, COLOR_GRAD2, "Utilice: /licencias <PlayerID>");
-        	return 1;
-        }
-        zcmd(licencia, playerid, params[])
-        {
-        	new string[128], item[64];
-        	if(!IsAnInstructor(playerid)) return Message(playerid, COLOR_GRAD2, "No eres licenciero.");
-        	if(!sscanf(params, "us[64]", params[0], item))
-        	{
-        		if(IsPlayerConnected(params[0]))
-        		{
-        			if(ProxDetectorS(5.0, playerid, params[0]))
-        			{
-        				if(strcmp(item,"conduccion",true) == 0)
-        				{
-        					format(string, sizeof(string), "* Diste la licencia de %s a %s", item, PlayerName(params[0]));
-        					Message(playerid, COLOR_LIGHTBLUE, string);
-        					format(string, sizeof(string), "* Licenciero %s te dió la licencia de %s.", PlayerName(playerid), item);
-        					Message(params[0], COLOR_LIGHTBLUE, string);
-        					PlayerInfo[params[0]][pCarLic] = 1;
-        					return 1;
-        				}
-        				if(strcmp(item,"aviacion",true) == 0)
-        				{
-        					format(string, sizeof(string), "* Diste la licencia de %s a %s", item, PlayerName(params[0]));
-        					Message(playerid, COLOR_LIGHTBLUE, string);
-        					format(string, sizeof(string), "* Licenciero %s te dió la licencia de %s.", PlayerName(playerid), item);
-        					Message(params[0], COLOR_LIGHTBLUE, string);
-        					PlayerInfo[params[0]][pFlyLic] = 1;
-        					return 1;
-        				}
-        				if(strcmp(item,"navegacion",true) == 0)
-        				{
-        					format(string, sizeof(string), "* Diste la licencia de %s a %s", item, PlayerName(params[0]));
-        					Message(playerid, COLOR_LIGHTBLUE, string);
-        					format(string, sizeof(string), "* Licenciero %s te dió la licencia de %s.", PlayerName(playerid), item);
-        					Message(params[0], COLOR_LIGHTBLUE, string);
-        					PlayerInfo[params[0]][pBoatLic] = 1;
-        					return 1;
-        				}
-        				else Message(playerid, COLOR_GRAD2, "Nombre incorrecto.");
-        			}
-        			else Message(playerid, COLOR_GRAD2, "Muy lejos del comprador.");
-        		}
-        		else Message(playerid, COLOR_GRAD2, "Jugador desconectado.");
-        	}
-        	else
-        	{
-        		Message(playerid, COLOR_GRAD2, "Utilice: /licencia <PlayerID> <Licencia>");
-        		Message(playerid, COLOR_GRAD2, "Licencias: conduccion, aviacion, navegacion");
-        	}
-        	return 1;
-        }
+        } 
         zcmd(renovarvehiculo, playerid, params[])
         {
         	if(!PlayerToPoint(10.0,playerid,362.2792,173.5607,1008.3828)) return Message(playerid, COLOR_GRAD2, "Solo puedes renovar tu vehículo en el ayuntamiento");
@@ -18733,7 +18616,7 @@ zcmd(llorar, playerid, params[])
 																					}
 																					if(Admin(6,playerid)){
 																						Message(playerid, 0xFF8040FF, "-= Comandos Nivel 6 =-");
-																						Message(playerid, COLOR_GRAD2, "/rcn /noduda /weather /tod /richs /loteria /changeit /respawngeneral");
+																						Message(playerid, COLOR_GRAD2, "/rcn /noduda /weather /tod /richs /loteria /changeit /respawngeneral /licencia");
 																					}
 																					if(Admin(2012,playerid)){
 																						Message(playerid, 0xFF4A4AFF, "-= Comandos Nivel 2012 =-");
@@ -24001,6 +23884,7 @@ zcmd(enmascarados, playerid, params[]){
 		SetPosEx(playerid, -2662.1509,537.2712,48.0843, 180, 0, 0);
 		GameTextForPlayer(playerid, "~r~hospital",5000,1);
 	}
+	/** Autoescuela
 	else if (PlayerToPointStripped(1, playerid,2045.3928,-1908.0372,13.5469, cx,cy,cz))
 	{ //DMW Enter
 		Pause(playerid);
@@ -24011,7 +23895,7 @@ zcmd(enmascarados, playerid, params[]){
 	{ //DMW Exit
 		SetPosEx(playerid, 2046.8928,-1908.0372,13.5469,280,0,0);
 		GameTextForPlayer(playerid, "~w~Los Santos",5000,1);
-	}
+	}*/
 	else if (PlayerToPointStripped(1, playerid,1524.5724,-1677.8043,6.2188, cx,cy,cz))
 	{ //PD Elevator
 		SetPosEx(playerid, 790.8051,-367.0837,994.2100,270,6,0);
@@ -24369,9 +24253,6 @@ zcmd(enmascarados, playerid, params[]){
 		if(Team_FBI(playerid))	ShowPlayerDialog(playerid, DIALOG_FBI_ELEVATOR, DIALOG_STYLE_LIST, "FBI - ¿Donde deseas ir?", "Planta\nTerraza", "Aceptar", "Cancelar");
 		else Message(playerid, COLOR_GRAD2, "¡No perteneces al FBI, debes entrar por la puerta principal!");
 	}
-	// Autoscuela ENTER
-	else if (PlayerToPointStripped(1, playerid,1165.4834,1346.0511,10.9219, cx,cy,cz)) SetPosEx(playerid, 1165.5952,1344.7820,10.8125,0,0,0);
-	else if (PlayerToPointStripped(1, playerid,1165.5952,1344.7820,10.8125, cx,cy,cz)) SetPosEx(playerid, 1165.4834,1346.0511,10.9219,0,0,0);
 	// -=========================== FOOD PLACES SA ===========================- //
 	else if (PlayerToPointStripped(1, playerid,364.7064,-11.3221,1001.8516, cx,cy,cz) && GetPlayerInterior(playerid) == 9)
 	{
