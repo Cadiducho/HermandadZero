@@ -27706,10 +27706,10 @@ Ayuda(playerid, tip)
 			if(PlayerInfo[playerid][pDonateT] < 0) return Message(playerid, COLOR_GRAD2, "¡Usted no es premium!");
 
 			Message(playerid, -1, "{00E7FF}-=[Ayuda Premium]=-");
-			if(PlayerInfo[playerid][pDonateT] == 1) {
-				Message(playerid, COLOR_GRAD2, "Comandos: /garageentrar /garagesalir /v seguro3  /v seguro4 - /v estacionar3 /v estacionar4 - /cvehpremium /cambiarmiskin /traercarro /traercarro2 /fixpremium");
-			} else if(PlayerInfo[playerid][pDonateT] == 2) {
-				Message(playerid, COLOR_GRAD2, "Comandos: /v seguro4 - /v estacionar4 - /traercarro2 - /cvehpremium2");
+			Message(playerid, COLOR_GRAD2, "Comandos: /garageentrar /garagesalir /v seguro3 /v estacionar3");
+			Message(playerid, COLOR_GRAD2, "Comandos: /cvehpremium /cambiarmiskin /traercarro /fixpremium");
+			if(PlayerInfo[playerid][pDonateT] >= 2) {
+				Message(playerid, COLOR_GRAD2, "Comandos Nivel 2: /cvehpremium2 /v seguro4 /v estacionar4 /traercarro2");
 			}
 		}
 		case 10:
