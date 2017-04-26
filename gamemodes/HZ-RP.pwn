@@ -15369,52 +15369,7 @@ zcmd(llorar, playerid, params[])
     					GetVehicleParamsEx(idcar, engine,lights,alarm,doors,bonnet,boot,objective);
     					if(strcmp(params[0],"motor",true) == 0)
     					{
-    						if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return Message(playerid, COLOR_GREY, "No eres el conductor.");
-    						if(gEngine[playerid] == 1) { return 1; }
-    						if(NoBattery(idcar)) return Message(playerid, COLOR_GRAD2, "¡Vehículo sin batería!");
-    						if(engineOn[idcar] == 0)
-    						{
-    							if(IsABike(idcar)) { return 1; }
-    							if(Hire_Vehicle(idcar) && HireKey[playerid] != idcar) { return 1; }
-    							if(IsAnOwnableCar(idcar)) { if(PlayerInfo[playerid][pPcarkey] == idcar || PlayerInfo[playerid][pPcarkey2] == idcar || PlayerInfo[playerid][pCarPremium] == idcar || PlayerInfo[playerid][pCarPremium2] == idcar) { } else { return 1; } }
-
-    							new Float:health;
-    							GetVehicleHealth(idcar, health);
-    							if (health > 300)
-    							{
-    								format(string, sizeof(string), "* %s gira la llave del vehículo.", PlayerName(playerid));
-    								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-    								SetTimerEx("StartingTheVehicle",2500,false,"i",playerid);
-    								GameTextForPlayer(playerid, "~w~Encendiendo motor",2500,3);
-    								gEngine[playerid] = 1;
-
-    								Licencias_checkTestConducir(playerid);
-    								return 1;
-    							}
-    							else {
-    								ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-    								SetVehicleParamsEx(idcar,0,lights,alarm,doors,bonnet,boot,objective);
-    								engineOn[idcar] = false;
-    								gEngine[playerid] = 0;
-    								TogglePlayerControllable(playerid, 0);
-    								SendClientMessage(playerid, COLOR_YELLOW, "No puedes encender el vehiculo debido al daño, llama a un mecanico");
-    								return 1;
-    							}
-
-    						}
-    						else if(engineOn[idcar] == 1)
-    						{
-    							if(IsABike(idcar)) { return 1; }
-    							if(Hire_Vehicle(idcar) && HireKey[playerid] != idcar) { return 1; }
-    							if(IsAnOwnableCar(idcar)) { if(PlayerInfo[playerid][pPcarkey] == idcar || PlayerInfo[playerid][pPcarkey2] == idcar || PlayerInfo[playerid][pCarPremium] == idcar || PlayerInfo[playerid][pCarPremium2] == idcar) { } else { return 1; } }
-
-    							format(string, sizeof(string), "* %s apaga el motor del vehículo.", PlayerName(playerid));
-    							ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-    							SetVehicleParamsEx(idcar,0,lights,alarm,doors,bonnet,boot,objective);
-    							engineOn[idcar] = false;
-    							gEngine[playerid] = 0;
-    							return 1;
-    						}
+    						return Message(playerid, COLOR_WHITE, "Comando sustituido, usa la tecla {FF0000}N {FFFFFF}para encender el motor.");
     					}
     					else if(strcmp(params[0],"luces",true) == 0)
     					{
@@ -24474,6 +24429,58 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 	{
 		return 1;
 	}
+	if((newkeys & KEY_NO) && IsPlayerInAnyVehicle(playerid)) {
+		new idcar = GetPlayerVehicleID(playerid);
+    	new engine,lights,alarm,doors,bonnet,boot,objective;
+    	GetVehicleParamsEx(idcar, engine,lights,alarm,doors,bonnet,boot,objective);
+
+		if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return Message(playerid, COLOR_GREY, "No eres el conductor.");
+		if(gEngine[playerid] == 1) { return 1; }
+		if(NoBattery(idcar)) return Message(playerid, COLOR_GRAD2, "¡Vehículo sin batería!");
+		if(engineOn[idcar] == 0)
+		{
+			if(IsABike(idcar)) { return 1; }
+			if(Hire_Vehicle(idcar) && HireKey[playerid] != idcar) { return 1; }
+			if(IsAnOwnableCar(idcar)) { if(PlayerInfo[playerid][pPcarkey] == idcar || PlayerInfo[playerid][pPcarkey2] == idcar || PlayerInfo[playerid][pCarPremium] == idcar || PlayerInfo[playerid][pCarPremium2] == idcar) { } else { return 1; } }
+
+			new Float:health;
+			GetVehicleHealth(idcar, health);
+			if (health > 300)
+			{
+				format(string, sizeof(string), "* %s gira la llave del vehículo.", PlayerName(playerid));
+				ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+				SetTimerEx("StartingTheVehicle",2500,false,"i",playerid);
+				GameTextForPlayer(playerid, "~w~Encendiendo motor",2500,3);
+				gEngine[playerid] = 1;
+
+				Licencias_checkTestConducir(playerid);
+				return 1;
+			} else {
+				ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+				SetVehicleParamsEx(idcar,0,lights,alarm,doors,bonnet,boot,objective);
+				engineOn[idcar] = false;
+				gEngine[playerid] = 0;
+				TogglePlayerControllable(playerid, 0);
+				SendClientMessage(playerid, COLOR_YELLOW, "No puedes encender el vehiculo debido al daño, llama a un mecanico");
+				return 1;
+			}
+
+		}
+		else if(engineOn[idcar] == 1)
+		{
+			if(IsABike(idcar)) { return 1; }
+			if(Hire_Vehicle(idcar) && HireKey[playerid] != idcar) { return 1; }
+			if(IsAnOwnableCar(idcar)) { if(PlayerInfo[playerid][pPcarkey] == idcar || PlayerInfo[playerid][pPcarkey2] == idcar || PlayerInfo[playerid][pCarPremium] == idcar || PlayerInfo[playerid][pCarPremium2] == idcar) { } else { return 1; } }
+
+			format(string, sizeof(string), "* %s apaga el motor del vehículo.", PlayerName(playerid));
+			ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SetVehicleParamsEx(idcar,0,lights,alarm,doors,bonnet,boot,objective);
+			engineOn[idcar] = false;
+			gEngine[playerid] = 0;
+			return 1;
+		}
+	}
+
 	if(newkeys == 16 && InAmbu[playerid] > 0)
 	{
 		new Float:X, Float:Y, Float:Z;
