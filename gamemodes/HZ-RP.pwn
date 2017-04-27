@@ -1602,19 +1602,6 @@ public OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)
 	return 1;
 }
 
-
-IsAnInstructor(playerid)
-{
-	if(IsPlayerConnected(playerid))
-	{
-		new leader = PlayerInfo[playerid][pLeader];
-		new member = PlayerInfo[playerid][pMember];
-		if(member==15)		{	return 1;	}
-		else if(leader==15)	{	return 1;	}
-	}
-	return 0;
-}
-
 Team_LSPD(playerid)
 {
 	if(IsPlayerConnected(playerid))
@@ -4233,7 +4220,6 @@ UpdatePlayerStat(playerid)
 			case 12:    PlayerStatInfo[playerid][3] = "La Cosa Nostra";
 			case 13:    PlayerStatInfo[playerid][3] = "Yakuza";
 			case 14:    PlayerStatInfo[playerid][3] = "Família Karsakova";
-			case 15:    PlayerStatInfo[playerid][3] = "Licencieros";
 			case 16:    PlayerStatInfo[playerid][3] = "Gobierno";
 			case 17:    PlayerStatInfo[playerid][3] = "Radio-Television";
 			case 19:    PlayerStatInfo[playerid][3] = "Traficantes";
@@ -4367,18 +4353,6 @@ UpdatePlayerStat(playerid)
 				case 6:     PlayerStatInfo[playerid][4] = "Don";
 				case 7:     PlayerStatInfo[playerid][4] = "Líder";
 				default:    PlayerStatInfo[playerid][4] = "Assotsiirovat";
-			}
-		}
-		else if(IsAnInstructor(playerid))
-		{
-			switch(PlayerInfo[playerid][pRank]){
-				case 1:     PlayerStatInfo[playerid][4] = "Secretario";
-				case 2:     PlayerStatInfo[playerid][4] = "Maestro";
-				case 3:     PlayerStatInfo[playerid][4] = "Evaluador";
-				case 4:     PlayerStatInfo[playerid][4] = "Supervisor";
-				case 5:     PlayerStatInfo[playerid][4] = "Sub-Director";
-				case 6:     PlayerStatInfo[playerid][4] = "Director";
-				default:    PlayerStatInfo[playerid][4] = "Secretario";
 			}
 		}
 		else if(Gobierno(playerid))
@@ -12717,7 +12691,7 @@ zcmd(llorar, playerid, params[])
 			Message(playerid, COLOR_BLUE, "= ID'S de Facciones =");
 			Message(playerid, -1, "1. LSPD - 2.Piratas4x4 - 3. SAEM - 4. LSMC - 5. Ballas");
 			Message(playerid, -1, "7. Mecanicos - 8. Moteros - 9. Groove - 10. La Hermandad");
-			Message(playerid, -1, "11. L.Kings - 12. LCN - 13. Yakuza - 14. Rusos - 15. Licencieros");
+			Message(playerid, -1, "11. L.Kings - 12. LCN - 13. Yakuza - 14. Rusos");
 			Message(playerid, -1, "16. Gobierno - 17. CNN - 19. Traficantes - 23. Hitman - 24. FBI - 25. Corte Judicial" );
 
 		} else Message(playerid, COLOR_GRAD2, "¡No autorizado!");
@@ -13763,18 +13737,6 @@ zcmd(llorar, playerid, params[])
 								if(OnDuty[playerid]== 0){
 									OnDuty[playerid] = 1;
 									Message(playerid, COLOR_WHITE, "* Recibirás llamadas, estás de servicio.");
-								}
-								else{
-									OnDuty[playerid] = 0;
-									Message(playerid, COLOR_WHITE, "* Terminaste tu servicio, ya no recibirás llamadas.");
-								}
-							}
-							else if(IsAnInstructor(playerid)){
-								if(OnDuty[playerid]== 0)
-								{
-									OnDuty[playerid] = 1;
-									format(string, sizeof(string), "{00E45B}* Licenciero %s está en servicio {FFFFFF}(Tlf. %d)", PlayerName(playerid), PlayerInfo[playerid][pPnumber]);
-									OOCNews(-1,string);
 								}
 								else{
 									OnDuty[playerid] = 0;
@@ -16649,7 +16611,6 @@ zcmd(llorar, playerid, params[])
 				case 12:    {PlayerInfo[params[0]][pChar] = 113; PlayerInfo[params[0]][pRank] = 7; ftext = "LCN"; }
 				case 13:    {PlayerInfo[params[0]][pChar] = 294; PlayerInfo[params[0]][pRank] = 6; ftext = "Yakuza"; }
 				case 14:    {PlayerInfo[params[0]][pChar] = 290; PlayerInfo[params[0]][pRank] = 7; ftext = "Familia Korsakova"; }
-				case 15:    {PlayerInfo[params[0]][pRank] = 6; ftext = "Licencieros"; }
 				case 16:    {PlayerInfo[params[0]][pChar] = 295; PlayerInfo[params[0]][pRank] = 5; ftext = "Gobierno"; }
 				case 17:    {PlayerInfo[params[0]][pRank] = 6; ftext = "Radio-Television"; }
 				case 19:    {PlayerInfo[params[0]][pRank] = 6; ftext = "Traficantes"; }
@@ -17315,20 +17276,6 @@ zcmd(llorar, playerid, params[])
         		else Message(playerid, COLOR_GRAD2, "Jugador no conectado.");
         	}
         	else Message(playerid, COLOR_GRAD2, "Utilice: /placa <PlayerID>");
-        	return 1;
-        }
-        zcmd(credencial, playerid, params[]){
-        	if(!IsAnInstructor(playerid)) return Message(playerid, COLOR_GRAD2, "¡No eres licenciero!");
-        	if(!sscanf(params,"u",params[0])){
-        		if(!ProxDetectorS(5.0, playerid, params[0])) return Message(playerid, COLOR_GRAD2, "Muy lejos del jugador.");
-        		new string[128];
-        		ClearChatbox(params[0], 7);
-        		Message(params[0], COLOR_YELLOW, "-- Centro de Licencias --");
-        		format(string, sizeof(string), "Nombre: %s - Rango: %s", PlayerName(playerid), PlayerStatInfo[playerid][4]);
-        		Message(params[0], COLOR_WHITE, string);
-        		format(string, sizeof(string), "* %s le enseña la placa a %s", PlayerName(playerid), PlayerName(params[0]));
-        		ProxDetector(30.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-        	} else Message(playerid, COLOR_GRAD2, "Utilice: /credencia <PlayerID>");
         	return 1;
         }
         zcmd(seguro, playerid, params[]){
@@ -27588,11 +27535,6 @@ Ayuda(playerid, tip)
 			{
 				Message(playerid, -1, "{FFFFFF}Hitman");
 				Message(playerid, -1, "{FFDD11}/hits /encontrara /disfraz /amascara");
-			}
-			else if(IsAnInstructor(playerid))
-			{
-				Message(playerid, -1, "{FFFFFF}Licencieros");
-				Message(playerid, -1, "{FF6655}/licencia /evaluar /renovarvehiculo /credencial");
 			}
 			else if(Journalist(playerid))
 			{
