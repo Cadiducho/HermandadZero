@@ -2203,6 +2203,7 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pBanDuda] = 0;			PlayerInfo[playerid][pSeguro] = 0;		PlayerInfo[playerid][pWalkie] = 0;
 	PlayerInfo[playerid][pHead] = 0;            EstadoON[playerid] = 0;                 strmid(PlayerInfo[playerid][pDNIName], "Ninguno", 0, strlen("Ninguno"), 12);
 	PaintballType[playerid] = 0; 	PaintballDMKills[playerid] = 0; PaintPvPKills[playerid] = 0;    Bowling[playerid] = 0;		BowlingMoney[playerid] = 0;
+	AdminDuty[playerid] = 0;
 	for(new v = 0; v < MAX_PLAYERTOYS; v++)
 	{
 		PlayerToyInfo[playerid][v][ptModelID] = 0;
@@ -21144,7 +21145,23 @@ zcmd(comprar, playerid, params[])
 		if(PlayerToPoint(20.0,playerid,207.7558,-103.3743,1005.2578))   Till(10, 50);
 		return Message(playerid, COLOR_GRAD2, "Utiliza /qobjeto para quitartela");
 	}
-	if(PlayerToPoint(20, playerid,665.1661,-568.5448,16.3433))
+	if(PlayerToPoint(20, playerid,308,-140,999.6016))
+	{
+		if(PlayerInfo[playerid][pGunLic] == 0) return Message(playerid, COLOR_GRAD2, " Vendedor: ¡No le puedo vender armas, usted no tiene licencia!");
+			if(CheckMoney(playerid, 1))
+			{
+				ShowAmmunation(playerid);
+				ProxDetector(25.0, playerid, "Staff dice: ¿Buenas, que desea?",COLOR_FADE1,COLOR_FADE2,COLOR_FADE3,COLOR_FADE4,COLOR_FADE5);
+				return 1;
+			}
+			else
+			{
+				GameTextForPlayer(playerid, "~n~~n~~n~~n~~n~~n~~n~~n~~n~~b~", 5000, 3);
+				ProxDetector(25.0, playerid, "Staff dice: Lo siento, no puedo fiarte mas",COLOR_FADE1,COLOR_FADE2,COLOR_FADE3,COLOR_FADE4,COLOR_FADE5);
+				return 1;
+			}		
+	}
+	else if(PlayerToPoint(20, playerid,665.1661,-568.5448,16.3433))
 	{
 		return ShowPlayerDialog(playerid, DIALOG_FARMACIA, DIALOG_STYLE_LIST, "Farmacia + 24h","Condón (3$)\nIbuprofeno (10$)\nParches de Nicotina (30$)\nEnergisyl (40$)\nPastillas SIDA (1000$)\nAntiEpilectica (500$)\nPastillas Cancer (800$)", "Comprar", "Salir");
 	}
@@ -25245,7 +25262,7 @@ function RequestNPCTalk(playerid,Float:range)
 		}
 		if(!strcmp(npcname, "Homero_Rubio", true))
 		{
-			if(PlayerInfo[playerid][pGunLic] == 0) return Message(playerid, COLOR_GRAD2, " Vendedor: ¡No le puedo vender armas, usted no tiene licencia");
+			if(PlayerInfo[playerid][pGunLic] == 0) return Message(playerid, COLOR_GRAD2, " Vendedor: ¡No le puedo vender armas, usted no tiene licencia!");
 			if(CheckMoney(playerid, 1))
 			{
 				ShowAmmunation(playerid);

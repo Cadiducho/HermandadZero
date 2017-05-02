@@ -7,6 +7,8 @@
 
 Labels_OnGameModeInit() {
 	// 3D Labels
+	//CreateDynamic3DTextLabel("Utiliza /comprar para comprar", 0xFF0000FF, 308, -140, 999.6016, 25, INVALID_PLAYER_ID, INVALID_VEHICLE_ID,0, worldid = -1, interiorid = -1)
+
  	CreateDynamic3DTextLabel("Pabellon de boxeo.", 		0xE8E202FF, 1775.0223,-1806.0796,13.5285, 25.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);///
  	CreateDynamic3DTextLabel("Cine \nUtiliza /centradacine", 				0xFF0000FF, 1350.6001,-1677.0483,1694.2446, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);
  	CreateDynamic3DTextLabel("Cine", 	    							0x0093D9FF, 1324.0824,-1713.8619,13.6001, 40.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,1,0,0);

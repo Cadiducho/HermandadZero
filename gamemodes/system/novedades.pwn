@@ -13,7 +13,7 @@ public UpdateResponse(playerid, response_code, data[])
 	if(response_code == 200)
 	{
 		format(string, sizeof(string), "%s", data);
-		return Dialog_Open(playerid, Dialog:novedades, DIALOG_STYLE_MSGBOX, "{FF231D}Versión del Servidor", string, "Ok", "");
+		return Dialog_Open(playerid, Dialog:novedades, DIALOG_STYLE_MSGBOX, "{FF231D}Versión del Servidor", Desbug(string), "Ok", "");
 	}
 	else
 	{
