@@ -21134,6 +21134,13 @@ zcmd(accesorios, playerid, params[])
 	else Message(playerid, COLOR_GRAD2, "¡No estás en ninguna tienda de ropa!");
 	return 1;
 }
+/* -- Para el Ammu nation -- */
+zcmd(habilidades, playerid, params[]){
+	if(PlayerToPoint(5,playerid,314.26,-133.77,999.60)){
+		ShowPlayerDialog(playerid, DIALOG_AMMU_MANAGER,DIALOG_STYLE_LIST,"Ammunation", "Deseo mejorar mis habilidades a través de libros comprados\nQuiero informarme sobre mis habilidades con las diferentes armas", "Aceptar", "Cancelar");
+	}
+	return 1;
+}
 zcmd(comprar, playerid, params[])
 {
 	if(Accesory[playerid] > 0)
@@ -21145,7 +21152,7 @@ zcmd(comprar, playerid, params[])
 		if(PlayerToPoint(20.0,playerid,207.7558,-103.3743,1005.2578))   Till(10, 50);
 		return Message(playerid, COLOR_GRAD2, "Utiliza /qobjeto para quitartela");
 	}
-	if(PlayerToPoint(20, playerid,308,-140,999.6016))
+	if(PlayerToPoint(5,playerid,308.06,-141.46,999.60))
 	{
 		if(PlayerInfo[playerid][pGunLic] == 0) return Message(playerid, COLOR_GRAD2, " Vendedor: ¡No le puedo vender armas, usted no tiene licencia!");
 			if(CheckMoney(playerid, 1))
@@ -24941,17 +24948,17 @@ function CheckForOpenDoor(playerid)
 	}
 	else if(Team_Mecanicos(playerid))
 	{
-		if (PlayerToPoint(20, playerid,1577.1700000,-2184.8200000,12.5400000))
+		if (PlayerToPoint(10, playerid,1577.1700000,-2184.8200000,12.5400000))
 		{
 			MoveDynamicObject(meca1,1569.100000,-2184.8200000,12.5400000, 2.0, -1000.0, -1000.0, -1000.0);
 			return 1;
 		}
-		if (PlayerToPoint(15, playerid,1637.2500000,-2184.8000000,12.5400000))
+		if (PlayerToPoint(10, playerid,1637.2500000,-2184.8000000,12.5400000))
 		{
 			MoveDynamicObject(meca2,1629.2500000,-2184.8000000,12.5400000, 2.0, -1000.0, -1000.0, -1000.0);
 			return 1;
 		}
-		if (PlayerToPoint(20, playerid,1634.3400000,-2165.8900000,14.5700000))
+		if (PlayerToPoint(10, playerid,1634.3400000,-2165.8900000,14.5700000))
 		{
 			MoveDynamicObject(meca3,1634.3400000,-2165.8900000,5.5700000, 2.0, -1000.0, -1000.0, -1000.0);
 			return 1;
@@ -25037,19 +25044,19 @@ function CheckForCloseDoor(playerid)
 	}
 	else if(Team_Mecanicos(playerid))
 	{
-		if (PlayerToPoint(20, playerid,1577.1700000,-2184.8200000,12.5400000))
+		if (PlayerToPoint(10, playerid,1577.1700000,-2184.8200000,12.5400000))
 		{
 			MoveDynamicObject(meca1,1577.1700000,-2184.8200000,12.5400000, 1.0, -1000.0, -1000.0, -1000.0);
 			return 1;
 		}
-		if (PlayerToPoint(20, playerid,1637.2500000,-2184.8000000,12.5400000))
+		if (PlayerToPoint(10, playerid,1637.2500000,-2184.8000000,12.5400000))
 		{
 			MoveDynamicObject(meca2,1637.2500000,-2184.8000000,12.5400000, 1.0, -1000.0, -1000.0, -1000.0);
 			return 1;
 		}
-		if (PlayerToPoint(20, playerid,1646.43188477,-2152.23681641,14.79671288))
+		if (PlayerToPoint(10, playerid,1634.3400000,-2165.8900000,14.5700000))
 		{
-			MoveDynamicObject(meca3,1634.3400000,-2165.8900000,14.5700000, 1.0, -1000.0, -1000.0, -1000.0);
+			MoveDynamicObject(meca3,1634.3400000,-2165.8900000,14.5700000, 2.0, -1000.0, -1000.0, -1000.0);
 			return 1;
 		} else Message(playerid, COLOR_GRAD2, "¡No hay señal!");
 	}
