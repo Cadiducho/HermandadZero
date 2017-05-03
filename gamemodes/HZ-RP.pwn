@@ -910,7 +910,7 @@ forward BancoTextDraw();
 //forward MenosDormir(playerid);
 //forward DespuesDeMear(playerid);
 //forward DespuesDeDormir(playerid);
-
+new JetPack[MAX_PLAYERS];
 //////////////////////////////
 // -= Petition =-
 new Petition_ID[MAX_PLAYERS];
@@ -1121,6 +1121,7 @@ new disease;
 new unjailtimer;
 new accountstimer;
 new checkgastimer;
+new jetpackTimer;
 new levelexp = 4;
 new cchargetime = 20;
 new Text:BalanceTextDraw[MAX_PLAYERS];
@@ -2203,7 +2204,7 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pBanDuda] = 0;			PlayerInfo[playerid][pSeguro] = 0;		PlayerInfo[playerid][pWalkie] = 0;
 	PlayerInfo[playerid][pHead] = 0;            EstadoON[playerid] = 0;                 strmid(PlayerInfo[playerid][pDNIName], "Ninguno", 0, strlen("Ninguno"), 12);
 	PaintballType[playerid] = 0; 	PaintballDMKills[playerid] = 0; PaintPvPKills[playerid] = 0;    Bowling[playerid] = 0;		BowlingMoney[playerid] = 0;
-	AdminDuty[playerid] = 0;
+	AdminDuty[playerid] = 0;	JetPack[playerid] = 0;
 	for(new v = 0; v < MAX_PLAYERTOYS; v++)
 	{
 		PlayerToyInfo[playerid][v][ptModelID] = 0;
@@ -4512,6 +4513,7 @@ public GameModeExitFunc()
 	KillTimer(disease);
 	KillTimer(LifeTimer);
 	KillTimer(KeysTimer);
+	KillTimer(jetpackTimer);
 	GameModeExit();
 }
 
@@ -4613,6 +4615,17 @@ public LoadProperty()
 	return 1;
 }
 
+/*public OnPlayerUpdate(playerid){
+	if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_USEJETPACK){
+    	if(JetPack[playerid] == 0){
+    		ClearAnimations(playerid);
+		}else{
+			return 1;
+		}
+	}
+    return 1;
+}*/
+
 public OnGameModeInit()
 {
     skinlist = LoadModelSelectionMenu("skins.txt"); //skins del binco
@@ -4648,7 +4661,7 @@ public OnGameModeInit()
 	SendRconCommand("mapname LS-Versión 3.0 ");
 	SendRconCommand("hostname |Ø| Hermandad Zero RolePlay |Ø| WIP |Ø|");
 	SendRconCommand("language Español");
-	SendRconCommand("rcon_password h12ka.,1943-saaasd1241'asdf9b");
+	SendRconCommand("rcon_password estaeslaclave");
 	KillTimer(BankTimer);
 	gettime(ghour, gminute, gsecond);
 	FixHour(ghour);
@@ -5342,6 +5355,8 @@ public OnGameModeInit()
 	disease = SetTimer("DiseaseSystem", 60000, 1);
 	LifeTimer = SetTimer("CheckVida", 1500, 1);
 	KeysTimer = SetTimer("Tiempo1",100,1);
+
+	jetpackTimer = SetTimer("CheckJetpack", 500, 1);
 
 	for(new i = 0; i<MAX_PLAYERS; i++)
 	{
@@ -18607,12 +18622,27 @@ zcmd(scripteron, playerid, params[])	{
 			return 1;
 		}
 	} else SendClientMessage(playerid, COLOR_GRAD2,"No estás autorizado para usar esto.");
-	return 1;
 }
+
 zcmd(don, playerid, params[]){
 	if (PlayerInfo[playerid][pAdminCP] < 2014) return Message(playerid, COLOR_GRAD2, "¡No autorizado!")
 		AntiAbusos[playerid] = 1;
 	Message(playerid, COLOR_GRAD2, "Ahora ya podras usar todos los comandos administrativos");
+	return 1;
+}
+
+zcmd(jetpack, playerid, params[]){
+	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!")
+	CheckAntiAbusos(playerid)
+	if(JetPack[playerid] == 0){
+		SetPlayerSpecialAction(playerid, SPECIAL_ACTION_USEJETPACK);
+		JetPack[playerid] = 1;
+		Message(playerid, COLOR_GREEN, "¡Se te ha dado un Jetpack, no abuses de él! Recuerda utilizar /jetpack de nuevo para borrarlo de forma segura.");
+	}else{
+		ClearAnimations(playerid);
+		JetPack[playerid] = 0;
+		Message(playerid, COLOR_GREEN, "¡Ya tenías un Jetpack, así que se ha retirado!");
+	}
 	return 1;
 }
 
@@ -27768,6 +27798,23 @@ function CheckSuciedad()
 				ProxDetector(20.0, i, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 				Message(i, COLOR_GRAD2, "* Tu ropa está sucia, debes ir a lavarla con urgencia.");
 				SetHP(i, health-1);
+			}
+		}
+	}
+	return 1;
+}
+
+function CheckJetpack(){
+	for(new i=0; i < MAX_PLAYERS; i++)
+	{
+		if(IsPlayerConnected(i))
+		{
+			if(GetPlayerSpecialAction(i) == SPECIAL_ACTION_USEJETPACK){
+		    	if(JetPack[i] == 0){
+		    		ClearAnimations(i);
+				}else{
+					return 1;
+				}
 			}
 		}
 	}
