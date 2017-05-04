@@ -2048,7 +2048,6 @@ IsASweeper(carid)			{	if((carid >= 157)	&& 		(carid <= 162))			{	return 1;	}	ret
 IsABoatFish(carid)          {   if((carid >= 241)   &&      (carid <= 244))         {   return 1;   }   return 0;   }
 IsAPiratas(carid)           {   if((carid >= 245)   &&      (carid <= 251))         {   return 1;   }   return 0;   }
 Hire_Vehicle(carid)			{	if((carid >= 35) 	&& 		(carid <= 38) 	  ||	(carid >= 125)  &&  (carid <= 147)	||	(carid >= 252) &&	(carid <= 257))    	{	return 1;	}	return 0;	}
-FacJobsCar(carid)			{   if((carid >= 1)     &&      (carid <= 232)	  ||	(carid >= 241)  &&  (carid <= 257))         {   return 1;   }   return 0;   }
 
 IsATrain(carid)
 {
@@ -15282,9 +15281,10 @@ zcmd(pcu, playerid, params[]){
 zcmd(gps, playerid, params[])
 {
 	new idcar = GetPlayerVehicleID(playerid)
-	if(!IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estás en un vehiculo!");
-	if(FacJobsCar(idcar)) { }
-		if(IsAnOwnableCar(idcar)) { if(CarInfo[idcar][cGPS] == 0) return Message(playerid, COLOR_GRAD2, "¡Este vehículo no tiene un GPS!"); }
+	if (!IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estás en un vehiculo!");
+	if (PlayerIsRuta[playerid] != 0) return Message(playerid, COLOR_GRAD2, "¡No puedes usar el GPS trabajando!");
+	if (IsAnOwnableCar(idcar) && CarInfo[idcar][cGPS] == 0) return Message(playerid, COLOR_GRAD2, "¡Este vehículo no tiene un GPS!");
+
 	ShowPlayerDialog(playerid, GPS_DIALOG, DIALOG_STYLE_LIST, "{018CFE}Control GPS", "{FFFFFF}Bares\nEmergencias\nNegocios\nLugares Públicos\nServicios", "Aceptar", "Salir");
 	return 1;
 }
@@ -18622,6 +18622,7 @@ zcmd(scripteron, playerid, params[])	{
 			return 1;
 		}
 	} else SendClientMessage(playerid, COLOR_GRAD2,"No estás autorizado para usar esto.");
+	return 1;
 }
 
 zcmd(don, playerid, params[]){
