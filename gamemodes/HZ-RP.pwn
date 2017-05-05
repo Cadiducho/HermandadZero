@@ -7134,8 +7134,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       					}
       				}
       			} else RemovePlayerFromVehicle(playerid);
-      			return 1;
-      		}
+      		} else RemovePlayerFromVehicle(playerid);
+      		return 1;
       	}
       	case IPHONE_OPTIONS:
       	{
@@ -15272,6 +15272,7 @@ zcmd(pagar, playerid, params[])
 }
 zcmd(llenar, playerid, params[])
 {
+	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return Message(playerid, COLOR_GRAD2, "No eres el conductor de un vehiculo");
 	if(GetPlayerMoney(playerid) < 1) return Message(playerid, COLOR_GRAD2, "No tienes dinero!");
 	if(Refueling[playerid] > -1) return Message(playerid, COLOR_GRAD2, "Ya está llenando el vehículo!");
 	if(IsAtGasStation(playerid))
