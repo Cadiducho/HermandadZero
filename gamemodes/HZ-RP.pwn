@@ -20400,13 +20400,15 @@ zcmd(bmbuy, playerid, params[])
 	}
 	return 1;
 }
-zcmd(iphone, playerid, params[])
+zcmd(telefono, playerid, params[])
 {
 	if(PlayerInfo[playerid][pJailed] > 0) return Message(playerid, COLOR_GREY, "No puedes usar esto aquí.");
-	if(PlayerInfo[playerid][pPnumber] == 0) return Message(playerid, COLOR_GRAD2, "No tienes teléfono, cómpra uno en el 24/7");
-	ShowPlayerDialog(playerid, IPHONE_OPTIONS, DIALOG_STYLE_LIST, "{DD1111}iPhone {FFFFFF}- Opciones", "{DD1111}iPhone\t{FFFFFF}-\t{11AA11}Llamar\n{DD1111}iPhone\t{FFFFFF}-\t{008899}Mandar SMS\n{DD1111}iPhone\t{FFFFFF}-\t{FFBB88}Buzón entrada\n{DD1111}iPhone\t{FFFFFF}-\t{FFEE88}Agenda\n{DD1111}iPhone\t{FFFFFF}-\t{952BFF}Consultar Saldo", "Aceptar", "Salir");
+	if(PlayerInfo[playerid][pPnumber] == 0) return Message(playerid, COLOR_GRAD2, "No tienes teléfono, cómpra uno en la tienda de electrónica");
+	ShowPlayerDialog(playerid, IPHONE_OPTIONS, DIALOG_STYLE_LIST, "{DD1111}Teléfono {FFFFFF}- Opciones", "{DD1111}Teléfono\t{FFFFFF}-\t{11AA11}Llamar\n{DD1111}Teléfono\t{FFFFFF}-\t{008899}Mandar SMS\n{DD1111}Teléfono\t{FFFFFF}-\t{FFBB88}Buzón entrada\n{DD1111}Teléfono\t{FFFFFF}-\t{FFEE88}Agenda\n{DD1111}Teléfono\t{FFFFFF}-\t{952BFF}Consultar Saldo", "Aceptar", "Salir");
 	return 1;
 }
+zcmd(iphone, playerid, params[]) return cmd_telefono(playerid, params);
+zcmd(movil, playerid, params[]) return cmd_telefono(playerid, params);
 zcmd(ipod, playerid, params[])
 {
 	if(PlayerInfo[playerid][pIpod] == 0) return Message(playerid, COLOR_GRAD2, "No tienes un IPOD, cómpra uno en el 24/7");
@@ -27448,7 +27450,7 @@ Ayuda(playerid, tip)
 		{
 			ClearChatbox(playerid, 10);
 			Message(playerid, COLOR_WHITE, "-=[Ayuda Teléfono]=-");
-			Message(playerid, COLOR_GRAD2, "Comandos disponibles: /iphone /colgar /altavoz");
+			Message(playerid, COLOR_GRAD2, "Comandos disponibles: /movil (/telefono) /colgar /altavoz");
 		}
 		case 6:
 		{
