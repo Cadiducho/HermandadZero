@@ -7114,6 +7114,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       	{
       		if(response)
       		{
+      			if(PlayerInfo[playerid][pCarLic] == 0) return SendClientMessage(playerid, COLOR_GREY, "¡Necesitas una licencia para poder conducir!");
       			if(HireKey[playerid] != 9999) return SendClientMessage(playerid, COLOR_GREY, "Ya has rentado un vehículo, utiliza /desrentarveh");
       			if(Hire_Vehicle(idcar)){
       				new found;
@@ -13722,10 +13723,16 @@ zcmd(duty, playerid, params[]){
 		}
 	}
 	else if(Team_Mecanicos(playerid)){
+		//if(PlayerInfo[playerid][pPnumber] == 0) return Message(playerid, "");
 		if(OnDuty[playerid]== 0)
 		{
 			OnDuty[playerid] = 1;
-			format(string, sizeof(string), "{00E45B}* Mecánico %s está en servicio, venga al taller o llame al {FFFFFF}(Tlf. %d)", PlayerName(playerid), PlayerInfo[playerid][pPnumber]);
+			if(PlayerInfo[playerid][pPnumber] == 0){
+				format(string, sizeof(string), "{00E45B}* Mecánico %s está en servicio, venga al taller o llame al {FFFFFF}(Tlf. 556)", PlayerName(playerid), PlayerInfo[playerid][pPnumber]);
+
+			}else{
+				format(string, sizeof(string), "{00E45B}* Mecánico %s está en servicio, venga al taller o llame al {FFFFFF}(Tlf. %d)", PlayerName(playerid), PlayerInfo[playerid][pPnumber]);
+			}
 			OOCNews(-1,string);
 		}
 		else{
