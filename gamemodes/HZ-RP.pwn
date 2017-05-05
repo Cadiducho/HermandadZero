@@ -971,7 +971,7 @@ new ReqF_Faction[MAX_PLAYERS];
 new ReqF_Name[MAX_PLAYERS][32];
 new UsingBelt[MAX_PLAYERS];
 new Freezed[MAX_PLAYERS];
-new bool:PuedePresionar[MAX_PLAYERS];
+new bool:PuedePresionar[MAX_PLAYERS char];
 new FailTuto[MAX_PLAYERS];
 new Accesory[MAX_PLAYERS];
 new InAmbu[MAX_PLAYERS];
@@ -2049,14 +2049,7 @@ IsABoatFish(carid)          {   if((carid >= 241)   &&      (carid <= 244))     
 IsAPiratas(carid)           {   if((carid >= 245)   &&      (carid <= 251))         {   return 1;   }   return 0;   }
 Hire_Vehicle(carid)			{	if((carid >= 35) 	&& 		(carid <= 38) 	  ||	(carid >= 125)  &&  (carid <= 147)	||	(carid >= 252) &&	(carid <= 257))    	{	return 1;	}	return 0;	}
 
-IsATrain(carid)
-{
-	if(carid == 153)
-	{
-		return 1;
-	}
-	return 0;
-}
+bool:IsATrain(carid) return (carid == 153);
 
 bool:IsABike(carid)
 {
@@ -2120,7 +2113,7 @@ public OnPlayerConnect(playerid)
     ShowProgressBarForPlayer(playerid, DormirBarra);*/
 
     MensajeMuriendo[playerid] = 0; 	ForbidHandsUp[playerid]=0; 	Left4Life[playerid]=0; 				MsgL4L[playerid]=0; 			Rescued[playerid] = 0;
-    RegText[playerid] = 0;			RegConfig[playerid] = 0; 	PuedePresionar[playerid] = true;    Accesory[playerid] = 0;         CallCost[playerid] = 0;
+    RegText[playerid] = 0;			RegConfig[playerid] = 0; 	PuedePresionar{playerid} = true;    Accesory[playerid] = 0;         CallCost[playerid] = 0;
     HidePM[playerid] = 0; 			PhoneOnline[playerid] = 0;	UsedFind[playerid] = 0;             ActiveTeleport[playerid] = 0;   Camion[playerid] = 9999;
     Freezed[playerid] = 0; 			Condom[playerid] = 0;		TalkingLive[playerid] = 0;          PlayerDescargando[playerid] = 0;
     LiveOffer[playerid] = 999; 		Fichas[playerid] = 0;               FailTuto[playerid] = 0;
@@ -25684,7 +25677,7 @@ function ComprobarKeysCatalogo(playerid)
 	GetPlayerKeys(playerid,Keys,ud,lr);
 	if(lr > 0) // Right
 	{
-		if(PuedePresionar[playerid] == true)
+		if(PuedePresionar{playerid} == true)
 		{
 			if(RStep[playerid] == 1)
 			{
@@ -25698,7 +25691,7 @@ function ComprobarKeysCatalogo(playerid)
 						PlayerInfo[playerid][pChar] = 26;
 						RegText[playerid] = 2;
 						PlayerPlaySound(playerid, 1054, 0,0,0);
-						PuedePresionar[playerid] = false;
+						PuedePresionar{playerid} = false;
 						SetTimerEx("VolverPresionar", 500, 0, "d", playerid);
 						return 1;
 					}
@@ -25710,7 +25703,7 @@ function ComprobarKeysCatalogo(playerid)
 						PlayerInfo[playerid][pChar] = 90;
 						RegText[playerid] = 1;
 						PlayerPlaySound(playerid, 1054, 0,0,0);
-						PuedePresionar[playerid] = false;
+						PuedePresionar{playerid} = false;
 						SetTimerEx("VolverPresionar", 500, 0, "d", playerid);
 						return 1;
 					}
@@ -25723,7 +25716,7 @@ function ComprobarKeysCatalogo(playerid)
 					if(PlayerInfo[playerid][pSex] == 1) mtext = "Masculino"; else mtext = "Femenino";
 					format(string, sizeof(string), "~n~Sexo:  ~r~%s          ~>~~w~Edad: ~r~%d~n~~n~~w~Origen: ~r~Sin Origen    ~w~Estilo: ~r~?", mtext, PlayerInfo[playerid][pAge]);
 					TDStr(RegDraw[playerid], string);
-					PuedePresionar[playerid] = false;
+					PuedePresionar{playerid} = false;
 					SetTimerEx("VolverPresionar", 100, 0, "d", playerid);
 					return 1;
 				}
@@ -25756,7 +25749,7 @@ function ComprobarKeysCatalogo(playerid)
 	}
 	if(lr < 0) // Left
 	{
-		if(PuedePresionar[playerid] == true)
+		if(PuedePresionar{playerid} == true)
 		{
 			if(RStep[playerid] == 1)
 			{
@@ -25769,7 +25762,7 @@ function ComprobarKeysCatalogo(playerid)
 						RegText[playerid] = 2;
 						Skin(playerid, 26);
 						PlayerPlaySound(playerid, 1054, 0,0,0);
-						PuedePresionar[playerid] = false;
+						PuedePresionar{playerid} = false;
 						SetTimerEx("VolverPresionar", 500, 0, "d", playerid);
 						return 1;
 					}
@@ -25780,7 +25773,7 @@ function ComprobarKeysCatalogo(playerid)
 						RegText[playerid] = 1;
 						Skin(playerid, 90);
 						PlayerPlaySound(playerid, 1054, 0,0,0);
-						PuedePresionar[playerid] = false;
+						PuedePresionar{playerid} = false;
 						SetTimerEx("VolverPresionar", 500, 0, "d", playerid);
 						return 1;
 					}
@@ -25793,7 +25786,7 @@ function ComprobarKeysCatalogo(playerid)
 					if(PlayerInfo[playerid][pSex] == 1) mtext = "Masculino"; else mtext = "Femenino";
 					format(string, sizeof(string), "~n~Sexo:  ~r~%s          ~>~~w~Edad: ~r~%d~n~~n~~w~Origen: ~r~Sin Origen    ~w~Estilo: ~r~?", mtext, PlayerInfo[playerid][pAge]);
 					TDStr(RegDraw[playerid], string);
-					PuedePresionar[playerid] = false;
+					PuedePresionar{playerid} = false;
 					SetTimerEx("VolverPresionar", 100, 0, "d", playerid);
 					return 1;
 				}
@@ -25837,7 +25830,7 @@ function VolverPresionar(playerid)
 {
 	if(IsPlayerConnected(playerid))
 	{
-		PuedePresionar[playerid] = true;
+		PuedePresionar{playerid} = true;
 		return 1;
 	}
 	return 1;
@@ -26128,7 +26121,7 @@ function ChooseOrigin(playerid)
 			TDStr(RegDraw[playerid], string);
 			PlayerInfo[playerid][pOrigin] = 5;
 		}
-		PuedePresionar[playerid] = false;
+		PuedePresionar{playerid} = false;
 		SetTimerEx("VolverPresionar", 300, 0, "d", playerid);
 	}
 }
@@ -26235,7 +26228,7 @@ function ChooseWalk(playerid)
 			PlayerInfo[playerid][pWalk] = 13;
 			ApplyAnimation(playerid,"PED","Walk_Wuzi",4.1,1,1,1,1,1);
 		}
-		PuedePresionar[playerid] = false;
+		PuedePresionar{playerid} = false;
 		SetTimerEx("VolverPresionar", 400, 0, "d", playerid);
 	}
 }
