@@ -2058,13 +2058,13 @@ IsATrain(carid)
 	return 0;
 }
 
-IsABike(carid)
+bool:IsABike(carid)
 {
-	if(GetVehicleModel(carid) == 509 || GetVehicleModel(carid) ==  481|| GetVehicleModel(carid) == 510)
-	{
-		return 1;
-	}
-	return 0;
+	new Bikes[] = { 509, 481, 510 };
+  	for(new i = 0; i < sizeof(Bikes); i++) {
+		if(GetVehicleModel(carid) == Bikes[i]) return true;
+  	}
+	return false;
 }
 
 public OnPlayerConnect(playerid)
@@ -15272,25 +15272,23 @@ zcmd(pagar, playerid, params[])
 }
 zcmd(llenar, playerid, params[])
 {
-	if(GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return Message(playerid, COLOR_GRAD2, "No eres el conductor de un vehiculo");
-	if(GetPlayerMoney(playerid) < 1) return Message(playerid, COLOR_GRAD2, "No tienes dinero!");
-	if(Refueling[playerid] > -1) return Message(playerid, COLOR_GRAD2, "Ya está llenando el vehículo!");
-	if(IsAtGasStation(playerid))
-	{
-		if(Gas[GetPlayerVehicleID(playerid)] < 230)
-		{
-			return ShowPlayerDialog(playerid,GASOLINA_DIALOG,DIALOG_STYLE_LIST,"Gasolinera - Tipo de gasolina","Sin Plomo 95\nSin Plomo 98\nGasoil\nBiodiesel","Comprar","Atras");
-		}
+	if (GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return Message(playerid, COLOR_GRAD2, "No eres el conductor de un vehiculo");
+	new vehicleid = GetPlayerVehicleID(playerid);
+	if (IsABike(vehicleid)) return Message(playerid, COLOR_GRAD2, "¡Este vehiculo no tiene tanque de combustible!");
+	if (GetPlayerMoney(playerid) < 1) return Message(playerid, COLOR_GRAD2, "¡No tienes dinero!");
+	if (Refueling[playerid] > -1) return Message(playerid, COLOR_GRAD2, "Ya está llenando el vehículo!");
+	if (IsAtGasStation(playerid)) {
+		if(Gas[vehicleid] < 230) return ShowPlayerDialog(playerid,GASOLINA_DIALOG,DIALOG_STYLE_LIST,"Gasolinera - Tipo de gasolina","Sin Plomo 95\nSin Plomo 98\nGasoil\nBiodiesel","Comprar","Atrás");
 		else GameTextForPlayer(playerid,"~r~~n~~n~~n~~n~~n~~n~~n~~n~~n~Vehiculo LLenado",2000,3);
-	}
-	else Message(playerid,COLOR_GREY,"¡No estás en una estación de gasolina!");
+	} else Message(playerid,COLOR_GREY,"¡No estás en una estación de gasolina!");
 	return 1;
 }
 zcmd(pcu, playerid, params[]){
 	if(!IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estás en un vehiculo!");
-	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER){
-		SetTimerEx("MM_Exam", 3000, false, "i", playerid);
-		Message(playerid, -1, "* {4C9CB6}Prendiendo PCU del Vehiculo.");
+	new vehicleid = GetPlayerVehicleID(playerid);
+	if (IsABike(vehicleid)) return Message(playerid, COLOR_GRAD2, "¡Este vehiculo no tiene PCU!");
+	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER) {
+		vehicle_pcu(playerid, vehicleid);
 	} else Message(playerid, COLOR_GREY, "No eres el conductor.");
 	return 1;
 }
@@ -26551,10 +26549,14 @@ function MM_Noise()
 
 function MM_Exam(playerid)
 {
-	new x = GetPlayerVehicleID(playerid);
-	new bat = CarInfo[x][cBattery];
-	new gas = CarInfo[x][cGas];
-	new gasa = Gas[x];
+	vehicle_pcu(playerid, GetPlayerVehicleID(playerid));
+	KillTimer(mmtimer);
+}
+
+function vehicle_pcu(playerid, vehicleid) {
+	new bat = CarInfo[vehicleid][cBattery];
+	new gas = CarInfo[vehicleid][cGas];
+	new gasa = Gas[vehicleid];
 	new gasname[20], mes[12], string[64];
 
 	if(gas == 0) gasname = "Sin Plomo 95";
@@ -26568,7 +26570,7 @@ function MM_Exam(playerid)
 	if(bat > 5000) mes = "Óptima";
 
 	ClearChatbox(playerid, 10);
-	format(string, sizeof(string), "___________| %s |___________", CarInfo[x][cName]);
+	format(string, sizeof(string), "___________| %s |___________", CarInfo[vehicleid][cName]);
 	Message(playerid, COLOR_BLUE, string);
 	format(string, sizeof(string), "  Motor: %s", gasname);
 	Message(playerid, COLOR_WHITE, string);
@@ -26576,9 +26578,7 @@ function MM_Exam(playerid)
 	Message(playerid, COLOR_WHITE, string);
 	format(string, sizeof(string), "  Gasolina: %d", gasa);
 	Message(playerid, COLOR_WHITE, string);
-	KillTimer(mmtimer);
 }
-
 function V_Documents(playerid, targetid){
 	if(IsPlayerConnected(playerid)&&IsPlayerConnected(targetid))
 	{
