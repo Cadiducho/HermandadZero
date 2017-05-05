@@ -6804,7 +6804,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       		if(response){
       			switch(listitem){
       				case 0:{
-      					Message(playerid, -1, "{69FF9C}Respuesta Correcta, no puedes pedir a alguien que te lleve a un lugar, debes llamar a un taxi con el comando {FF0000}/iphone");
+      					Message(playerid, -1, "{69FF9C}Respuesta Correcta, no puedes pedir a alguien que te lleve a un lugar, debes llamar a un taxi con el comando {FF0000}/telefono");
       					ClearChatbox(playerid, 8);
       					new t5[] = "{FFFFFF}Es golpear a muchas personas.\nEs usar el comando /paja.\nEs vengarte despues de haber muerto en un Rol.\nEs vengarte de la policia cuando te arresta.";
       					ShowPlayerDialog(playerid, TEST_7, DIALOG_STYLE_LIST, "{4DE868}¿Qué Es RevengeKill?", t5, "OK", "");
@@ -8544,6 +8544,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       				}
       				case 2:
       				{
+      					ShowPlayerDialog(playerid, RECARGA_PHONE, DIALOG_STYLE_INPUT, "{018CFE}Operadora de Telefonia Celular OTECEL", "{FFFFFF}Ingresa tu numero celular para realizar la recarga", "Aceptar", "Cancelar");
+      				}
+      				case 3:
+      				{
       					if(CheckMoney(playerid,20))
       					{
       						ApplyAnimation(playerid, "DEALER", "shop_pay", 4.0, 0, 0, 0, 0, 0);
@@ -8556,7 +8560,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       						return 1;
       					}
       				}
-      				case 3:
+      				case 4:
       				{
       					if(CheckMoney(playerid,20))
       					{
@@ -8570,7 +8574,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       						return 1;
       					}
       				}
-      				case 4:
+      				case 5:
       				{
       					if(CheckMoney(playerid,300))
       					{
@@ -8584,7 +8588,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       						return 1;
       					}
       				}
-      				case 5:
+      				case 6:
       				{
       					if(CheckMoney(playerid,175))
       					{
@@ -8598,7 +8602,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       						return 1;
       					}
       				}
-      				case 6:
+      				case 7:
       				{
       					if(CheckMoney(playerid,75))
       					{
@@ -8612,7 +8616,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       						return 1;
       					}
       				}
-      				case 7:
+      				case 8:
       				{
       					if(CheckMoney(playerid,120))
       					{
@@ -8626,7 +8630,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       						return 1;
       					}
       				}
-      				case 8:
+      				case 9:
       				{
       					if(CheckMoney(playerid,50))
       					{
@@ -11374,6 +11378,10 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					}
 					case 1:
 					{
+						ShowPlayerDialog(playerid, RECARGA_PHONE, DIALOG_STYLE_INPUT, "{018CFE}Operadora de Telefonia Celular OTECEL", "{FFFFFF}Ingresa tu numero celular para realizar la recarga", "Aceptar", "Cancelar");
+					}
+					case 2:
+					{
 						if(CheckMoney(playerid,220))
 						{
 							PlayerInfo[playerid][pIpod] = 1;
@@ -11384,7 +11392,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 							return 1;
 						}
 					}
-					case 2:
+					case 3:
 					{
 						if(CheckMoney(playerid,100))
 						{
@@ -11396,7 +11404,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 							return 1;
 						}
 					}
-					case 3:
+					case 4:
 					{
 						if(CheckMoney(playerid,260))
 						{
@@ -21215,7 +21223,7 @@ zcmd(comprar, playerid, params[])
 	}
 	else if (PlayerToPoint(15.0,playerid,-1972.1991,1208.0253,75.1797))
 	{
-		return ShowPlayerDialog(playerid, ELECTRONIC_BUY, DIALOG_STYLE_LIST, "Tienda Electronica", "1.\tiPhone\t\t\t\t(200$)\n2.\tIpod\t\t\t\t(280$)\n3.\tCámara\t\t\t\t(100$)\n4\tWalkie\t\t\t\t(260$)", "Comprar", "Cancelar");
+		return ShowPlayerDialog(playerid, ELECTRONIC_BUY, DIALOG_STYLE_LIST, "Tienda Electronica", "1.\tTeléfono\t\t\t\t(200$)\n2. \tRecargar saldo\n3.\tIpod\t\t\t\t(280$)\n4.\tCámara\t\t\t\t(100$)\n5\tWalkie\t\t\t\t(260$)", "Comprar", "Cancelar");
 	}
 	else if(IsAt247(playerid))
 	{
@@ -21228,7 +21236,7 @@ zcmd(recargar, playerid, params[]){
 		if(GetPlayerMoney(playerid) > 200){
 			if(PlayerInfo[playerid][pPnumber] != 0) {
 				ShowPlayerDialog(playerid, RECARGA_PHONE, DIALOG_STYLE_INPUT, "{018CFE}Operadora de Telefonia Celular OTECEL", "{FFFFFF}Ingresa tu numero celular para realizar la recarga", "Aceptar", "Cancelar");
-			} else Message(playerid, COLOR_GRAD2, "No tienes teléfono, cómpra uno en el 24/7");
+			} else Message(playerid, COLOR_GRAD2, "No tienes teléfono, cómpra uno en la tienda de electronica");
 		} else Message(playerid, COLOR_GRAD2, "¡Necesitas tener como mínimo $200!");
 	} else Message(playerid, COLOR_GRAD2, "¡No estás en un 24-7!");
 	return 1;
@@ -25436,7 +25444,7 @@ function ShowBuyMenu(playerid)
 	if(IsPlayerConnected(playerid))
 	{
 		ShowPlayerDialog(playerid,D247_BUY,DIALOG_STYLE_LIST, \
-			"Comprar - 24 7","1.\tLotería\t\t\t\t(5$)\n2.\tSpray Anti-Ladrones\t\t(70$)\n3.\tCigarros\t\t\t(10$)\n4.\tEncendedor\t\t\t(5$)\n5.\tGafas RayBan\t\t\t(300$)\n6.\tMaleta\t\t\t\t(175$)\n7.\tMochila\t\t\t\t(75$)\n8.\tCasco\t\t\t\t(120$)\n9\tPatines\t\t\t\t(50$)","Comprar","Cancelar");
+			"Comprar - 24 7","1.\tLotería\t\t\t\t(5$)\n2.\tSpray Anti-Ladrones\t\t(70$)\n3. \tRecargar saldo\n4.\tCigarros\t\t\t(10$)\n5.\tEncendedor\t\t\t(5$)\n6.\tGafas RayBan\t\t\t(300$)\n7.\tMaleta\t\t\t\t(175$)\n8.\tMochila\t\t\t\t(75$)\n9.\tCasco\t\t\t\t(120$)\n10.\tPatines\t\t\t\t(50$)","Comprar","Cancelar");
 	}
 	return 1;
 }
