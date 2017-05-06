@@ -55,7 +55,7 @@ Labels_OnGameModeInit() {
  	CreateDynamic3DTextLabel("[!] Oferta de Trabajo\nVendedor móviles", 	0x00D56AFF, 994.3785,-1296.4718,13.5469, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!]  Oferta de Trabajo\nGuardaespaldas", 				0x00D56AFF, 1070.6956,-1861.3844,13.5857, 8.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!] Oferta de Trabajo\nConductor de Tren", 			0x00D56AFF, 1684.6482,-1944.7058,13.5469, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
-	//CreateDynamic3DTextLabel("[!] Oferta de Trabajo\nBarrendero", 	0x00D56AFF, 1616.0780,-1896.7744,13.5490, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
+	CreateDynamic3DTextLabel("[!] Oferta de Trabajo\nBarrendero", 	0x00D56AFF, 1616.0780,-1896.7744,13.5490, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!]  Oferta de Trabajo\nPiloto", 				0x00D56AFF, 1957.3217,-2183.6399,13.5469, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!]  Oferta de Trabajo\nLadrón", 				0x00D56AFF, 2275.2427,-1105.6196,37.9766, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);
  	CreateDynamic3DTextLabel("[!]  Oferta de Trabajo\nTaxista", 				0x00D56AFF, -1824.7786,139.8424,18.9315, 10.0,INVALID_PLAYER_ID,INVALID_VEHICLE_ID,0,0,0);

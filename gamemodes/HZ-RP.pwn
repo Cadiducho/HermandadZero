@@ -2044,12 +2044,19 @@ Narco_Vehicle(carid)		{	if((carid >= 168) 	&& 		(carid <= 182))			{	return 1;	}	
 Harvest_Vehicle(carid)		{	if((carid >= 169) 	&& 		(carid <= 171))			{	return 1;	}	return 0;	}
 IsAPizzabike(carid)			{	if((carid >= 183) 	&&		(carid <= 189))			{	return 1;	}	return 0;	}
 IsACamion(carid)			{	if((carid >= 233) 	&& 		(carid <= 240))			{	return 1;	}	return 0;	}
-IsASweeper(carid)			{	if((carid >= 157)	&& 		(carid <= 162))			{	return 1;	}	return 0;	}
 IsABoatFish(carid)          {   if((carid >= 241)   &&      (carid <= 244))         {   return 1;   }   return 0;   }
 IsAPiratas(carid)           {   if((carid >= 245)   &&      (carid <= 251))         {   return 1;   }   return 0;   }
 Hire_Vehicle(carid)			{	if((carid >= 35) 	&& 		(carid <= 38) 	  ||	(carid >= 125)  &&  (carid <= 147)	||	(carid >= 252) &&	(carid <= 257))    	{	return 1;	}	return 0;	}
 
 bool:IsATrain(carid) return (carid == 153);
+
+bool:IsASweeper(carid) {
+	new Sweepers[] = { 157, 158, 159, 160, 161, 162 };
+  	for(new i = 0; i < sizeof(Sweepers); i++) {
+		if(carid == Sweepers[i]) return true;
+  	}
+	return false;
+}
 
 bool:IsABike(carid)
 {
@@ -19230,10 +19237,10 @@ zcmd(conse3, playerid, params[]){
 	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 	CheckAntiAbusos(playerid)
 	if(GetPlayerState(playerid) == 2){
-		return SetVehiclePos(GetPlayerVehicleID(playerid), 1251.9261,-1654.7086,12.6719);
+		return SetVehiclePos(GetPlayerVehicleID(playerid), 2126.3582,-1130.3730,25.5114);
 	}
 	else{
-		SetPosEx(playerid, 1251.9261,-1654.7086,12.6719, 0, 0 ,0);
+		SetPosEx(playerid, 2126.3582,-1130.3730,25.5114, 0, 0 ,0);
 		return 1;
 	}
 }
@@ -20666,7 +20673,6 @@ zcmd(trabajo, playerid, params[])
 		UpdatePlayerStat(playerid);
 		return Message(playerid, COLOR_WHITE, "Has firmado el contrato de Vendedor de móviles por 3 horas.");
 	}
-	/*
 	else if (PlayerToPoint(3.0, playerid, 1616.0334,-1897.3287,13.5491)) {
 		GameTextForPlayer(playerid, "~w~felicidades por tu nuevo trabajo", 5000, 3);
 		PlayerInfo[playerid][pJob] = 2;
@@ -20674,7 +20680,6 @@ zcmd(trabajo, playerid, params[])
 		UpdatePlayerStat(playerid);
 		return Message(playerid, COLOR_WHITE, "Has firmado el contrato de Barrendero por 3 horas.");
 	}
-	*/
 	else if (PlayerToPoint(3.0, playerid, 378.3128,-119.6172,1001.4922))
 	{
 		GameTextForPlayer(playerid, "~w~felicidades por tu nuevo trabajo", 5000, 3);
@@ -20866,7 +20871,7 @@ zcmd(cancelarentrega, playerid, params[])
 	Message(playerid, COLOR_GRAD2, "¡Has cancelado la entrega de la mercancía de tu camión!");
 	return 1;
 }
-zcmd(barrerasd, playerid, params[])
+zcmd(barrer, playerid, params[])
 {
 	if(PlayerIsSweeping[playerid] == 1) return Message(playerid, COLOR_GREY, "¡Ya estás barriendo las calles!");
 	if(IsASweeper(GetPlayerVehicleID(playerid)))
@@ -20876,17 +20881,19 @@ zcmd(barrerasd, playerid, params[])
 		new randomize;
 		randomize = random(sizeof(gSweeperPoints));
 		SetPlayerCheckpoint(playerid, gSweeperPoints[randomize][0], gSweeperPoints[randomize][1], gSweeperPoints[randomize][2], 5.0);
-		SendClientMessage(playerid, COLOR_WHITE, "Dirígete a los Checkpoints.");
+		Message(playerid, COLOR_WHITE, "Dirígete a los Checkpoints.");
+	} else {
+		Message(playerid, COLOR_GRAD2, "¡No estás en un Sweeper!");
 	}
 	return 1;
 }
-zcmd(dbarrerasdf, playerid, params[])
+zcmd(dbarrer, playerid, params[])
 {
 	if(PlayerIsSweeping[playerid] == 1)
 	{
 		DisablePlayerCheckpoint(playerid);
 		PlayerIsSweeping[playerid] = 0;
-		SendClientMessage(playerid, COLOR_WHITE, "Has dejado de barrer.");
+		Message(playerid, COLOR_WHITE, "Has dejado de barrer.");
 		SetVehicleToRespawn(GetPlayerVehicleID(playerid));
 		RemovePlayerFromVehicle(playerid);
 		TogglePlayerControllable(playerid, 1);
