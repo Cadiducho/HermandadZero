@@ -15208,6 +15208,43 @@ zcmd(llenar, playerid, params[])
 	} else Message(playerid,COLOR_GREY,"¡No estás en una estación de gasolina!");
 	return 1;
 }
+zcmd(cargarcoche, playerid, params[])
+{
+	if (IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "Baja del vehiculo para realizar esta acción.");
+	if (GetPVarInt(playerid, "bidon") == 0) return Message(playerid, COLOR_GRAD2, "No tienes un bidon de gasolina, adquierelo en una gasolinera.");
+	new vehicleid = CarInFrontOfPlayer(playerid);
+	if (vehicleid == 0) return Message(playerid, COLOR_GRAD2, "Acercate a un coche para llenar su tanque.");
+	if (IsABike(vehicleid)) return Message(playerid, COLOR_GRAD2, "¡Este vehiculo no tiene tanque de combustible!");
+	if (Gas{vehicleid} > 95) return Message(playerid, COLOR_GRAD2, "El vehiculo tiene gasolina suficiente, no puedes cargarlo con este bidón.");
+
+	Gas[vehicleid] += 18;
+	GameTextForPlayer(playerid, "~y~Cargaste el coche con el bidon", 2000, 5);
+	SetPVarInt(playerid, "bidon", 0);
+	RemovePlayerAttachedObject(playerid, 9);
+	Message(playerid, YELLOW, "Tanque del coche llenado correctamente con 15 litros.");
+	return 1;
+}
+zcmd(comprarbidon, playerid, params[])
+{
+	if (IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "Baja del vehiculo para realizar esta acción.");
+	if (!IsAtGasStation(playerid)) return Message(playerid,COLOR_GREY,"¡No estás en una estación de gasolina!");
+	if (!CheckMoney(playerid, 18)) return Message(playerid, COLOR_GRAD2, "Necesitas al menos $18 para comprar el bidón.");
+	if (GetPVarInt(playerid, "bidon") == 1) return Message(playerid, COLOR_GRAD2, "Ya tienes un bidón.");
+	SetPVarInt(playerid, "bidon", 1);
+	Message(playerid, YELLOW , "Compraste un bidon de gasolina de 15 litros por 18$");
+	Message(playerid, YELLOW , "Usa /cargarcoche frente a un coche para usarlo.");
+	SetPlayerAttachedObject(playerid, 9, 1650, 5, 0.125999, 0.011999, 0.000000, -4.999999, -98.099983, 16.600004, 1.000000, 1.000000, 1.000000);
+	Bought(playerid, 18);
+	return 1;
+}
+zcmd(tirarbidon, playerid, params[])
+{
+	RemovePlayerAttachedObject(playerid, 9); //que te lo quite siempre, para quitarlo si se buggea el item.
+	if (GetPVarInt(playerid, "bidon") == 0) return Message(playerid, COLOR_GRAD2, "No tienes un bidón.");
+	SetPVarInt(playerid, "bidon", 0);
+	Message(playerid, YELLOW, "Desechaste tu bidón de gasolina.");
+	return 1;
+}
 zcmd(pcu, playerid, params[]){
 	if(!IsPlayerInAnyVehicle(playerid)) return Message(playerid, COLOR_GRAD2, "¡No estás en un vehiculo!");
 	new vehicleid = GetPlayerVehicleID(playerid);
@@ -22808,6 +22845,57 @@ public ProxDetectorS(Float:radi, playerid, targetid)
 		{
 			return 1;
 		}
+	}
+	return 0;
+}
+
+stock GetXYZInFrontOfPlayer(playerid, &Float: x, &Float: y, &Float: z, Float: distance)
+{
+	new Float: a;
+
+	GetPlayerPos (playerid, x, y, z);
+	GetPlayerFacingAngle (playerid, a);
+
+	x += (distance * floatsin (-a, degrees));
+	y += (distance * floatcos (-a, degrees));
+	return 1;
+}
+
+GetClosestVehicleID(playerid)
+{
+	new Float:min_dist = 100.0;
+	new Float:dist;
+	new Float:vehx,Float:vehy,Float:vehz;
+	new Float:px,Float:py,Float:pz;
+	new Float:x,Float:y,Float:z;
+	GetPlayerPos(playerid,px,py,pz);
+	new close_vehid;
+	for(new i = 1; i < MAX_VEHICLES;i++)
+	{
+		if(GetVehicleModel(i) > 0)
+		{
+			GetVehiclePos(i,vehx,vehy,vehz);
+			x = px - vehx;
+			y = py - vehy;
+			z = pz - vehz;
+			dist = floatsqroot((x * x) + (y * y) + (z * z));
+			if(dist < min_dist)
+			{
+				min_dist = dist;
+				close_vehid = i;
+			}
+		}
+	}
+	return close_vehid;
+}
+
+function CarInFrontOfPlayer(playerid) {
+	new Float: x, Float: y, Float: z;
+	GetXYZInFrontOfPlayer(playerid, x, y, z, 3.0);
+	new carid = GetClosestVehicleID(playerid);
+	if(GetVehicleDistanceFromPoint(carid, x, y, z) < 3.0)
+	{
+		return carid;
 	}
 	return 0;
 }
