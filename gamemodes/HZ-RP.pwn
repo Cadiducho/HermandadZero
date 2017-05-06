@@ -19,7 +19,6 @@
 #include <Dini>
 #include <YSI\y_ini>
 #include <progressbar>
-#include <SpikeStrip>
 #include <mSelection>
 #include <SetVehicleAttachedObject>
 #include <mdialog>
@@ -1535,6 +1534,7 @@ new Float:PaintPvPSpawns[3][3] = {
 #include "system/novedades.pwn"
 #include "system/negocios.pwn"
 #include "system/licencias.pwn"
+#include "system/pinchos.pwn"
 
 //Servicios
 #include "services/lottery.pwn"
@@ -4470,6 +4470,7 @@ public OnGameModeExit()
 public GameModeExitFunc()
 {
 	PayDay_GameModeExitFunc();
+	Pinchos_OnGameModeExit();
 	KillTimer(unjailtimer);
 	KillTimer(camtimer);
 	KillTimer(othtimer);
@@ -4490,7 +4491,6 @@ public LoadCar()
 	new File: file = fopen("cars.cfg", io_read);
 	if (file)
 	{
-		printf("-========= Coches en venta =======-");
 		new idx = VV;
 		while (idx < sizeof(CarInfo))
 		{
@@ -4531,6 +4531,7 @@ public LoadCar()
 			CarInfo[idx][cGPS]          = strval(arrCoords[32]);
 			idx++;
 		}
+		printf("%d Coches en venta", idx);
 	}
 	return 1;
 }
@@ -4589,7 +4590,6 @@ public LoadProperty()
 			return 1;
 		}
 	}
-    return 1;
 }*/
 
 public OnGameModeInit()
@@ -4617,6 +4617,7 @@ public OnGameModeInit()
 	LoadTrunk();
 	
 	Negocios_OnGameModeInit();
+	Pinchos_OnGameModeInit();
 
 	LoadProperty();
 	INI_Load("robs.ini");
@@ -4636,10 +4637,7 @@ public OnGameModeInit()
 	{
 		SetWorldTime(wtime);
 	}
-	
-	//Cansancio = CreateProgressBar(15.00, 431.00, 64.50, 12.19, -16776961, 100.0);
-	/*MearBarra = CreateProgressBar(548.00, 119.00, 58.50, 15.19, -65281, 100.0);
-	DormirBarra = CreateProgressBar(548.00, 146.00, 58.50, 15.19, -8453889, 100.0);*/
+
 	SetPDistance(10);
 	AllowInteriorWeapons(1);
 	DisableInteriorEnterExits();
@@ -5480,24 +5478,24 @@ function GetClosestPlayer(p1)
 	return player;
 }
 
-strtok(const string[], &index)
-{
-	new length = strlen(string);
-	while ((index < length) && (string[index] <= ' '))
-	{
-		index++;
-	}
+strtok(const string[], &index) 
+{ 
+	new length = strlen(string); 
+	while ((index < length) && (string[index] <= ' ')) 
+	{ 
+		index++; 
+	} 
 
-	new offset = index;
-	new result[20];
-	while ((index < length) && (string[index] > ' ') && ((index - offset) < (sizeof(result) - 1)))
-	{
-		result[index - offset] = string[index];
-		index++;
-	}
-	result[index - offset] = EOS;
-	return result;
-}
+	new offset = index; 
+	new result[20]; 
+	while ((index < length) && (string[index] > ' ') && ((index - offset) < (sizeof(result) - 1))) 
+	{ 
+		result[index - offset] = string[index]; 
+		index++; 
+	} 
+	result[index - offset] = EOS; 
+	return result; 
+} 
 
 stock split(const strsrc[], strdest[][], delimiter)
 {
@@ -14337,35 +14335,6 @@ zcmd(arrestar, playerid, params[])
 			return 1;
 		}
 	} else Message(playerid, COLOR_GRAD2, "Utilice: /arrestar <PlayerID> <Minutos> <Multa$> <Fianza$>");
-	return 1;
-}
- //----------------Pinchos-------------------------------------------//
-zcmd(pstrips, playerid, params[])
-{
-	if(!IsACop(playerid)) return Message(playerid, COLOR_GRAD2, "No eres policía.");
-	if(OnDuty[playerid] == 0 && IsACop(playerid)) return  SendClientMessage(playerid, COLOR_GREY, "¡No estas OnDuty!");
-	new Float:plocx,Float:plocy,Float:plocz,Float:ploca;
-	GetPlayerPos(playerid, plocx, plocy, plocz);
-	GetPlayerFacingAngle(playerid,ploca);
-	CreateStrip(plocx,plocy,plocz,ploca);
-	{
-		GameTextForPlayer(playerid,"~r~Banda de clavos ~w~puesto!",3000,1);
-	}
-	return 1;
-}
-zcmd(qstrips, playerid, params[])
-{
-	if(!IsACop(playerid)) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-	if(OnDuty[playerid] == 0 && IsACop(playerid)) return  SendClientMessage(playerid, COLOR_GREY, "¡No estas OnDuty!");
-	DeleteClosestStrip(playerid);
-	GameTextForPlayer(playerid,"~r~Banda de clavos ~w~eliminada!",3000,1);
-	return 1;
-}
-zcmd(astrips, playerid, params[])
-{
-	if(PlayerInfo[playerid][pAdminCP] < 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
-	DeleteAllStrip();
-	GameTextForPlayer(playerid,"~r~Banda de clavos ~w~eliminadas!",3000,1);
 	return 1;
 }
 zcmd(su, playerid, params[])
