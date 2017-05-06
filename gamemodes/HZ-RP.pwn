@@ -562,7 +562,6 @@ enum pInfo
 	pAntiEpilepsia,
 	pRent,
 	pRob,
- 	//pMusculoso,
 	pDonateT,
 	pCarPremium,
 	pCarPremium2,
@@ -580,9 +579,6 @@ enum pInfo
 	pDNIFalse,
 	pDNIName[32],
 	pSuciedad,
- 	//pMusculos,
- 	//pHambre,
- 	//pPeso,
 	pContract,
 	pAnilloCom,
 	pAnilloOro,
@@ -983,18 +979,6 @@ new Misile_Launcher;
 // Gafas
 new Text:SunGlasses;
 
-//Processbar
-//new TPB[MAX_PLAYERS];
-//new Bar:Cansancio;
-
-/*new ActualizarBarra[MAX_PLAYERS];
-new TiempoMeando[MAX_PLAYERS];
-new TiempoDormir[MAX_PLAYERS];
-new Bar:MearBarra;
-new Bar:DormirBarra;
-new GanasDeMear[MAX_PLAYERS];
-new GanasDeDormir[MAX_PLAYERS];*/
-//////////////////////////
 // textdraw camara de seguridad
 new Text:TVCAM_Background,
 Text:TVCAM_CornerTopLeft,
@@ -1006,7 +990,6 @@ Text:TextdrawDown,
 Text:TextdrawLeft,
 Text:TextdrawRight,
 Text:TextdrawFinish;
-
 
 // Tuto
 new Text:Tutorial[MAX_PLAYERS];
@@ -2105,20 +2088,6 @@ public OnPlayerConnect(playerid)
 	TextDrawShowForPlayer(playerid,Textdraw6);
 	TextDrawShowForPlayer(playerid,Textdraw7);
 
-	//SetProgressBarValue(Cansancio, 100);
-    //TPB[playerid] = SetTimer("Menos",OrdenadoC,1);
-    //ShowProgressBarForAll(Cansancio);
-	
-   	/*GanasDeMear[playerid] = 0;
-    SetProgressBarValue(MearBarra, 0);
-    ActualizarBarra[playerid] = SetTimer("Menos",Tiempo,1);
-    ShowProgressBarForPlayer(playerid, MearBarra);
-    
-    GanasDeDormir[playerid] = 0;
-    SetProgressBarValue(DormirBarra, 0);
-    ActualizarBarra[playerid] = SetTimer("MenosDormir",Tiempo,1);
-    ShowProgressBarForPlayer(playerid, DormirBarra);*/
-
     MensajeMuriendo[playerid] = 0; 	ForbidHandsUp[playerid]=0; 	Left4Life[playerid]=0; 				MsgL4L[playerid]=0; 			Rescued[playerid] = 0;
     RegText[playerid] = 0;			RegConfig[playerid] = 0; 	PuedePresionar{playerid} = true;    Accesory[playerid] = 0;         CallCost[playerid] = 0;
     HidePM[playerid] = 0; 			PhoneOnline[playerid] = 0;	UsedFind[playerid] = 0;             ActiveTeleport[playerid] = 0;   Camion[playerid] = 9999;
@@ -2143,8 +2112,7 @@ public OnPlayerConnect(playerid)
     MarihuanaEffect[playerid] = 0; 	MarihuanaBeat[playerid] = 0; UsingHeroina[playerid] = 0; 		HeroinaEffect[playerid] = 0; 	HeroinaBeat[playerid] = 0;
     OwnableCarOffer[playerid] = 999; 							OwnableCarID[playerid] = 999; 		OwnableCarPrice[playerid] = 0;  RecNumber[playerid] = 0;
     PlayerIsSweeping[playerid] = 0; TEL_INPUT_ID[playerid] = 0;	JustReported[playerid] = 0;			PlayerNeedsHelp[playerid] = 0;  Matrimonio[playerid] = 999;
-	IsSmoking[playerid] = 0; 	ReduceTime[playerid] = 0;       Color[playerid] = COLOR_WHITE;  PlayerInfo[playerid][pSuciedad] = 0; //PlayerInfo[playerid][pMusculos] = 0;
-	//PlayerInfo[playerid][pHambre] = 0;       PlayerInfo[playerid][pPeso] = 70;
+	IsSmoking[playerid] = 0; 	ReduceTime[playerid] = 0;       Color[playerid] = COLOR_WHITE;  PlayerInfo[playerid][pSuciedad] = 0;
 	CancerEffect[playerid] = 0;		PlayerDuda[playerid] = 0;	PlayerSol[playerid] = 0;			RadioOn[playerid] = 0; 			Mochila[playerid][0] = 0;
 	Mochila[playerid][1] = 0;		NewUsed[playerid] = 0;		ComproBoleto[playerid] = 0;			EpilepsiaCrack[playerid] = 0;	SIDA[playerid] = 0;
 	JobDuty[playerid] = 0;			PizzaCallTime[playerid] = 0;	sPizza[playerid] = 0;           PlayerInfo[playerid][pImplementos] = 0;
@@ -2199,7 +2167,7 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pAK47] = 100;			PlayerInfo[playerid][pM4] = 100;		PlayerInfo[playerid][pSniper] = 100;	PlayerInfo[playerid][pFStyle] = 4;
 	PlayerInfo[playerid][pLeccion] = 0;			PlayerInfo[playerid][pBusqueda] = 0;	PlayerInfo[playerid][pAntiSIDA] = 0;
 	PlayerInfo[playerid][pAntiCancer] = 0;		PlayerInfo[playerid][pAntiEpilepsia] = 0;										PlayerInfo[playerid][pRent] = 0;
-    PlayerInfo[playerid][pRob] = 0;	            /*PlayerInfo[playerid][pMusculoso] = 0;	*/			PlayerInfo[playerid][pDonateT] = 0;		PlayerInfo[playerid][pCarPremium] = 9999;   PlayerInfo[playerid][pCarPremium2] = 9999;
+    PlayerInfo[playerid][pRob] = 0;	            PlayerInfo[playerid][pDonateT] = 0;		PlayerInfo[playerid][pCarPremium] = 9999;   PlayerInfo[playerid][pCarPremium2] = 9999;
 	PlayerInfo[playerid][pBanDuda] = 0;			PlayerInfo[playerid][pSeguro] = 0;		PlayerInfo[playerid][pWalkie] = 0;
 	PlayerInfo[playerid][pHead] = 0;            EstadoON[playerid] = 0;                 strmid(PlayerInfo[playerid][pDNIName], "Ninguno", 0, strlen("Ninguno"), 12);
 	PaintballType[playerid] = 0; 	PaintballDMKills[playerid] = 0; PaintPvPKills[playerid] = 0;    Bowling[playerid] = 0;		BowlingMoney[playerid] = 0;
@@ -4561,7 +4529,6 @@ public LoadCar()
 			CarInfo[idx][cAlarm] 		= strval(arrCoords[30]);
 			CarInfo[idx][cVehTime]      = strval(arrCoords[31]);
 			CarInfo[idx][cGPS]          = strval(arrCoords[32]);
-			printf("(%d) %s",idx,CarInfo[idx][cName]);
 			idx++;
 		}
 	}
@@ -5409,9 +5376,6 @@ public SaveAccounts()
 		if(IsPlayerConnected(i))	OnPlayerUpdateTime(i);
 	}
 	SetTimer("CheckSuciedad", 60000, 0);
-	SetTimer("CheckMusculos", 75000, 0);
-	SetTimer("CheckHambre", 40000, 0);
-	SetTimer("CheckPeso", 55000, 0);
 	SetTimer ("CheckDinero", 60000, 0);
 	return 1;
 }
@@ -5710,7 +5674,6 @@ public OnPlayerUpdateTime(playerid)
 		INI_WriteInt( PlayerAcc, "AntiEpilepsia",   PlayerInfo[playerid][pAntiEpilepsia]);
 		INI_WriteInt( PlayerAcc, "Rent",            PlayerInfo[playerid][pRent]);
 		INI_WriteInt( PlayerAcc, "Rob",             PlayerInfo[playerid][pRob]);
-        	//INI_WriteInt( PlayerAcc, "Musculoso",       PlayerInfo[playerid][pMusculoso]);
 		INI_WriteInt( PlayerAcc, "Donate",          PlayerInfo[playerid][pDonateT]);
 		INI_WriteInt( PlayerAcc, "CarPremium",      PlayerInfo[playerid][pCarPremium]);
 		INI_WriteInt( PlayerAcc, "CarPremium2",     PlayerInfo[playerid][pCarPremium2]);
@@ -5728,9 +5691,6 @@ public OnPlayerUpdateTime(playerid)
 		INI_WriteInt( PlayerAcc, "DNIFalse",        PlayerInfo[playerid][pDNIFalse]);
 		INI_WriteString( PlayerAcc, "DNIName",      PlayerInfo[playerid][pDNIName]);
 		INI_WriteInt( PlayerAcc, "Suciedad", 	    PlayerInfo[playerid][pSuciedad]);
-        	//INI_WriteInt( PlayerAcc, "Musculos", 	    PlayerInfo[playerid][pMusculos]);
-        	//INI_WriteInt( PlayerAcc, "Hambre", 	        PlayerInfo[playerid][pHambre]);
-        	//INI_WriteInt( PlayerAcc, "Peso", 	        PlayerInfo[playerid][pPeso]);
 		INI_WriteInt( PlayerAcc, "AnilloCom",       PlayerInfo[playerid][pAnilloCom]);
 		INI_WriteInt( PlayerAcc, "AnilloOro",       PlayerInfo[playerid][pAnilloOro]);
 		INI_WriteInt( PlayerAcc, "Collar",          PlayerInfo[playerid][pCollar]);
@@ -5890,7 +5850,6 @@ public LoadUser(playerid, name[], value[])
 	INI_Int( "AntiEpilepsia",	PlayerInfo[playerid][pAntiEpilepsia]);
 	INI_Int( "Rent",			PlayerInfo[playerid][pRent]);
 	INI_Int( "Rob",				PlayerInfo[playerid][pRob]);
-	//INI_Int( "Musculos",		PlayerInfo[playerid][pMusculos]);
 	INI_Int( "Donate",          PlayerInfo[playerid][pDonateT]);
 	INI_Int( "CarPremium",      PlayerInfo[playerid][pCarPremium]);
 	INI_Int( "CarPremium2",     PlayerInfo[playerid][pCarPremium2]);
@@ -5908,9 +5867,6 @@ public LoadUser(playerid, name[], value[])
 	INI_Int( "DNIFalse",        PlayerInfo[playerid][pDNIFalse]);
 	INI_String( "DNIName",      PlayerInfo[playerid][pDNIName], 32);
 	INI_Int( "Suciedad",        PlayerInfo[playerid][pSuciedad]);
-	//INI_Int( "Musculos",        PlayerInfo[playerid][pMusculos]);
-	//INI_Int( "Hambre",          PlayerInfo[playerid][pHambre]);
-	//INI_Int( "Peso",            PlayerInfo[playerid][pPeso]);
 	INI_Int( "AnilloCom",       PlayerInfo[playerid][pAnilloCom]);
 	INI_Int( "AnilloOro",       PlayerInfo[playerid][pAnilloOro]);
 	INI_Int( "Collar",          PlayerInfo[playerid][pCollar]);
@@ -16882,8 +16838,6 @@ zcmd(chotdog, playerid, params[])
 	SetHP(playerid, Health+25);
 	format(string, sizeof(string), "* %s coge un hotdog y se lo come.", PlayerName(playerid));
 	ProxDetector(20.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-  		//PlayerInfo[playerid][pHambre] -= 3;
-  		//PlayerInfo[playerid][pPeso] += 1;
 	Hotdog[playerid] -= 1;
 	return 1;
 }
@@ -22642,17 +22596,15 @@ zcmd(pararemisora, playerid, params[])
 	return 1;
 }
 
-/*
 zcmd(cuerpo, playerid, params[]) {
 	if(IsPlayerConnected(playerid)) {
-		new string[220];
-		new ver[250] = "{2E2EFE}Cuerpo:\n\n\t{FFFFFF}- Tu suciedad es del %d porciento.\n\t- Tu Musculatura es del %d porciento.\n\t- Tu Hambre es del %d porciento.\n\t- Tu Peso es de %d Kilos.\n\n";
-		format(string, sizeof(string),ver, PlayerInfo[playerid][pSuciedad], PlayerInfo[playerid][pMusculos], PlayerInfo[playerid][pHambre], PlayerInfo[playerid][pPeso]);
-        return ShowPlayerDialog(playerid,821,DIALOG_STYLE_MSGBOX, "{2E2EFE}Cuerpo", string, "Aceptar", "");
+		new string[220] = "{2E2EFE}Cuerpo:\n\n\t{FFFFFF}- Tu suciedad es del %d porciento";
+		format(string, sizeof(string), string, PlayerInfo[playerid][pSuciedad]);
+        return Message(playerid, YELLOW, string);
    	} else Message(playerid, COLOR_GRAD2, "¡!");
     return 1;
 }
-*/
+
 zcmd(parqueadero, playerid, params[0])
 {
 	if(CheckMoney(playerid,500)){
@@ -25179,21 +25131,6 @@ function CheckForCloseDoor(playerid)
 			return 1;
 		}
 		else Message(playerid, COLOR_GREY,"¡No hay señal!");
-	}
-	if(!strcmp(nick, "Charli_Navarro", true))
-	{
-		if (PlayerToPoint(30, playerid,1246.0033,-767.3727,91.1473))
-		{
-			MoveDynamicObject(lucianogate, 1246.0033,-767.3727,91.1473, 1.5, -1000.0, -1000.0, -1000.0);
-			return 1;
-		}
-	}
-	if(!strcmp(nick, "Tomas_Fissore", true))
-	{
-		if (PlayerToPoint(30, playerid, 319.78, -1776.09, 6.60)) {
-			MoveDynamicObject(fissore, 319.78, -1776.09, 6.60, 2.0, -1000.0, -1000.0, -1000.0);
-			return 1;
-		}
 	}
 	else Message(playerid, COLOR_GREY,"Usted no tiene un mando a distancia.");
 	return 1;
@@ -27938,137 +27875,3 @@ public BancoTextDraw()
 		TextDrawSetString(BalanceTextDraw[i], string );
 	}
 }
-
-/*
-function CheckMusculos()
-{
-	for(new i=0; i < MAX_PLAYERS; i++)
-	{
-	    if(IsPlayerConnected(i))
-	    {
-	        new string[128], Float:health;
-		     if(PlayerInfo[i][pMusculos] >= 100)
-			{
-			    GetPlayerHealth(i, health);
-			    format(string, sizeof(string), "* %s Se mira los musculos.", PlayerName(i));
-			    ProxDetector(20.0, i, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-			    Message(i, COLOR_GRAD2, "* Felicidades, has llegado a lo mas musculoso.");
-				SetHP(i, health+10);
-			}
-		}
-	}
-	return 1;
-}
-function CheckHambre()
-{
-	for(new i=0; i < MAX_PLAYERS; i++)
-	{
-	    if(IsPlayerConnected(i))
-	    {
-	        new string[128], Float:health;
-		     if(PlayerInfo[i][pHambre] >= 50)
-			{
-			    GetPlayerHealth(i, health);
-			    format(string, sizeof(string), "* %s Tiene hambre.", PlayerName(i));
-			    ProxDetector(20.0, i, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-			    Message(i, COLOR_GRAD2, "* Ve a comer, si no moriras del hambre!!.");
-				SetHP(i, health-5);
-			}
-		}
-	}
-	return 1;
-}
-function CheckPeso()
-{
-	for(new i=0; i < MAX_PLAYERS; i++)
-	{
-	    if(IsPlayerConnected(i))
-	    {
-	        new string[128], Float:health;
-		     if(PlayerInfo[i][pPeso] >= 95)
-			{
-			    GetPlayerHealth(i, health);
-			    format(string, sizeof(string), "* %s Se siente muy gordo.", PlayerName(i));
-			    ProxDetector(20.0, i, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-			    Message(i, COLOR_GRAD2, "* Estas gordo, ve al gimnasio y adelgaza!.");
-				SetHP(i, health-5);
-			}
-		}
-	}
-	return 1;
-}
-
-function Musculos(playerid)
-{
-	if(IsPlayerConnected(playerid))
-	{
-	    new string[128];
-		Bought(playerid, 100);
-		format(string, sizeof string, "* %s Agarra las pesas y las deja en el piso .", PlayerName(playerid));
-		ProxDetector(20.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-		Message(playerid, COLOR_WHITE, "{F8FC2E}Profesor del Gimnasio: {FFFFFF}Termino su dia, hasta mañana, son 100$.");
-		PlayerInfo[playerid][pMusculos] = 5;
-	}
-	return 0;
-}
-public Menos(playerid)
-{
-GanasDeMear[playerid] += 1;
-new Float:probando = GetProgressBarValue(MearBarra);
-SetProgressBarValue(MearBarra, probando+0.1);
-UpdateProgressBar(MearBarra, playerid);
-if(GanasDeMear[playerid] == 50)
-{
-	SendClientMessage(playerid, COLOR_RED, "Tienes ganas de mear, ves a un lavabo o mea detras de un arbol");
-}
-else if(GanasDeMear[playerid] == 75)
-{
-	SendClientMessage(playerid, COLOR_RED, "¡Corre, mea donde puedas! Si no meas te vas a mear encima!");
-}
-else if(GanasDeMear[playerid] == 100)
-{
-    TogglePlayerControllable(playerid,0);
-	SetPlayerSpecialAction(playerid, 68);
-	TiempoMeando[playerid] = SetTimer("DespuesDeMear",3000,false);
-	SendClientMessage(playerid, COLOR_RED, "¡Te has meado encima! Se van a reír de ti");
-}
-return 1;
-}
-public MenosDormir(playerid)
-{
-GanasDeDormir[playerid] += 1;
-new Float:probando = GetProgressBarValue(DormirBarra);
-SetProgressBarValue(DormirBarra, probando+0.1);
-UpdateProgressBar(DormirBarra, playerid);
-if(GanasDeDormir[playerid] == 50)
-{
-	SendClientMessage(playerid, COLOR_RED, "Tienes ganas de Dormir, ve a un hotel o a tu casa");
-}
-else if(GanasDeDormir[playerid] == 75)
-{
-	SendClientMessage(playerid, COLOR_RED, "¡Corre, a tu casa o un hotel! Te estas quedando dormido!");
-}
-else if(GanasDeDormir[playerid] == 100)
-{
-    TogglePlayerControllable(playerid,0);
-	TiempoMeando[playerid] = SetTimer("DespuesDeDormir",3000,false);
-	SendClientMessage(playerid, COLOR_RED, "¡Te quedaste dormido!");
-}
-return 1;
-}
-public DespuesDeMear(playerid)
-{
-    GanasDeMear[playerid] = 0;
-	SetProgressBarValue(MearBarra, 0);
-	ActualizarBarra[playerid] = SetTimer("Menos",Tiempo,1);
-	TogglePlayerControllable(playerid,1);
-	return 1;
-}
-public DespuesDeDormir(playerid)
-{
-    GanasDeDormir[playerid] = 0;
-	SetProgressBarValue(DormirBarra, 0);
-	ActualizarBarra[playerid] = SetTimer("MenosDormir",Tiempo,1);
-	TogglePlayerControllable(playerid,1);
-	return 1;
-}*/
