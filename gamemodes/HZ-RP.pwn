@@ -21,6 +21,7 @@
 #include <progressbar>
 #include <mSelection>
 #include <SetVehicleAttachedObject>
+#include <G_ObjectsRot>
 #include <mdialog>
 
 // -================= AntiDeAMX ====================- //
@@ -1373,21 +1374,6 @@ enum cInfo
 
 new CarInfo[VEH][cInfo];
 
-enum bInfo //By David
-{
-	bOwned,
-	bOwner[24],
-	bName[32],
-	bExtortion[MAX_PLAYER_NAME],
-	Float:bEntrancex,
-	Float:bEntrancey,
-	Float:bEntrancez,
-	bLevelNeeded,
-	bBuyPrice,
-	bTill,
-	bTillEx
-};
-
 enum Faction
 {
 	LSPD,
@@ -1542,6 +1528,7 @@ new Float:PaintPvPSpawns[3][3] = {
 #include "services/lottery.pwn"
 #include "services/mapas.pwn"
 #include "services/bar.pwn"
+#include "services/peaje.pwn"
 
 main()
 {
@@ -25844,7 +25831,7 @@ function FillUp(playerid)
 				TogglePlayerControllable(playerid, 1);
 				Refueling[playerid] = -1;
 				if(PlayerToPoint(25.0, playerid, 1928.588012,-1776.303222,13.546898))   Till(11, price);
-				if(isLSPDVehicle(idcar) || isSAMDVehicle(idcar) || isTaxiTransportVehicle(idcar))
+				if(isLSPDVehicle(idcar) || isSAMDVehicle(idcar) || isFBIVehicle(idcar) || isSAEMVehicle(idcar) ||  isTaxiTransportVehicle(idcar))
 				{
 					GText(playerid, "~g~0$", 5000, 1);
 					Message(playerid, COLOR_WHITE, "** Tu empresa se hace responsable de los gastos.");
@@ -25869,7 +25856,7 @@ function FillUp(playerid)
 				TogglePlayerControllable(playerid, 1);
 				SetVehicleHealth(idcar, 500.0);
 				Refueling[playerid] = -1;
-				if(isLSPDVehicle(idcar) || isSAMDVehicle(idcar) || isTaxiTransportVehicle(idcar))
+				if(isLSPDVehicle(idcar) || isSAMDVehicle(idcar) || isFBIVehicle(idcar) || isSAEMVehicle(idcar) || isTaxiTransportVehicle(idcar))
 				{
 					GText(playerid, "~g~0$", 5000, 1);
 					Message(playerid, COLOR_WHITE, "** Tu empresa se hace responsable de los gastos");

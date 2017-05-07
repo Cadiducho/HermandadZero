@@ -1977,7 +1977,7 @@ Mapeados_OnGameModeInit() {
 	CreateDynamicObject(1442,1380.23083496,-1482.75073242,13.14535809,0.00000000,0.00000000,0.00000000); //object(dyn_firebin0)(1)
 	CreateDynamicObject(1369,1380.88085938,-1483.51220703,13.16874886,0.00000000,0.00000000,118.00000000); //object(cj_wheelchair1)(1
 
-// Interior VIP by Ale
+	//Interior VIP by Ale
 	CreateDynamicObject(14614, 1756.654296, -1560.980712, -44.358551, 0.000000, 0.000000, 359.997558);
 	CreateDynamicObject(14563, 1756.693359, -1560.914062, -44.385906, 0.000000, 0.000000, 0.000000);
 	CreateDynamicObject(14607, 1755.629882, -1561.629882, -44.342460, 0.000000, 0.000000, 359.494628);
@@ -3307,7 +3307,7 @@ Mapeados_OnGameModeInit() {
 	CreateDynamicObject(1251,1408.90002441,-1799.30004883,12.60000038,0.00000000,0.00000000,89.74731445); //object(smashbar) (12)
 	CreateDynamicObject(1251,1408.90002441,-1803.09997559,12.60000038,0.00000000,0.00000000,89.74731445); //object(smashbar) (13)
 	CreateDynamicObject(1251,1408.90002441,-1803.80004883,12.60000038,0.00000000,0.00000000,89.74731445); //object(smashbar) (14)
-//========================Cuarto de negocios LCN
+	// Cuarto de negocios LCN
 	CreateDynamicObject(19446, -2096.74, 77.20, 41.82,   0.00, 0.00, 0.00);
 	CreateDynamicObject(19446, -2092.01, 72.47, 41.82,   0.00, 0.00, 89.82);
 	CreateDynamicObject(19446, -2087.56, 77.26, 41.82,   0.00, 0.00, 0.00);
@@ -3337,7 +3337,7 @@ Mapeados_OnGameModeInit() {
 	CreateDynamicObject(1433, -2092.70, 76.45, 40.30,   0.00, 0.00, 0.00);
 	CreateDynamicObject(1433, -2092.68, 77.61, 40.30,   0.00, 0.00, 0.00);
 	CreateDynamicObject(1433, -2091.52, 77.60, 40.30,   0.00, 0.00, 0.00);
-//CreateDynamicObject(3935, 1338.51, -1799.89, 16.44,   0.00, 0.00, 56.23);//
+	//CreateDynamicObject(3935, 1338.51, -1799.89, 16.44,   0.00, 0.00, 56.23);//
 	CreateDynamicObject(1211, 1324.51, -1838.62, 13.00,   0.00, 0.00, 0.00);
 	CreateDynamicObject(1359, 1331.73, -1825.28, 13.08,   0.00, 0.00, 0.10);
 	CreateDynamicObject(717, 1350.34, -1817.02, 12.38,   0.00, 0.00, 0.00);
@@ -3373,7 +3373,7 @@ Mapeados_OnGameModeInit() {
 	CreateDynamicObject(983, 1325.35, -1742.29, 13.15,   0.10, 0.00, 270.27);
 	CreateDynamicObject(983, 1333.37, -1742.28, 13.15,   0.10, 0.00, 270.27);
 	CreateDynamicObject(983, 1326.95, -1742.29, 13.15,   0.10, 0.00, 270.27);
-//========================Moteros HQ los cobras
+	//========================Moteros HQ los cobras
 	CreateDynamicObject(19505, 2620.07, -1069.04, 70.88,   0.00, 0.00, 182.60);
 	CreateDynamicObject(19505, 2620.07, -1069.04, 70.88,   0.00, 0.00, 182.60);
 	CreateDynamicObject(19506, 2620.07, -1069.04, 70.88,   0.00, 0.00, 182.60);
@@ -3406,7 +3406,7 @@ Mapeados_OnGameModeInit() {
 	CreateDynamicObject(18979, 2617.87, -1070.64, 69.61,   0.00, -24.00, 25.00);
 	CreateDynamicObject(18645, 2618.75, -1070.63, 69.59,   0.00, -32.00, 135.00);
 	CreateDynamicObject(1517, 2619.35, -1070.61, 69.73,   0.00, 0.00, 0.00);
-//========================Gasolinera cerca de Alhambra (Jesus Moreno)
+	//========================Gasolinera cerca de Alhambra (Jesus Moreno)
 	CreateDynamicObject(1280, 1952.22, -1765.40, 12.97,   0.00, 0.00, 180.26);
 	CreateDynamicObject(970, 1951.59, -1775.45, 13.04,   0.00, 0.00, 269.89);
 	CreateDynamicObject(970, 1951.63, -1764.20, 13.04,   0.00, 0.00, 269.89);
@@ -8710,6 +8710,7 @@ Mapeados_OnGameModeInit() {
 	entrancetext = Create3DTextLabel("Nadie está lavando su auto, puedes lavar el tuyo.\nPor: $5 (/lavar)",0x008B00FF,1911.1886,-1784.2952,14.5,50,0,1);
 	comisaria = CreateObject(3976, 1571.63, -1675.74, 35.68, 360.00, 0.00, 0.09);
 
+	mapeos_peaje();
 
 	printf("-=============== Objetos Cargados ===============-");
 	printf("- CreateDynamicObjetcs [%d]", CountDynamicObjects());
@@ -8807,4 +8808,6 @@ public Mapeados_RemoveObjects(playerid) {
 	// Campo de tiro
 	RemoveBuildingForPlayer(playerid, 3338, -170.0313, -1359.1563, 1.5000, 0.25);
 	RemoveBuildingForPlayer(playerid, 3244, -170.0313, -1359.1563, 1.5000, 0.25);
+	//Para peajes
+	RemoveBuildingForPlayer(playerid, 4504, 56.3828, -1531.4531, 6.7266, 0.25);
 }
