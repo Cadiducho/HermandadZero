@@ -6638,29 +6638,27 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       		{
       			switch(listitem)
       			{
-      				case 0:
-      				{
+      				case 0: {
       					ShowPlayerDialog(playerid, TEL_INPUT, DIALOG_STYLE_INPUT, "{DD1111}iPhone {FFFFFF}- Llamar", "{DD1111}iPhone {FFFFFF}- Inserte el teléfono a llamar\n\n\n\t1\t2\t3\n\t4\t5\t6\n\t7\t8\t9\n\t#\t0\t*", "Enviar", "Cancelar");
       					TEL_INPUT_ID[playerid] = 3;
       				}
-      				case 1:
-      				{
+      				case 1: {
       					ShowPlayerDialog(playerid, TEL_INPUT, DIALOG_STYLE_INPUT, "{DD1111}iPhone {FFFFFF}- Enviar SMS", "{DD1111}iPhone {FFFFFF}- Inserte el número del destino del mensaje", "Enviar", "Cancelar");
       					TEL_INPUT_ID[playerid] = 1;
       				}
-      				case 2:
-      				{
+      				case 2: {
       					ShowPlayerDialog(playerid, TEL_MSGBOX, DIALOG_STYLE_LIST, "{DD1111}iPhone {FFFFFF}- Buzón de entrada", "- \tBuzón de entrada 1\n- \tBuzón de entrada 2\n- \tBuzón de entrada 3\n- \tBuzón de entrada 4\n- \tBuzón de entrada 5", "Ver", "Borrar");
       				}
-      				case 3:
-      				{
+      				case 3: {
       					ShowPlayerDialog(playerid, IPHONE_AGENDA, DIALOG_STYLE_LIST, "{DD1111}iPhone {FFFFFF}- Organizador", "- \t\tVer Nota\n- \t\tCrear Nota\n- \t\tBorrar Nota", "Aceptar", "Salir");
       				}
-      				case 4:
-      				{
+      				case 4: {
       					new strsald[256];
       					format(strsald, sizeof(strsald), "{FFFFFF}Estimado cliente, usted cuenta con un saldo de $%d para llamadas a telefono celular\n\t\tEl saldo de su paquete de mensajes escritos es de %d\n\n\t\t\t\t{018CFE}Gracias por utilizar nuestros servicios!", PlayerInfo[playerid][pMinutes]/10, PlayerInfo[playerid][pMTexto]);
       					ShowPlayerDialog(playerid, 312, DIALOG_STYLE_MSGBOX, "{018CFE}OTECEL - Consulta de Saldo", strsald, "Ok", "");
+      				}
+      				case 5: {
+      					Dialog_Show(playerid, Dialog:telServicios);
       				}
       			}
       		}
@@ -12108,13 +12106,15 @@ zcmd(timevehinfo, playerid, params[]){
 	format(string, sizeof(string),"%s %s %s",tveh,tveh2,tveh3);
 	return ShowPlayerDialog(playerid,12397,DIALOG_STYLE_MSGBOX, "{FF231D}Informacion del Tiempo Vehicular", string, "Ok", "");
 }
+DialogCreate:telServicios(playerid) {
+	Dialog_Open(playerid, Dialog:telServicios, DIALOG_STYLE_MSGBOX, "{658EBB}Números de Servicios", "{952BFF}Emergencias - {65BD7D}# 911\n{952BFF}Mecanicos - {65BD7D}# 555\n{952BFF}Pizza Stack - {65BD7D}# 111\n{952BFF}Taxi Cab Company - {65BD7D}# 444", "Ok", "");
+}
+DialogResponse:telServicios(playerid, response, listitem, inputtext[]) {
+	return 1;
+}
 zcmd(servicios, playerid, params[]){
-	ClearChatbox(playerid, 10);
-	Message(playerid, -1, " {FFFFFF}* {658EBB}Números de Servicios {FFFFFF}*");
-	Message(playerid, -1, " {FFFFFF}* Emergencias - {65BD7D}# 911");
-	Message(playerid, -1, " {FFFFFF}* Mecanicos - {65BD7D}# 555");
-	Message(playerid, -1, " {FFFFFF}* Pizza Stack - {65BD7D}# 111");
-	return Message(playerid, -1, " {FFFFFF}* Taxi Cab Company - {65BD7D}# 444");
+	Dialog_Show(playerid, Dialog:telServicios);
+	return 1;
 }
 zcmd(facciones, playerid, params[]){
 	if(PlayerInfo[playerid][pAdminCP] >= 2012 || PlayerInfo[playerid][pFacciones] == 1){
@@ -19780,7 +19780,9 @@ zcmd(telefono, playerid, params[])
 {
 	if(PlayerInfo[playerid][pJailed] > 0) return Message(playerid, COLOR_GREY, "No puedes usar esto aquí.");
 	if(PlayerInfo[playerid][pPnumber] == 0) return Message(playerid, COLOR_GRAD2, "No tienes teléfono, cómpra uno en la tienda de electrónica");
-	ShowPlayerDialog(playerid, IPHONE_OPTIONS, DIALOG_STYLE_LIST, "{DD1111}Teléfono {FFFFFF}- Opciones", "{DD1111}Teléfono\t{FFFFFF}-\t{11AA11}Llamar\n{DD1111}Teléfono\t{FFFFFF}-\t{008899}Mandar SMS\n{DD1111}Teléfono\t{FFFFFF}-\t{FFBB88}Buzón entrada\n{DD1111}Teléfono\t{FFFFFF}-\t{FFEE88}Agenda\n{DD1111}Teléfono\t{FFFFFF}-\t{952BFF}Consultar Saldo", "Aceptar", "Salir");
+	ShowPlayerDialog(playerid, IPHONE_OPTIONS, DIALOG_STYLE_LIST, "{DD1111}Teléfono {FFFFFF}- Opciones", 
+		"{DD1111}Teléfono\t{FFFFFF}-\t{11AA11}Llamar\n{DD1111}Teléfono\t{FFFFFF}-\t{008899}Mandar SMS\n{DD1111}Teléfono\t{FFFFFF}-\t{FFBB88}Buzón entrada\n{DD1111}Teléfono\t{FFFFFF}-\t{FFEE88}Agenda\n{DD1111}Teléfono\t{FFFFFF}-\t{952BFF}Consultar Saldo\n{DD1111}Teléfono\t{FFFFFF}-\t{658EBB}Números de Servicios",
+		"Aceptar", "Salir");
 	return 1;
 }
 zcmd(iphone, playerid, params[]) return cmd_telefono(playerid, params);
