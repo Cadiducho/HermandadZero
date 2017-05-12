@@ -6608,7 +6608,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
       	{
       		if(response)
       		{
-      			if(PlayerInfo[playerid][pCarLic] == 0) return SendClientMessage(playerid, COLOR_GREY, "¡Necesitas una licencia para poder conducir!");
+      			if(!IsABike(idcar)) if(PlayerInfo[playerid][pCarLic] == 0) return SendClientMessage(playerid, COLOR_GREY, "¡Necesitas una licencia para poder conducir!");
       			if(HireKey[playerid] != 9999) return SendClientMessage(playerid, COLOR_GREY, "Ya has rentado un vehículo, utiliza /desrentarveh");
       			if(isRentaVehicle(idcar)){
       				new found;
