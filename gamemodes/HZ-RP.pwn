@@ -4564,7 +4564,7 @@ public OnGameModeInit()
  TextDrawSetProportional(arl, 1);
  TextDrawSetShadow(arl, 0);
 
- btt = TextDrawCreate(249.000000, 70.000000, "Version 0.1");
+ btt = TextDrawCreate(249.000000, 70.000000, "Version 0.1b");
  TextDrawBackgroundColor(btt, 255);
  TextDrawFont(btt, 2);
  TextDrawLetterSize(btt, 0.500000, 1.000000);
@@ -18165,7 +18165,7 @@ zcmd(noac, playerid, params[]){
 }
 zcmd(a, playerid, params[])
 {
-	if(PlayerInfo[playerid][pAdminCP] <= 1) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
+	if(PlayerInfo[playerid][pAdminCP] <= 0) return Message(playerid, COLOR_GRAD2, "¡No autorizado!");
 	if((noac) && PlayerInfo[playerid][pAdminCP] < 2013) return Message(playerid, COLOR_GRAD2,"¡Este canal está desactivado!");
 	if(!sscanf(params, "s[128]", params[0])){
 		new string[128], arank[64];
@@ -24877,6 +24877,7 @@ stock CheckMoney(playerid, money)
 		{
 			format(b,sizeof(b),"No tienes dinero suficiente! Te faltan %d$",xx);
 			SendClientMessage(playerid, COLOR_GRAD2, b);
+			RemovePlayerFromVehicle(playerid);
 			return 0;
 		}
 	}
