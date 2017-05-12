@@ -4591,7 +4591,7 @@ public OnGameModeInit()
  TextDrawSetProportional(Textdraw0, 1);
  TextDrawSetShadow(Textdraw0, 1);
 
- Textdraw1 = TextDrawCreate(10.000000, 369.000000, "Chicle");
+ Textdraw1 = TextDrawCreate(10.000000, 369.000000, "Alex Moral");
  TextDrawBackgroundColor(Textdraw1, 255);
  TextDrawFont(Textdraw1, 2);
  TextDrawLetterSize(Textdraw1, 0.300000, 1.399999);
@@ -4600,7 +4600,7 @@ public OnGameModeInit()
  TextDrawSetProportional(Textdraw1, 1);
  TextDrawSetShadow(Textdraw1, 1);
 
- Textdraw2 = TextDrawCreate(10.000000, 379.000000, "Chicle");
+ Textdraw2 = TextDrawCreate(10.000000, 379.000000, "Cadiducho");
  TextDrawBackgroundColor(Textdraw2, 255);
  TextDrawFont(Textdraw2, 2);
  TextDrawLetterSize(Textdraw2, 0.300000, 1.399999);
@@ -4609,7 +4609,7 @@ public OnGameModeInit()
  TextDrawSetProportional(Textdraw2, 1);
  TextDrawSetShadow(Textdraw2, 1);
 
- Textdraw3 = TextDrawCreate(10.000000, 389.000000, "Chicle");
+ Textdraw3 = TextDrawCreate(10.000000, 389.000000, "Jaire Fernandez");
  TextDrawBackgroundColor(Textdraw3, 255);
  TextDrawFont(Textdraw3, 2);
  TextDrawLetterSize(Textdraw3, 0.300000, 1.399999);
@@ -4618,7 +4618,7 @@ public OnGameModeInit()
  TextDrawSetProportional(Textdraw3, 1);
  TextDrawSetShadow(Textdraw3, 1);
 
- Textdraw4 = TextDrawCreate(10.000000, 399.000000, "Chicle");
+ Textdraw4 = TextDrawCreate(10.000000, 399.000000, "Mariano Maseda");
  TextDrawBackgroundColor(Textdraw4, 255);
  TextDrawFont(Textdraw4, 2);
  TextDrawLetterSize(Textdraw4, 0.300000, 1.399999);
@@ -4627,7 +4627,7 @@ public OnGameModeInit()
  TextDrawSetProportional(Textdraw4, 1);
  TextDrawSetShadow(Textdraw4, 1);
 
- Textdraw5 = TextDrawCreate(10.000000, 409.000000, "Y gente sin importancia");
+ Textdraw5 = TextDrawCreate(10.000000, 409.000000, "Paco Sanz");
  TextDrawBackgroundColor(Textdraw5, 255);
  TextDrawFont(Textdraw5, 2);
  TextDrawLetterSize(Textdraw5, 0.300000, 1.399999);
@@ -4636,7 +4636,7 @@ public OnGameModeInit()
  TextDrawSetProportional(Textdraw5, 1);
  TextDrawSetShadow(Textdraw5, 1);
 
- Textdraw6 = TextDrawCreate(190.000000, 349.000000, "~r~TeamSpeak3~w~ : ts3.hermandadzero.com");
+ Textdraw6 = TextDrawCreate(190.000000, 349.000000, "~r~TeamSpeak3~w~ : ts.hermandadzero.com");
  TextDrawBackgroundColor(Textdraw6, 255);
  TextDrawFont(Textdraw6, 2);
  TextDrawLetterSize(Textdraw6, 0.500000, 2.400000);

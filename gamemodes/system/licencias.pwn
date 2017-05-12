@@ -11,14 +11,14 @@
 #define COSTO_AVIACION 5000
 new bool:IsPractising[MAX_PLAYERS char];
 
-Practise_Car(carid) {
+/*Practise_Car(carid) {
 	return ((carid >= 148) && (carid <= 152));
-}
+}*/
 
 Licencias_OnPlayerStateChange(playerid, newstate) {
 	if(newstate == PLAYER_STATE_DRIVER) {
 		new newcar = GetPlayerVehicleID(playerid);
-		if(Practise_Car(newcar)) {
+		if(isTestLicenciasVehicle(newcar)) {
 			if(!IsPractising{playerid}) {
 				RemovePlayerFromVehicle(playerid);
 				Message(playerid, COLOR_GRAD2, "¡No estás en un exámen de conducción!");
