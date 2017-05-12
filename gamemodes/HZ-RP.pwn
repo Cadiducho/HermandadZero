@@ -1989,7 +1989,7 @@ IsAtHotdog(playerid)
 
 public OnPlayerConnect(playerid)
 {
-	SendRconCommand("hostname |Ø| Hermandad Zero RolePlay |Ø| WIP |Ø| ");
+	//SendRconCommand("hostname |Ø| Hermandad Zero RolePlay |Ø| WIP |Ø| ");
 	if(IsPlayerNPC(playerid))
 	{
 		ShowPlayerMarkers(0);
@@ -3372,7 +3372,7 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 
 public OnPlayerRequestClass(playerid, classid)
 {
-	SendRconCommand("hostname |Ø| Hermandad Zero RolePlay |Ø| WIP |Ø|");
+	//SendRconCommand("hostname |Ø| Hermandad Zero RolePlay |Ø| WIP |Ø|");
 	if(IsPlayerNPC(playerid)) return 1;
 	if(gPlayerLogged[playerid] == 1)
 	{
